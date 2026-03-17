@@ -1,0 +1,13 @@
+{
+  "author": {
+    "color": "gray",
+    "translate": "stone_tablet.fossilsclassic.tyrannosaurus_corpse.author"
+  },
+  "height": 2,
+  "texture": "fossilsclassic:tyrannosaurus_corpse",
+  "title": {
+    "color": "yellow",
+    "translate": "stone_tablet.fossilsclassic.tyrannosaurus_corpse.title"
+  },
+  "width": 4
+}

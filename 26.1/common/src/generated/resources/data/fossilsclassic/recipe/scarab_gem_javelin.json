@@ -1,0 +1,10 @@
+{
+  "type": "fossilsclassic:restoration_recipe",
+  "category": "repair",
+  "experience": 0.35,
+  "ingredient": "fossilsclassic:broken_scarab_gem_javelin",
+  "result": {
+    "id": "fossilsclassic:scarab_gem_javelin"
+  },
+  "time": 6000
+}

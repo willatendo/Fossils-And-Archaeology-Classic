@@ -1,0 +1,69 @@
+{
+  "type": "classic",
+  "animation_events": [
+    {
+      "axis": "x_rotation",
+      "bones": [
+        "head"
+      ],
+      "value": {
+        "type": "parameter",
+        "parameter": "head_x_rotation"
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "head"
+      ],
+      "value": {
+        "type": "parameter",
+        "parameter": "head_y_rotation"
+      }
+    },
+    {
+      "axis": "x_rotation",
+      "bones": [
+        "crest"
+      ],
+      "value": {
+        "type": "parameter",
+        "parameter": "head_x_rotation"
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "crest"
+      ],
+      "value": {
+        "type": "parameter",
+        "parameter": "head_y_rotation"
+      }
+    },
+    {
+      "axis": "x_rotation",
+      "bones": [
+        "beak"
+      ],
+      "value": {
+        "type": "parameter",
+        "parameter": "head_x_rotation"
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "beak"
+      ],
+      "value": {
+        "type": "parameter",
+        "parameter": "head_y_rotation"
+      }
+    }
+  ],
+  "required_parameters": [
+    "head_x_rotation",
+    "head_y_rotation"
+  ]
+}

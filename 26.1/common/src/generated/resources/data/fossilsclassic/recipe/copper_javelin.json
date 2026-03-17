@@ -1,0 +1,10 @@
+{
+  "type": "fossilsclassic:restoration_recipe",
+  "category": "repair",
+  "experience": 0.35,
+  "ingredient": "fossilsclassic:broken_copper_javelin",
+  "result": {
+    "id": "fossilsclassic:copper_javelin"
+  },
+  "time": 6000
+}

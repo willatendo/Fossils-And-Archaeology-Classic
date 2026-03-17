@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${description}",
+  "authors": [
+    "${mod_author}"
+  ],
+  "contact": {
+    "homepage": "${homepage}",
+    "sources": "${issue_tracker}"
+  },
+  "entrypoints": {
+    "main": [
+      "ca.willatendo.fossilsclassic.FossilsClassicFabricMod"
+    ],
+    "client": [
+      "ca.willatendo.fossilsclassic.client.FossilsClassicFabricClient"
+    ],
+    "simplelibrary:enum_initializer": [
+      "ca.willatendo.fossilsclassic.FossilsClassicEnumExtenders"
+    ]
+  },
+  "license": "${license}",
+  "icon": "${mod_id}_icon.png",
+  "environment": "*",
+  "depends": {
+    "simplelibrary": ">=${simplelibrary_version}",
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": "*",
+    "minecraft": "~${minecraft_version}",
+    "java": ">=${java_version}"
+  }
+}
+  

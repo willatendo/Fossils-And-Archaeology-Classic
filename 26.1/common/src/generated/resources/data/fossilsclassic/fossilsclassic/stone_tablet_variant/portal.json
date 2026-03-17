@@ -1,0 +1,13 @@
+{
+  "author": {
+    "color": "gray",
+    "translate": "stone_tablet.fossilsclassic.portal.author"
+  },
+  "height": 2,
+  "texture": "fossilsclassic:portal",
+  "title": {
+    "color": "yellow",
+    "translate": "stone_tablet.fossilsclassic.portal.title"
+  },
+  "width": 2
+}

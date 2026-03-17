@@ -1,0 +1,13 @@
+{
+  "author": {
+    "color": "gray",
+    "translate": "stone_tablet.fossilsclassic.princess.author"
+  },
+  "height": 2,
+  "texture": "fossilsclassic:princess",
+  "title": {
+    "color": "yellow",
+    "translate": "stone_tablet.fossilsclassic.princess.title"
+  },
+  "width": 2
+}

@@ -1,0 +1,13 @@
+{
+  "author": {
+    "color": "gray",
+    "translate": "stone_tablet.fossilsclassic.herobrine.author"
+  },
+  "height": 2,
+  "texture": "fossilsclassic:herobrine",
+  "title": {
+    "color": "yellow",
+    "translate": "stone_tablet.fossilsclassic.herobrine.title"
+  },
+  "width": 2
+}

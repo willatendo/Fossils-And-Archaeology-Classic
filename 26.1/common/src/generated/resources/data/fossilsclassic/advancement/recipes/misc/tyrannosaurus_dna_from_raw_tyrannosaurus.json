@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_tyrannosaurus": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fossilsclassic:raw_tyrannosaurus"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fossilsclassic:tyrannosaurus_dna_from_raw_tyrannosaurus"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_tyrannosaurus"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fossilsclassic:tyrannosaurus_dna_from_raw_tyrannosaurus"
+    ]
+  }
+}

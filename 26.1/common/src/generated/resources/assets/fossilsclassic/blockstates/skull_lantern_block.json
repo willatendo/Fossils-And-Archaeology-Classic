@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "fossilsclassic:block/skull_lantern_block",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "fossilsclassic:block/skull_lantern_block"
+    },
+    "facing=south": {
+      "model": "fossilsclassic:block/skull_lantern_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "fossilsclassic:block/skull_lantern_block",
+      "y": 270
+    }
+  }
+}

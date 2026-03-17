@@ -1,0 +1,35 @@
+{
+  "block.drum.hit": {
+    "sounds": [
+      "fossilsclassic:drum_hit"
+    ],
+    "subtitle": "subtitles.block.drum.hit"
+  },
+  "block.drum.triple_hit": {
+    "sounds": [
+      "fossilsclassic:drum_triple_hit"
+    ],
+    "subtitle": "subtitles.block.drum.triple_hit"
+  },
+  "entity.triceratops.ambient": {
+    "sounds": [
+      "fossilsclassic:triceratops/triceratops_ambient_1",
+      "fossilsclassic:triceratops/triceratops_ambient_2",
+      "fossilsclassic:triceratops/triceratops_ambient_3"
+    ],
+    "subtitle": "subtitles.entity.triceratops.ambientSound"
+  },
+  "entity.triceratops.death": {
+    "sounds": [
+      "fossilsclassic:triceratops/triceratops_death"
+    ],
+    "subtitle": "subtitles.entity.triceratops.deathSound"
+  },
+  "entity.triceratops.hurt": {
+    "sounds": [
+      "fossilsclassic:triceratops/triceratops_hurt_1",
+      "fossilsclassic:triceratops/triceratops_hurt_2"
+    ],
+    "subtitle": "subtitles.entity.triceratops.hurtSound"
+  }
+}

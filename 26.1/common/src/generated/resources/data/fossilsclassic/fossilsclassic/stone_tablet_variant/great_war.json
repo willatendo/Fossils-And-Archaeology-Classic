@@ -1,0 +1,13 @@
+{
+  "author": {
+    "color": "gray",
+    "translate": "stone_tablet.fossilsclassic.great_war.author"
+  },
+  "height": 2,
+  "texture": "fossilsclassic:great_war",
+  "title": {
+    "color": "yellow",
+    "translate": "stone_tablet.fossilsclassic.great_war.title"
+  },
+  "width": 2
+}

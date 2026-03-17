@@ -1,0 +1,13 @@
+{
+  "author": {
+    "color": "gray",
+    "translate": "stone_tablet.fossilsclassic.zombie_and_spider.author"
+  },
+  "height": 1,
+  "texture": "fossilsclassic:zombie_and_spider",
+  "title": {
+    "color": "yellow",
+    "translate": "stone_tablet.fossilsclassic.zombie_and_spider.title"
+  },
+  "width": 1
+}

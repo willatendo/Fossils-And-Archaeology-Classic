@@ -1,0 +1,13 @@
+{
+  "author": {
+    "color": "gray",
+    "translate": "stone_tablet.fossilsclassic.past.author"
+  },
+  "height": 2,
+  "texture": "fossilsclassic:past",
+  "title": {
+    "color": "yellow",
+    "translate": "stone_tablet.fossilsclassic.past.title"
+  },
+  "width": 2
+}

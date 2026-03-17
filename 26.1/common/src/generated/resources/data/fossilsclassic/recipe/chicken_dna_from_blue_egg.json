@@ -1,0 +1,11 @@
+{
+  "type": "fossilsclassic:analyzation_recipe",
+  "category": "palaeontology",
+  "experience": 0.35,
+  "group": "chicken_dna",
+  "ingredient": "minecraft:blue_egg",
+  "results": {
+    "id": "fossilsclassic:chicken_dna"
+  },
+  "time": 100
+}

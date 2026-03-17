@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "active=false": {
+      "model": "fossilsclassic:block/cultivator"
+    },
+    "active=true": {
+      "model": "fossilsclassic:block/cultivator_active"
+    }
+  }
+}

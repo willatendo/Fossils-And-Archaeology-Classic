@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "command_type=follow": {
+      "model": "fossilsclassic:block/drum_follow"
+    },
+    "command_type=free_move": {
+      "model": "fossilsclassic:block/drum_free_move"
+    },
+    "command_type=stay": {
+      "model": "fossilsclassic:block/drum_stay"
+    }
+  }
+}

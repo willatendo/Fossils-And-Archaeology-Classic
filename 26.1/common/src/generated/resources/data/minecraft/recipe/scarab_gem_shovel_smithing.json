@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "fossilsclassic:scarab_gem",
+  "base": "minecraft:netherite_shovel",
+  "result": {
+    "id": "fossilsclassic:scarab_gem_shovel"
+  },
+  "template": "fossilsclassic:scarab_gem_upgrade_smithing_template"
+}

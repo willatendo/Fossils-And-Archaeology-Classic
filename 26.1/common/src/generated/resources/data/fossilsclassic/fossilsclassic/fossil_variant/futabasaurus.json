@@ -1,0 +1,11 @@
+{
+  "bounding_box_base_height": 0.75,
+  "bounding_box_base_width": 2.0,
+  "bounding_box_height_growth": 0.25,
+  "bounding_box_width_growth": 0.25,
+  "max_growth_stage": 12,
+  "name": {
+    "color": "yellow",
+    "translate": "fossil.fossilsclassic.futabasaurus.name"
+  }
+}

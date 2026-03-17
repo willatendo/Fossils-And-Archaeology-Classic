@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_smilodon": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fossilsclassic:raw_smilodon"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fossilsclassic:cooked_smilodon_from_smelting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_smilodon"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fossilsclassic:cooked_smilodon_from_smelting"
+    ]
+  }
+}

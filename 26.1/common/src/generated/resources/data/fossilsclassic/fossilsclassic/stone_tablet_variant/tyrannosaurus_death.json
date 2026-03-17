@@ -1,0 +1,13 @@
+{
+  "author": {
+    "color": "gray",
+    "translate": "stone_tablet.fossilsclassic.tyrannosaurus_death.author"
+  },
+  "height": 2,
+  "texture": "fossilsclassic:tyrannosaurus_death",
+  "title": {
+    "color": "yellow",
+    "translate": "stone_tablet.fossilsclassic.tyrannosaurus_death.title"
+  },
+  "width": 2
+}

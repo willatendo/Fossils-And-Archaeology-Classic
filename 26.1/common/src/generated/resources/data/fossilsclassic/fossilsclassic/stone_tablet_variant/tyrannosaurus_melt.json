@@ -1,0 +1,13 @@
+{
+  "author": {
+    "color": "gray",
+    "translate": "stone_tablet.fossilsclassic.tyrannosaurus_melt.author"
+  },
+  "height": 1,
+  "texture": "fossilsclassic:tyrannosaurus_melt",
+  "title": {
+    "color": "yellow",
+    "translate": "stone_tablet.fossilsclassic.tyrannosaurus_melt.title"
+  },
+  "width": 2
+}

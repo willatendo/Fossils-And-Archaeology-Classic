@@ -1,0 +1,22 @@
+{
+  "entries": [
+    {
+      "enum": "net/minecraft/world/inventory/RecipeBookType",
+      "name": "fossilsclassicanalyzation",
+      "constructor": "()V",
+      "parameters": []
+    },
+    {
+      "enum": "net/minecraft/world/inventory/RecipeBookType",
+      "name": "fossilsclassiccultivation",
+      "constructor": "()V",
+      "parameters": []
+    },
+    {
+      "enum": "net/minecraft/world/inventory/RecipeBookType",
+      "name": "fossilsclassicrestoration",
+      "constructor": "()V",
+      "parameters": []
+    }
+  ]
+}

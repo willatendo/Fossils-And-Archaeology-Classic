@@ -1,0 +1,13 @@
+{
+  "author": {
+    "color": "gray",
+    "translate": "stone_tablet.fossilsclassic.tyrannosaurus_attack.author"
+  },
+  "height": 2,
+  "texture": "fossilsclassic:tyrannosaurus_attack",
+  "title": {
+    "color": "yellow",
+    "translate": "stone_tablet.fossilsclassic.tyrannosaurus_attack.title"
+  },
+  "width": 2
+}

@@ -1,0 +1,10 @@
+{
+  "type": "fossilsclassic:restoration_recipe",
+  "category": "restore",
+  "experience": 0.35,
+  "ingredient": "fossilsclassic:broken_ancient_sword",
+  "result": {
+    "id": "fossilsclassic:ancient_sword"
+  },
+  "time": 6000
+}

@@ -1,0 +1,18 @@
+{
+  "processors": [
+    {
+      "hole_count": {
+        "type": "minecraft:uniform",
+        "max_inclusive": 20,
+        "min_inclusive": 7
+      },
+      "hole_size": {
+        "type": "minecraft:uniform",
+        "max_inclusive": 3,
+        "min_inclusive": 1
+      },
+      "processor_type": "fossilsclassic:holes_processor",
+      "replace_with_water_under_sea_level": true
+    }
+  ]
+}

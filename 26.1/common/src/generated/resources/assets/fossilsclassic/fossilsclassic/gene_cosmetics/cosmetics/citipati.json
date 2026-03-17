@@ -1,0 +1,10 @@
+{
+  "base_height_scale": 1.0,
+  "base_shadow_size": 0.5,
+  "base_width_scale": 1.0,
+  "model": "fossilsclassic:citipati",
+  "size_height_scale": 0.0,
+  "size_shadow_scale": 0.0,
+  "size_width_scale": 0.0,
+  "texture": "fossilsclassic:textures/entity/citipati/citipati.png"
+}

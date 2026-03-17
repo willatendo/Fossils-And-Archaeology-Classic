@@ -1,0 +1,553 @@
+{
+  "parts": [
+    {
+      "children": [
+        {
+          "cubes": [
+            {
+              "dimension_x": 3,
+              "dimension_y": 7,
+              "dimension_z": 4,
+              "origin_x": 0.0,
+              "origin_y": 0.0,
+              "origin_z": -2.0,
+              "texture_offset_u": 50,
+              "texture_offset_v": 21
+            }
+          ],
+          "name": "front_right_thigh",
+          "part_pose": {
+            "x": 3.0,
+            "y": 12.0,
+            "z": -3.5
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 4,
+              "dimension_y": 3,
+              "dimension_z": 4,
+              "origin_x": -2.0,
+              "origin_y": 0.0,
+              "origin_z": 0.0,
+              "texture_offset_u": 18,
+              "texture_offset_v": 13
+            }
+          ],
+          "name": "tail_mid",
+          "part_pose": {
+            "x": 0.0,
+            "x_rotation": -0.5576873,
+            "y": 14.0,
+            "z": 8.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 8,
+              "dimension_y": 7,
+              "dimension_z": 6,
+              "origin_x": -4.0,
+              "origin_y": 0.0,
+              "origin_z": 0.0,
+              "texture_offset_u": 0,
+              "texture_offset_v": 0
+            }
+          ],
+          "name": "body",
+          "part_pose": {
+            "x": 0.0,
+            "x_rotation": -0.1115358,
+            "y": 8.0,
+            "z": -3.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 4,
+              "dimension_y": 3,
+              "dimension_z": 4,
+              "origin_x": -2.0,
+              "origin_y": -1.0,
+              "origin_z": -4.0,
+              "texture_offset_u": 48,
+              "texture_offset_v": 14
+            }
+          ],
+          "name": "head",
+          "part_pose": {
+            "x": 0.0,
+            "y": -6.0,
+            "z": -10.5
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 5,
+              "dimension_y": 4,
+              "dimension_z": 4,
+              "origin_x": -2.5,
+              "origin_y": 0.0,
+              "origin_z": 0.0,
+              "texture_offset_u": 0,
+              "texture_offset_v": 13
+            }
+          ],
+          "name": "tail_base",
+          "part_pose": {
+            "x": 0.0,
+            "x_rotation": -0.7064018,
+            "y": 11.0,
+            "z": 6.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 3,
+              "dimension_y": 2,
+              "dimension_z": 4,
+              "origin_x": -1.5,
+              "origin_y": -1.0,
+              "origin_z": -6.5,
+              "texture_offset_u": 50,
+              "texture_offset_v": 8
+            }
+          ],
+          "name": "snout",
+          "part_pose": {
+            "x": 0.0,
+            "x_rotation": 0.2617994,
+            "y": -6.0,
+            "z": -11.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 2,
+              "dimension_y": 5,
+              "dimension_z": 3,
+              "origin_x": 0.5,
+              "origin_y": 7.0,
+              "origin_z": -2.0,
+              "texture_offset_u": 0,
+              "texture_offset_v": 24
+            }
+          ],
+          "name": "front_right_calf",
+          "part_pose": {
+            "x": 3.0,
+            "y": 12.0,
+            "z": -3.5
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 2,
+              "dimension_y": 5,
+              "dimension_z": 3,
+              "origin_x": -1.5,
+              "origin_y": 5.0,
+              "origin_z": -1.0,
+              "texture_offset_u": 0,
+              "texture_offset_v": 24
+            }
+          ],
+          "name": "back_left_calf",
+          "part_pose": {
+            "x": -3.0,
+            "y": 14.0,
+            "z": 4.5
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 2,
+              "dimension_y": 4,
+              "dimension_z": 4,
+              "origin_x": -1.0,
+              "origin_y": -3.0,
+              "origin_z": -5.0,
+              "texture_offset_u": 52,
+              "texture_offset_v": 0
+            }
+          ],
+          "name": "crest",
+          "part_pose": {
+            "x": 0.0,
+            "y": -6.0,
+            "z": -11.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 3,
+              "dimension_y": 2,
+              "dimension_z": 2,
+              "origin_x": -1.5,
+              "origin_y": 0.0,
+              "origin_z": 0.0,
+              "texture_offset_u": 22,
+              "texture_offset_v": 0
+            }
+          ],
+          "name": "neck_2",
+          "part_pose": {
+            "x": 0.0,
+            "x_rotation": -0.9599311,
+            "y": -4.5,
+            "z": -9.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 3,
+              "dimension_y": 2,
+              "dimension_z": 2,
+              "origin_x": -1.5,
+              "origin_y": 0.0,
+              "origin_z": 0.0,
+              "texture_offset_u": 22,
+              "texture_offset_v": 0
+            }
+          ],
+          "name": "neck_3",
+          "part_pose": {
+            "x": 0.0,
+            "x_rotation": -1.23464,
+            "y": -3.0,
+            "z": -8.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 3,
+              "dimension_y": 2,
+              "dimension_z": 2,
+              "origin_x": -1.5,
+              "origin_y": 0.0,
+              "origin_z": 0.0,
+              "texture_offset_u": 22,
+              "texture_offset_v": 0
+            }
+          ],
+          "name": "neck_1",
+          "part_pose": {
+            "x": 0.0,
+            "x_rotation": -0.7853982,
+            "y": -6.0,
+            "z": -10.5
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 3,
+              "dimension_y": 2,
+              "dimension_z": 2,
+              "origin_x": -1.5,
+              "origin_y": 0.0,
+              "origin_z": 4.0,
+              "texture_offset_u": 22,
+              "texture_offset_v": 0
+            }
+          ],
+          "name": "neck_6",
+          "part_pose": {
+            "x": 0.0,
+            "x_rotation": -1.343904,
+            "y": -1.5,
+            "z": -7.5
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 3,
+              "dimension_y": 2,
+              "dimension_z": 2,
+              "origin_x": -1.5,
+              "origin_y": 0.0,
+              "origin_z": 6.0,
+              "texture_offset_u": 22,
+              "texture_offset_v": 0
+            }
+          ],
+          "name": "neck_7",
+          "part_pose": {
+            "x": 0.0,
+            "x_rotation": -1.343904,
+            "y": -1.5,
+            "z": -7.5
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 3,
+              "dimension_y": 2,
+              "dimension_z": 2,
+              "origin_x": -1.5,
+              "origin_y": 0.0,
+              "origin_z": 0.0,
+              "texture_offset_u": 22,
+              "texture_offset_v": 0
+            }
+          ],
+          "name": "neck_4",
+          "part_pose": {
+            "x": 0.0,
+            "x_rotation": -1.343904,
+            "y": -1.5,
+            "z": -7.5
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 3,
+              "dimension_y": 2,
+              "dimension_z": 2,
+              "origin_x": -1.5,
+              "origin_y": 0.0,
+              "origin_z": 2.0,
+              "texture_offset_u": 22,
+              "texture_offset_v": 0
+            }
+          ],
+          "name": "neck_5",
+          "part_pose": {
+            "x": 0.0,
+            "x_rotation": -1.343904,
+            "y": -1.5,
+            "z": -7.5
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 2,
+              "dimension_y": 5,
+              "dimension_z": 3,
+              "origin_x": -0.5,
+              "origin_y": 5.0,
+              "origin_z": -1.0,
+              "texture_offset_u": 0,
+              "texture_offset_v": 24
+            }
+          ],
+          "name": "back_right_calf",
+          "part_pose": {
+            "x": 3.0,
+            "y": 14.0,
+            "z": 4.5
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 5,
+              "dimension_y": 4,
+              "dimension_z": 4,
+              "origin_x": -2.5,
+              "origin_y": -0.5,
+              "origin_z": -0.5,
+              "texture_offset_u": 32,
+              "texture_offset_v": 24
+            }
+          ],
+          "name": "lower_neck_1",
+          "part_pose": {
+            "x": 0.0,
+            "x_rotation": -0.8377581,
+            "y": 7.0,
+            "z": -5.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 4,
+              "dimension_y": 3,
+              "dimension_z": 3,
+              "origin_x": -2.0,
+              "origin_y": -1.0,
+              "origin_z": -0.5,
+              "texture_offset_u": 34,
+              "texture_offset_v": 11
+            }
+          ],
+          "name": "neck_8",
+          "part_pose": {
+            "x": 0.0,
+            "x_rotation": -0.9637522,
+            "y": 6.0,
+            "z": -6.5
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 3,
+              "dimension_y": 7,
+              "dimension_z": 4,
+              "origin_x": -3.0,
+              "origin_y": 0.0,
+              "origin_z": -2.0,
+              "texture_offset_u": 50,
+              "texture_offset_v": 21
+            }
+          ],
+          "name": "front_left_thigh",
+          "part_pose": {
+            "x": -3.0,
+            "y": 12.0,
+            "z": -3.5
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 3,
+              "dimension_y": 5,
+              "dimension_z": 4,
+              "origin_x": -1.0,
+              "origin_y": 0.0,
+              "origin_z": -2.0,
+              "texture_offset_u": 50,
+              "texture_offset_v": 21
+            }
+          ],
+          "name": "back_right_thigh",
+          "part_pose": {
+            "x": 3.0,
+            "y": 14.0,
+            "z": 4.5
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 6,
+              "dimension_y": 6,
+              "dimension_z": 5,
+              "origin_x": -3.0,
+              "origin_y": 0.0,
+              "origin_z": 0.0,
+              "texture_offset_u": 10,
+              "texture_offset_v": 21
+            }
+          ],
+          "name": "lower_neck_2",
+          "part_pose": {
+            "x": 0.0,
+            "x_rotation": -0.3907885,
+            "y": 7.0,
+            "z": -5.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 2,
+              "dimension_y": 5,
+              "dimension_z": 3,
+              "origin_x": -2.5,
+              "origin_y": 7.0,
+              "origin_z": -2.0,
+              "texture_offset_u": 0,
+              "texture_offset_v": 24
+            }
+          ],
+          "name": "front_left_calf",
+          "part_pose": {
+            "x": -3.0,
+            "y": 12.0,
+            "z": -3.5
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 7,
+              "dimension_y": 6,
+              "dimension_z": 5,
+              "origin_x": -3.5,
+              "origin_y": 0.0,
+              "origin_z": 0.0,
+              "texture_offset_u": 28,
+              "texture_offset_v": 0
+            }
+          ],
+          "name": "lower_body",
+          "part_pose": {
+            "x": 0.0,
+            "x_rotation": -0.3346075,
+            "y": 9.0,
+            "z": 2.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 3,
+              "dimension_y": 2,
+              "dimension_z": 4,
+              "origin_x": -1.5,
+              "origin_y": 0.0,
+              "origin_z": 0.0,
+              "texture_offset_u": 34,
+              "texture_offset_v": 17
+            }
+          ],
+          "name": "tail_end",
+          "part_pose": {
+            "x": 0.0,
+            "x_rotation": -0.3717943,
+            "y": 16.5,
+            "z": 10.5
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 3,
+              "dimension_y": 5,
+              "dimension_z": 4,
+              "origin_x": -2.0,
+              "origin_y": 0.0,
+              "origin_z": -2.0,
+              "texture_offset_u": 50,
+              "texture_offset_v": 21
+            }
+          ],
+          "name": "back_left_thigh",
+          "part_pose": {
+            "x": -3.0,
+            "y": 14.0,
+            "z": 4.5
+          }
+        }
+      ],
+      "cubes": [],
+      "name": "root",
+      "part_pose": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    }
+  ],
+  "texture_height": 32,
+  "texture_width": 64
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_broken_copper_javelin": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fossilsclassic:broken_copper_javelin"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fossilsclassic:copper_javelin"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_broken_copper_javelin"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fossilsclassic:copper_javelin"
+    ]
+  }
+}

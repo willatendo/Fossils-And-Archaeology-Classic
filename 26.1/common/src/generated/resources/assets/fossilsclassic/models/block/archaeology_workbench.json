@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/spruce_planks",
+    "east": "fossilsclassic:block/archaeology_workbench_side",
+    "north": "fossilsclassic:block/archaeology_workbench_books",
+    "particle": "fossilsclassic:block/archaeology_workbench_side",
+    "south": "fossilsclassic:block/archaeology_workbench_side",
+    "up": "fossilsclassic:block/archaeology_workbench_top",
+    "west": "fossilsclassic:block/archaeology_workbench_side"
+  }
+}

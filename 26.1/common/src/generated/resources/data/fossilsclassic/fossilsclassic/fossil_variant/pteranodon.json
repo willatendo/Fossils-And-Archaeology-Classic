@@ -1,0 +1,11 @@
+{
+  "bounding_box_base_height": 0.5,
+  "bounding_box_base_width": 0.5,
+  "bounding_box_height_growth": 0.2,
+  "bounding_box_width_growth": 0.2,
+  "max_growth_stage": 8,
+  "name": {
+    "color": "yellow",
+    "translate": "fossil.fossilsclassic.pteranodon.name"
+  }
+}

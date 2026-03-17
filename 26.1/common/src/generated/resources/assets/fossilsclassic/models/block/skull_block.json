@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "fossilsclassic:block/skull_cap",
+    "east": "fossilsclassic:block/skull_crack",
+    "north": "fossilsclassic:block/skull_front",
+    "particle": "fossilsclassic:block/skull_crack",
+    "south": "fossilsclassic:block/skull_crack",
+    "up": "fossilsclassic:block/skull_cap",
+    "west": "fossilsclassic:block/skull_crack"
+  }
+}

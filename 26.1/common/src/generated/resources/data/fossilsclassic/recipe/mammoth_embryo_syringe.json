@@ -1,0 +1,10 @@
+{
+  "type": "fossilsclassic:cultivation_recipe",
+  "category": "embryo",
+  "experience": 0.35,
+  "ingredient": "fossilsclassic:mammoth_dna",
+  "result": {
+    "id": "fossilsclassic:mammoth_embryo_syringe"
+  },
+  "time": 6000
+}

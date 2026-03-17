@@ -1,0 +1,81 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "predicates": {
+                      "minecraft:enchantments": [
+                        {
+                          "enchantments": "minecraft:silk_touch",
+                          "levels": {
+                            "min": 1
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "name": "fossilsclassic:permafrost"
+            },
+            {
+              "type": "fossilsclassic:loot_random_item",
+              "conditions": [
+                {
+                  "condition": "minecraft:survives_explosion"
+                }
+              ],
+              "entries": [
+                {
+                  "hit_from": 0,
+                  "hit_to": 1,
+                  "item": "fossilsclassic:jurassic_fern_spores"
+                },
+                {
+                  "hit_from": 1,
+                  "hit_to": 2,
+                  "item": "fossilsclassic:skull_block"
+                },
+                {
+                  "hit_from": 2,
+                  "hit_to": 3,
+                  "item": "fossilsclassic:frozen_meat"
+                },
+                {
+                  "hit_from": 3,
+                  "hit_to": 4,
+                  "item": "minecraft:bone"
+                },
+                {
+                  "hit_from": 4,
+                  "hit_to": 5,
+                  "item": "minecraft:book"
+                }
+              ],
+              "functions": [
+                {
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:ore_drops",
+                  "function": "minecraft:apply_bonus"
+                }
+              ],
+              "max_weight": 5
+            }
+          ]
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "fossilsclassic:blocks/permafrost"
+}

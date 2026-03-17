@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 400,
+  "experience": 0.35,
+  "ingredient": "fossilsclassic:raw_smilodon",
+  "result": {
+    "count": 1,
+    "id": "fossilsclassic:cooked_smilodon"
+  }
+}

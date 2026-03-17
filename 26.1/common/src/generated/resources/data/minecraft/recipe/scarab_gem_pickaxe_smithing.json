@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "fossilsclassic:scarab_gem",
+  "base": "minecraft:netherite_pickaxe",
+  "result": {
+    "id": "fossilsclassic:scarab_gem_pickaxe"
+  },
+  "template": "fossilsclassic:scarab_gem_upgrade_smithing_template"
+}

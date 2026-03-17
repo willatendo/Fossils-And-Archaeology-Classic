@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/iron_block",
+    "east": "fossilsclassic:block/feeder_side",
+    "north": "fossilsclassic:block/feeder_front",
+    "particle": "fossilsclassic:block/feeder_side",
+    "south": "fossilsclassic:block/feeder_side",
+    "up": "fossilsclassic:block/feeder_top_full",
+    "west": "fossilsclassic:block/feeder_side"
+  }
+}

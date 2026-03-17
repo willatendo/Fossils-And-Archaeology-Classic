@@ -1,0 +1,10 @@
+{
+  "type": "fossilsclassic:analyzation_recipe",
+  "category": "palaeontology",
+  "experience": 0.35,
+  "ingredient": "fossilsclassic:raw_tyrannosaurus",
+  "results": {
+    "id": "fossilsclassic:tyrannosaurus_dna"
+  },
+  "time": 100
+}

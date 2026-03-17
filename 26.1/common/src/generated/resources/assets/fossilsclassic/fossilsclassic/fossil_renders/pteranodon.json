@@ -1,0 +1,10 @@
+{
+  "base_height_scale": 0.8,
+  "base_shadow_size": 0.35,
+  "base_width_scale": 0.8,
+  "model": "fossilsclassic:pteranodon",
+  "size_height_scale": 0.2,
+  "size_shadow_scale": 0.075,
+  "size_width_scale": 0.2,
+  "texture": "fossilsclassic:textures/entity/pteranodon/fossil/pteranodon.png"
+}

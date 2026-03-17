@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "!": "minecraft:bucket",
+    "#": "#c:glass_blocks",
+    "$": "minecraft:iron_ingot",
+    "%": "minecraft:stone",
+    "@": "minecraft:stone_button"
+  },
+  "pattern": [
+    "$#$",
+    "@!%",
+    "%%%"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fossilsclassic:feeder"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:chicken",
+    "minecraft:bucket"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fossilsclassic:raw_chicken_soup_bucket"
+  }
+}

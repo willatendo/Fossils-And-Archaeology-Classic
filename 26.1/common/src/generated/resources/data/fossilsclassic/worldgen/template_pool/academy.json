@@ -1,0 +1,25 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "fossilsclassic:single_pool_element",
+        "ground_level_delta": 3,
+        "location": "fossilsclassic:academy/bricks_academy",
+        "processors": "fossilsclassic:academy_degradation",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "fossilsclassic:single_pool_element",
+        "ground_level_delta": 3,
+        "location": "fossilsclassic:academy/stone_bricks_academy",
+        "processors": "fossilsclassic:academy_degradation",
+        "projection": "rigid"
+      },
+      "weight": 9
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

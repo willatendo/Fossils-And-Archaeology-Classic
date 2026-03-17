@@ -1,0 +1,10 @@
+{
+  "type": "fossilsclassic:analyzation_recipe",
+  "category": "palaeontology",
+  "experience": 0.35,
+  "ingredient": "fossilsclassic:raw_brachiosaurus",
+  "results": {
+    "id": "fossilsclassic:brachiosaurus_dna"
+  },
+  "time": 100
+}

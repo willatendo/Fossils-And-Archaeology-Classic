@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1476272410,
+    "separation": 16,
+    "spacing": 128
+  },
+  "structures": [
+    {
+      "structure": "fossilsclassic:viking_ship",
+      "weight": 1
+    }
+  ]
+}

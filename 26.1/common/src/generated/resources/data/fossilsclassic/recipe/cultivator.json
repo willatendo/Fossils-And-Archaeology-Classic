@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "#c:glass_blocks",
+    "$": "minecraft:green_dye",
+    "%": "minecraft:iron_ingot",
+    "@": "minecraft:water_bucket"
+  },
+  "pattern": [
+    "#$#",
+    "#@#",
+    "%%%"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fossilsclassic:cultivator"
+  }
+}

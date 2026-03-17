@@ -1,0 +1,21 @@
+package ca.willatendo.fossilsclassic.data;
+
+import ca.willatendo.fossilsclassic.server.sound_event.FCSoundEvents;
+import ca.willatendo.simplelibrary.data.SimpleSoundDefinitionsProvider;
+import net.minecraft.data.PackOutput;
+
+public final class FCSoundDefinitionsProvider extends SimpleSoundDefinitionsProvider {
+    public FCSoundDefinitionsProvider(PackOutput packOutput, String modId) {
+        super(packOutput, modId);
+    }
+
+    @Override
+    public void registerSounds() {
+        this.entity(FCSoundEvents.TRICERATOPS_AMBIENT.get(), "triceratops", "ambientSound", "triceratops/triceratops_ambient_1", "triceratops/triceratops_ambient_2", "triceratops/triceratops_ambient_3");
+        this.entity(FCSoundEvents.TRICERATOPS_DEATH.get(), "triceratops", "deathSound", "triceratops/triceratops_death");
+        this.entity(FCSoundEvents.TRICERATOPS_HURT.get(), "triceratops", "hurtSound", "triceratops/triceratops_hurt_1", "triceratops/triceratops_hurt_2");
+
+        this.block(FCSoundEvents.DRUM_HIT.get(), "drum", "hit", "drum_hit");
+        this.block(FCSoundEvents.DRUM_TRIPLE_HIT.get(), "drum", "triple_hit", "drum_triple_hit");
+    }
+}

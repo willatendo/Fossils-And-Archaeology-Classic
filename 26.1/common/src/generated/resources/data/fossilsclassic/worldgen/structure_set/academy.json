@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1476272409,
+    "separation": 8,
+    "spacing": 64
+  },
+  "structures": [
+    {
+      "structure": "fossilsclassic:academy",
+      "weight": 1
+    }
+  ]
+}

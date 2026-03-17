@@ -1,0 +1,10 @@
+{
+  "type": "fossilsclassic:cultivation_recipe",
+  "category": "egg",
+  "experience": 0.35,
+  "ingredient": "fossilsclassic:pteranodon_dna",
+  "result": {
+    "id": "fossilsclassic:pteranodon_egg"
+  },
+  "time": 6000
+}

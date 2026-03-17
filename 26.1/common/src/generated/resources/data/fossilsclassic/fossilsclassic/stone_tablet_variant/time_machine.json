@@ -1,0 +1,13 @@
+{
+  "author": {
+    "color": "gray",
+    "translate": "stone_tablet.fossilsclassic.time_machine.author"
+  },
+  "height": 2,
+  "texture": "fossilsclassic:time_machine",
+  "title": {
+    "color": "yellow",
+    "translate": "stone_tablet.fossilsclassic.time_machine.title"
+  },
+  "width": 1
+}

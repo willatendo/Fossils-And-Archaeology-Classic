@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "fossilsclassic:item/scarab_gem_javelin"
+  }
+}

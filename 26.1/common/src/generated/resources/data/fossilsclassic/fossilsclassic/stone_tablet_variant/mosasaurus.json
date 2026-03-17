@@ -1,0 +1,13 @@
+{
+  "author": {
+    "color": "gray",
+    "translate": "stone_tablet.fossilsclassic.mosasaurus.author"
+  },
+  "height": 1,
+  "texture": "fossilsclassic:mosasaurus",
+  "title": {
+    "color": "yellow",
+    "translate": "stone_tablet.fossilsclassic.mosasaurus.title"
+  },
+  "width": 2
+}

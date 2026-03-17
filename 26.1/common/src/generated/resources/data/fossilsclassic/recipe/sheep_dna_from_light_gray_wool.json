@@ -1,0 +1,11 @@
+{
+  "type": "fossilsclassic:analyzation_recipe",
+  "category": "palaeontology",
+  "experience": 0.35,
+  "group": "sheep_dna",
+  "ingredient": "minecraft:light_gray_wool",
+  "results": {
+    "id": "fossilsclassic:sheep_dna"
+  },
+  "time": 100
+}

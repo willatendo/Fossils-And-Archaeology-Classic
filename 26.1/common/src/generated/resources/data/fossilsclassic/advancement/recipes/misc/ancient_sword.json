@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_broken_ancient_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fossilsclassic:broken_ancient_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fossilsclassic:ancient_sword"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_broken_ancient_sword"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fossilsclassic:ancient_sword"
+    ]
+  }
+}

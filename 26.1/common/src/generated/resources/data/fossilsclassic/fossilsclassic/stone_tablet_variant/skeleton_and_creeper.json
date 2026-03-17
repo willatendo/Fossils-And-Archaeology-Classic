@@ -1,0 +1,13 @@
+{
+  "author": {
+    "color": "gray",
+    "translate": "stone_tablet.fossilsclassic.skeleton_and_creeper.author"
+  },
+  "height": 1,
+  "texture": "fossilsclassic:skeleton_and_creeper",
+  "title": {
+    "color": "yellow",
+    "translate": "stone_tablet.fossilsclassic.skeleton_and_creeper.title"
+  },
+  "width": 1
+}

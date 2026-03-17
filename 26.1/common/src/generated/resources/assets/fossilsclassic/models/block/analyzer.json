@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "fossilsclassic:block/analyzer_cap",
+    "east": "fossilsclassic:block/analyzer_side",
+    "north": "fossilsclassic:block/analyzer_front",
+    "particle": "fossilsclassic:block/analyzer_side",
+    "south": "fossilsclassic:block/analyzer_side",
+    "up": "fossilsclassic:block/analyzer_cap",
+    "west": "fossilsclassic:block/analyzer_side"
+  }
+}

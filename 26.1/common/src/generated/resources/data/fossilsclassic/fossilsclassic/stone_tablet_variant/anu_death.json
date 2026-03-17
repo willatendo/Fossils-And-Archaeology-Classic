@@ -1,0 +1,13 @@
+{
+  "author": {
+    "color": "gray",
+    "translate": "stone_tablet.fossilsclassic.anu_death.author"
+  },
+  "height": 1,
+  "texture": "fossilsclassic:anu_death",
+  "title": {
+    "color": "yellow",
+    "translate": "stone_tablet.fossilsclassic.anu_death.title"
+  },
+  "width": 2
+}

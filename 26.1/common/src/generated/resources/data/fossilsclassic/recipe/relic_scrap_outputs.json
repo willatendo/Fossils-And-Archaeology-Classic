@@ -1,0 +1,8 @@
+{
+  "type": "fossilsclassic:analyzation_recipe",
+  "category": "archaeology",
+  "experience": 0.35,
+  "ingredient": "fossilsclassic:relic_scrap",
+  "results": "fossilsclassic:results/relic_scrap",
+  "time": 100
+}

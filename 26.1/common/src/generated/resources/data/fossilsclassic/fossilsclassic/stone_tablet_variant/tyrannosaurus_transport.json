@@ -1,0 +1,13 @@
+{
+  "author": {
+    "color": "gray",
+    "translate": "stone_tablet.fossilsclassic.tyrannosaurus_transport.author"
+  },
+  "height": 1,
+  "texture": "fossilsclassic:tyrannosaurus_transport",
+  "title": {
+    "color": "yellow",
+    "translate": "stone_tablet.fossilsclassic.tyrannosaurus_transport.title"
+  },
+  "width": 2
+}
