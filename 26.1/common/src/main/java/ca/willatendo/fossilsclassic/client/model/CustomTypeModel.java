@@ -3,6 +3,7 @@ package ca.willatendo.fossilsclassic.client.model;
 import ca.willatendo.fossilsclassic.client.json_animation.ClassicAnimationType;
 import ca.willatendo.fossilsclassic.client.json_animation.CustomAnimation;
 import ca.willatendo.fossilsclassic.client.json_animation.KeyframeAnimationType;
+import ca.willatendo.simplelibrary.core.utils.CoreUtils;
 import net.minecraft.client.animation.KeyframeAnimation;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
@@ -46,6 +47,9 @@ public class CustomTypeModel<S extends LivingEntityRenderState> extends EntityMo
             }
             classicAnimationType.animationEvents().forEach(animationEvent -> animationEvent.bones().forEach(bone -> {
                 ModelPart modelPart = this.partLookup.apply(bone);
+                if(modelPart == null) {
+                    CoreUtils.LOGGER.info("{}", bone);
+                }
 
                 Function<ClassicAnimationType.Parameters, Integer> index = parameter -> classicAnimationType.requiredParameters().indexOf(parameter);
                 switch (animationEvent.axis()) {

@@ -23,6 +23,7 @@ public final class FCItemTagsProvider extends ItemTagsProvider {
         this.tag(FCItemTags.PIGLIN_TAMING_ARMOR).add(FCItems.ANCIENT_HELMET.get());
         this.tag(FCItemTags.REPAIRS_ANCIENT_ARMOR);
         this.tag(FCItemTags.SCARAB_GEM_TOOL_MATERIALS);
+        this.tag(FCItemTags.STEGOSAURUS_COMMANDABLES).add(Items.STICK);
         this.tag(FCItemTags.TRICERATOPS_COMMANDABLES).add(Items.STICK);
     }
 }

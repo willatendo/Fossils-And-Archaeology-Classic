@@ -78,9 +78,27 @@ public interface CosmeticChooser {
         }
     }
 
+    enum Single implements CosmeticChooser {
+        INSTANCE;
+
+        public static final MapCodec<CosmeticChooser.Single> CODEC = MapCodec.unit(() -> CosmeticChooser.Single.INSTANCE);
+        public static final StreamCodec<RegistryFriendlyByteBuf, CosmeticChooser.Single> STREAM_CODEC = StreamCodec.unit(CosmeticChooser.Single.INSTANCE);
+
+        @Override
+        public Optional<Holder<Gene>> getGene(HolderSet<Gene> genes, RandomSource randomSource, Holder<Biome> biome) {
+            return Optional.of(genes.get(0));
+        }
+
+        @Override
+        public Type getType() {
+            return CosmeticChooser.Type.SINGLE;
+        }
+    }
+
     enum Type implements StringRepresentable {
         BY_BIOME(0, "by_biome", CosmeticChooser.ByBiome.CODEC, CosmeticChooser.ByBiome.STREAM_CODEC),
-        RANDOM(1, "random", CosmeticChooser.Random.CODEC, CosmeticChooser.Random.STREAM_CODEC);
+        RANDOM(1, "random", CosmeticChooser.Random.CODEC, CosmeticChooser.Random.STREAM_CODEC),
+        SINGLE(2, "single", CosmeticChooser.Single.CODEC, CosmeticChooser.Single.STREAM_CODEC);
 
         public static final Codec<CosmeticChooser.Type> CODEC = StringRepresentable.fromValues(CosmeticChooser.Type::values);
         private static final IntFunction<CosmeticChooser.Type> BY_ID = ByIdMap.continuous(Type::getId, values(), ByIdMap.OutOfBoundsStrategy.ZERO);

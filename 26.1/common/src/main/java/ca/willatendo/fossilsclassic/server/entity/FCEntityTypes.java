@@ -6,6 +6,7 @@ import ca.willatendo.fossilsclassic.server.item.FCItems;
 import ca.willatendo.simplelibrary.core.holder.SimpleHolder;
 import ca.willatendo.simplelibrary.core.registry.sub.EntityTypeSubRegistry;
 import ca.willatendo.simplelibrary.server.utils.ServerUtils;
+import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
@@ -21,6 +22,7 @@ public final class FCEntityTypes {
 
     public static final SimpleHolder<EntityType<AncientLightningBolt>> ANCIENT_LIGHTNING_BOLT = ENTITY_TYPES.register("ancient_lightning_bolt", ServerUtils.simpleEntityType(AncientLightningBolt::new, MobCategory.MISC, 0.0F, 0.0F).noSave().noLootTable());
 
+    public static final SimpleHolder<EntityType<Stegosaurus>> STEGOSAURUS = ENTITY_TYPES.register("stegosaurus", ServerUtils.simpleEntityType(Stegosaurus::new, MobCategory.CREATURE, 1.2F, 1.2F).eyeHeight(0.3F));
     public static final SimpleHolder<EntityType<Triceratops>> TRICERATOPS = ENTITY_TYPES.register("triceratops", ServerUtils.simpleEntityType(Triceratops::new, MobCategory.CREATURE, 0.75F, 0.75F).eyeHeight(0.5F));
     //public static final SimpleHolder<EntityType<Custom>> CUSTOM = ENTITY_TYPES.register("custom", ServerUtils.simpleEntityType(Custom::new, MobCategory.CREATURE, 0.0F, 0.0F).requiredFeatures(FCFeatureFlags.CUSTOM_DINOSAURS).noLootTable());
 
@@ -45,6 +47,8 @@ public final class FCEntityTypes {
     public static final SimpleHolder<EntityType<Egg>> STEGOSAURUS_EGG = FCEntityTypes.registerLandEgg("stegosaurus_egg", FCItems.STEGOSAURUS_EGG::get, () -> EntityType.SHEEP);
     public static final SimpleHolder<EntityType<Egg>> DILOPHOSAURUS_EGG = FCEntityTypes.registerLandEgg("dilophosaurus_egg", FCItems.DILOPHOSAURUS_EGG::get, () -> EntityType.SHEEP);
     public static final SimpleHolder<EntityType<Egg>> BRACHIOSAURUS_EGG = FCEntityTypes.registerLandEgg("brachiosaurus_egg", FCItems.BRACHIOSAURUS_EGG::get, () -> EntityType.SHEEP);
+    public static final SimpleHolder<EntityType<ThrownAnimalEgg.ThrownIncubatedChickenEgg>> INCUBATED_CHICKEN_EGG = FCEntityTypes.registerThrownEgg("incubated_chicken_egg", ThrownAnimalEgg.ThrownIncubatedChickenEgg::new);
+    public static final SimpleHolder<EntityType<ThrownAnimalEgg.ThrownIncubatedParrotEgg>> INCUBATED_PARROT_EGG = FCEntityTypes.registerThrownEgg("incubated_parrot_egg", ThrownAnimalEgg.ThrownIncubatedParrotEgg::new);
 
     private static SimpleHolder<EntityType<ThrownJavelin>> registerJavelin(String name) {
         return ENTITY_TYPES.register(name, ServerUtils.<ThrownJavelin>simpleEntityType(ThrownJavelin::new, MobCategory.MISC, 0.5F, 0.5F).noLootTable());
@@ -56,5 +60,9 @@ public final class FCEntityTypes {
 
     private static <I extends Item, E extends Mob> SimpleHolder<EntityType<Egg>> registerWaterEgg(String name, Supplier<I> item, Supplier<EntityType<E>> offspring) {
         return ENTITY_TYPES.register(name, ServerUtils.simpleEntityType((entityType, level) -> Egg.createWater(entityType, level, item, offspring), MobCategory.MISC, 0.5F, 0.5F));
+    }
+
+    private static <E extends AgeableMob, T extends ThrownAnimalEgg<E>> SimpleHolder<EntityType<T>> registerThrownEgg(String name, EntityType.EntityFactory<T> entityFactory) {
+        return ENTITY_TYPES.register(name, ServerUtils.simpleEntityType(entityFactory, MobCategory.MISC, 0.25F, 0.25F).noLootTable().clientTrackingRange(4).updateInterval(10));
     }
 }

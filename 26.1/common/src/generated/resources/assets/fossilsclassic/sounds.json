@@ -11,6 +11,26 @@
     ],
     "subtitle": "subtitles.block.drum.triple_hit"
   },
+  "entity.stegosaurus.ambient": {
+    "sounds": [
+      "fossilsclassic:stegosaurus/stegosaurus_ambient_1",
+      "fossilsclassic:stegosaurus/stegosaurus_ambient_2",
+      "fossilsclassic:stegosaurus/stegosaurus_ambient_3"
+    ],
+    "subtitle": "subtitles.entity.stegosaurus.ambientSound"
+  },
+  "entity.stegosaurus.death": {
+    "sounds": [
+      "fossilsclassic:stegosaurus/stegosaurus_death"
+    ],
+    "subtitle": "subtitles.entity.stegosaurus.deathSound"
+  },
+  "entity.stegosaurus.hurt": {
+    "sounds": [
+      "fossilsclassic:stegosaurus/stegosaurus_hurt"
+    ],
+    "subtitle": "subtitles.entity.stegosaurus.hurtSound"
+  },
   "entity.triceratops.ambient": {
     "sounds": [
       "fossilsclassic:triceratops/triceratops_ambient_1",

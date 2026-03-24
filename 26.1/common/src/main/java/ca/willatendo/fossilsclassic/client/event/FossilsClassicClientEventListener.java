@@ -11,6 +11,7 @@ import ca.willatendo.fossilsclassic.client.render.*;
 import ca.willatendo.fossilsclassic.client.screen.AnalyzerScreen;
 import ca.willatendo.fossilsclassic.client.screen.ArchaeologyWorkbenchScreen;
 import ca.willatendo.fossilsclassic.client.screen.CultivatorScreen;
+import ca.willatendo.fossilsclassic.client.screen.FeederScreen;
 import ca.willatendo.fossilsclassic.core.utils.FCCoreUtils;
 import ca.willatendo.fossilsclassic.server.entity.FCEntityTypes;
 import ca.willatendo.fossilsclassic.server.menu.FCMenuTypes;
@@ -26,6 +27,7 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.entity.ArmorModelSet;
 import net.minecraft.client.renderer.entity.LightningBoltRenderer;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.resources.model.AtlasManager;
 import net.minecraft.world.item.ItemStack;
 
@@ -79,6 +81,7 @@ public final class FossilsClassicClientEventListener implements ClientEventListe
 
         rendererRegister.apply(FCEntityTypes.ANCIENT_LIGHTNING_BOLT.get(), LightningBoltRenderer::new);
 
+        rendererRegister.apply(FCEntityTypes.STEGOSAURUS.get(), StegosaurusRenderer::new);
         rendererRegister.apply(FCEntityTypes.TRICERATOPS.get(), TriceratopsRenderer::new);
         //rendererRegister.apply(FCEntityTypes.CUSTOM.get(), CustomRenderer::new);
 
@@ -103,6 +106,8 @@ public final class FossilsClassicClientEventListener implements ClientEventListe
         rendererRegister.apply(FCEntityTypes.STEGOSAURUS_EGG.get(), context -> new EggRenderer(context, FCCoreUtils.resource("textures/entity/egg/stegosaurus_egg.png")));
         rendererRegister.apply(FCEntityTypes.DILOPHOSAURUS_EGG.get(), context -> new EggRenderer(context, FCCoreUtils.resource("textures/entity/egg/dilophosaurus_egg.png")));
         rendererRegister.apply(FCEntityTypes.BRACHIOSAURUS_EGG.get(), context -> new EggRenderer(context, FCCoreUtils.resource("textures/entity/egg/brachiosaurus_egg.png")));
+        rendererRegister.apply(FCEntityTypes.INCUBATED_CHICKEN_EGG.get(), ThrownItemRenderer::new);
+        rendererRegister.apply(FCEntityTypes.INCUBATED_PARROT_EGG.get(), ThrownItemRenderer::new);
     }
 
     @Override
@@ -159,6 +164,7 @@ public final class FossilsClassicClientEventListener implements ClientEventListe
         menuScreenRegister.apply(FCMenuTypes.ANALYZER.get(), AnalyzerScreen::new);
         menuScreenRegister.apply(FCMenuTypes.ARCHAEOLOGY_WORKBENCH.get(), ArchaeologyWorkbenchScreen::new);
         menuScreenRegister.apply(FCMenuTypes.CULTIVATOR.get(), CultivatorScreen::new);
+        menuScreenRegister.apply(FCMenuTypes.FEEDER.get(), FeederScreen::new);
     }
 
     @Override

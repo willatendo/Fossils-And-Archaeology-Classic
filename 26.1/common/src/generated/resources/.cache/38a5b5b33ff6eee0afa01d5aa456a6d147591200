@@ -1,4 +1,5 @@
-// 1.21.11	2026-02-19T16:51:29.3466329	Tags for minecraft:block mod id fossilsclassic
+// 1.21.11	2026-03-23T18:57:44.2730312	Tags for minecraft:block mod id fossilsclassic
+c7db5f46a1c89e09fdb415abeea3676d287f9948 data/fossilsclassic/tags/block/feeder.json
 69c396cb051bbe9a130e6979b67065e5041b179d data/fossilsclassic/tags/block/jurassic_fern_plantable_on.json
 c55d3e50473f26b702461fc809ab25615bd68a02 data/fossilsclassic/tags/block/permafrost_frostable.json
 a0151760ab6277608c84c8fe525763e9b983655a data/minecraft/tags/block/mineable/axe.json

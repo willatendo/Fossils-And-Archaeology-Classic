@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": "fossilsclassic:living_baby_nautilus",
+  "result": {
+    "count": 1,
+    "id": "fossilsclassic:sio_chiu_le"
+  }
+}

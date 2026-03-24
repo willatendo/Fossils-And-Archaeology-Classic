@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/spear_in_hand",
+  "textures": {
+    "layer0": "fossilsclassic:item/scarab_gem_spear_in_hand"
+  }
+}

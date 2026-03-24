@@ -14,6 +14,7 @@ public final class FCItemTags {
     public static final TagKey<Item> PIGLIN_TAMING_ARMOR = FCItemTags.create("piglin_taming_armor");
     public static final TagKey<Item> REPAIRS_ANCIENT_ARMOR = FCItemTags.create("repairs_ancient_armor");
     public static final TagKey<Item> SCARAB_GEM_TOOL_MATERIALS = FCItemTags.create("scarab_gem_tool_materials");
+    public static final TagKey<Item> STEGOSAURUS_COMMANDABLES = FCItemTags.create("commandables/stegosaurus");
     public static final TagKey<Item> TRICERATOPS_COMMANDABLES = FCItemTags.create("commandables/triceratops");
 
     private static TagKey<Item> create(String name) {

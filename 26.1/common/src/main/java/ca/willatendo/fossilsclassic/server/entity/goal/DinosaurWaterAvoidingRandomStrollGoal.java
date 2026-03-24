@@ -14,11 +14,11 @@ public class DinosaurWaterAvoidingRandomStrollGoal extends WaterAvoidingRandomSt
 
     @Override
     public boolean canUse() {
-        return this.dinosaur.getCommand().is(FCCommandTypes.FREE_MOVE);
+        return this.dinosaur.getCommand().is(FCCommandTypes.FREE_MOVE) && super.canUse();
     }
 
     @Override
     public boolean canContinueToUse() {
-        return this.dinosaur.getCommand().is(FCCommandTypes.FREE_MOVE);
+        return this.dinosaur.getCommand().is(FCCommandTypes.FREE_MOVE) && super.canContinueToUse();
     }
 }

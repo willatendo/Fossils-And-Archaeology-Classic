@@ -17,6 +17,7 @@ public final class FCGameRules {
     public static final SimpleRegistry<GameRule<?>> GAME_RULES = new SimpleRegistry<>(Registries.GAME_RULE, FCCoreUtils.ID);
 
     public static final SimpleHolder<GameRule<Integer>> NOTIFICATION_DISTANCE = FCGameRules.registerInteger("notification_distance", GameRuleCategory.CHAT, 30, 0, 200);
+    public static final SimpleHolder<GameRule<Integer>> LOW_FEEDER_MESSAGE_QUORUM = FCGameRules.registerInteger("low_feeder_message_quorum", GameRuleCategory.CHAT, 100, 0, 200);
     public static final SimpleHolder<GameRule<Boolean>> DO_LIMIT_NOTIFICATION_DISTANCE = FCGameRules.registerBoolean("do_limit_notification_distance", GameRuleCategory.CHAT, true);
     public static final SimpleHolder<GameRule<Boolean>> DO_UNTAME_ANIMAL_MESSAGES = FCGameRules.registerBoolean("do_untame_animal_messages", GameRuleCategory.CHAT, true);
     public static final SimpleHolder<GameRule<Boolean>> DO_ANIMAL_GROWTH = FCGameRules.registerBoolean("do_animal_growth", GameRuleCategory.MOBS, true);

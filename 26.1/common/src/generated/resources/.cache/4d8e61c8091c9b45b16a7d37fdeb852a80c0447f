@@ -1,5 +1,6 @@
-// 1.21.11	2026-03-15T10:48:56.0318099	Tags for minecraft:item mod id fossilsclassic
+// 1.21.11	2026-03-22T19:38:16.1133115	Tags for minecraft:item mod id fossilsclassic
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/fossilsclassic/tags/item/ancient_tool_materials.json
+1ad920aa65e2706dabb6265f3b12546ab33e8936 data/fossilsclassic/tags/item/commandables/stegosaurus.json
 1ad920aa65e2706dabb6265f3b12546ab33e8936 data/fossilsclassic/tags/item/commandables/triceratops.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/fossilsclassic/tags/item/dagger_tool_materials.json
 1ad920aa65e2706dabb6265f3b12546ab33e8936 data/fossilsclassic/tags/item/drum_instrument.json

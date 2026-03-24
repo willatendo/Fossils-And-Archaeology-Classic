@@ -50,6 +50,7 @@ public final class FCRecipeProvider extends RecipeProvider {
         this.cookFood(FCItems.RAW_VELOCIRAPTOR.get(), FCItems.COOKED_VELOCIRAPTOR.get());
         this.cookFood(FCItems.RAW_TYRANNOSAURUS.get(), FCItems.COOKED_TYRANNOSAURUS.get());
         this.cookFood(FCItems.RAW_PTERANODON.get(), FCItems.COOKED_PTERANODON.get());
+        this.cookFood(FCItems.LIVING_BABY_NAUTILUS.get(), FCItems.SIO_CHIU_LE.get());
         this.cookFood(FCItems.RAW_FUTABASAURUS.get(), FCItems.COOKED_FUTABASAURUS.get());
         this.cookFood(FCItems.RAW_MOSASAURUS.get(), FCItems.COOKED_MOSASAURUS.get());
         this.cookFood(FCItems.RAW_STEGOSAURUS.get(), FCItems.COOKED_STEGOSAURUS.get());
@@ -105,7 +106,7 @@ public final class FCRecipeProvider extends RecipeProvider {
         this.cultivation(CultivationBookCategory.EGG, FCItems.VELOCIRAPTOR_DNA.get(), new ItemStack(FCItems.VELOCIRAPTOR_EGG.get()), 6000, 0.35F);
         this.cultivation(CultivationBookCategory.EGG, FCItems.TYRANNOSAURUS_DNA.get(), new ItemStack(FCItems.TYRANNOSAURUS_EGG.get()), 6000, 0.35F);
         this.cultivation(CultivationBookCategory.EGG, FCItems.PTERANODON_DNA.get(), new ItemStack(FCItems.PTERANODON_EGG.get()), 6000, 0.35F);
-        //this.cultivation(CultivationBookCategory.EGG, FCItems.NAUTILUS_DNA.get(), FCItems.NAUTILUS_EGGS.get(), 6000, 0.35F);
+        this.cultivation(CultivationBookCategory.EGG, FCItems.NAUTILUS_DNA.get(), new ItemStack(FCItems.NAUTILUS_EGGS.get()), 6000, 0.35F);
         this.cultivation(CultivationBookCategory.EGG, FCItems.FUTABASAURUS_DNA.get(), new ItemStack(FCItems.FUTABASAURUS_EGG.get()), 6000, 0.35F);
         this.cultivation(CultivationBookCategory.EGG, FCItems.MOSASAURUS_DNA.get(), new ItemStack(FCItems.MOSASAURUS_EGG.get()), 6000, 0.35F);
         this.cultivation(CultivationBookCategory.EGG, FCItems.STEGOSAURUS_DNA.get(), new ItemStack(FCItems.STEGOSAURUS_EGG.get()), 6000, 0.35F);
@@ -131,6 +132,7 @@ public final class FCRecipeProvider extends RecipeProvider {
         this.scarabGemUpgrade(Items.NETHERITE_HOE, FCItems.SCARAB_GEM_HOE.get());
         this.scarabGemUpgrade(Items.NETHERITE_PICKAXE, FCItems.SCARAB_GEM_PICKAXE.get());
         this.scarabGemUpgrade(Items.NETHERITE_SHOVEL, FCItems.SCARAB_GEM_SHOVEL.get());
+        this.scarabGemUpgrade(Items.NETHERITE_SPEAR, FCItems.SCARAB_GEM_SPEAR.get());
         this.scarabGemUpgrade(Items.NETHERITE_SWORD, FCItems.SCARAB_GEM_SWORD.get());
     }
 

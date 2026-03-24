@@ -17,6 +17,11 @@ public class EggRenderer extends MobRenderer<Egg, LivingEntityRenderState, EggMo
     }
 
     @Override
+    protected boolean shouldShowName(Egg egg, double distanceToCameraSq) {
+        return false;
+    }
+
+    @Override
     public Identifier getTextureLocation(LivingEntityRenderState livingEntityRenderState) {
         return this.texture;
     }

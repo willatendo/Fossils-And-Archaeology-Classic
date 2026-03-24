@@ -6,6 +6,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 
 public final class FCBlockTags {
+    public static final TagKey<Block> FEEDER = FCBlockTags.create("feeder");
     public static final TagKey<Block> JURASSIC_FERN_PLANTABLE_ON = FCBlockTags.create("jurassic_fern_plantable_on");
     public static final TagKey<Block> PERMAFROST_FROSTABLE = FCBlockTags.create("permafrost_frostable");
 

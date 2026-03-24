@@ -11,6 +11,9 @@ public final class FCSoundDefinitionsProvider extends SimpleSoundDefinitionsProv
 
     @Override
     public void registerSounds() {
+        this.entity(FCSoundEvents.STEGOSAURUS_AMBIENT.get(), "stegosaurus", "ambientSound", "stegosaurus/stegosaurus_ambient_1", "stegosaurus/stegosaurus_ambient_2", "stegosaurus/stegosaurus_ambient_3");
+        this.entity(FCSoundEvents.STEGOSAURUS_DEATH.get(), "stegosaurus", "deathSound", "stegosaurus/stegosaurus_death");
+        this.entity(FCSoundEvents.STEGOSAURUS_HURT.get(), "stegosaurus", "hurtSound", "stegosaurus/stegosaurus_hurt");
         this.entity(FCSoundEvents.TRICERATOPS_AMBIENT.get(), "triceratops", "ambientSound", "triceratops/triceratops_ambient_1", "triceratops/triceratops_ambient_2", "triceratops/triceratops_ambient_3");
         this.entity(FCSoundEvents.TRICERATOPS_DEATH.get(), "triceratops", "deathSound", "triceratops/triceratops_death");
         this.entity(FCSoundEvents.TRICERATOPS_HURT.get(), "triceratops", "hurtSound", "triceratops/triceratops_hurt_1", "triceratops/triceratops_hurt_2");

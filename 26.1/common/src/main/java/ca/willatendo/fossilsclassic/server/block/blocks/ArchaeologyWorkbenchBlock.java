@@ -77,7 +77,7 @@ public class ArchaeologyWorkbenchBlock extends BaseEntityBlock {
     public boolean triggerEvent(BlockState blockState, Level level, BlockPos blockPos, int id, int param) {
         super.triggerEvent(blockState, level, blockPos, id, param);
         BlockEntity blockEntity = level.getBlockEntity(blockPos);
-        return blockEntity == null ? false : blockEntity.triggerEvent(id, param);
+        return blockEntity != null && blockEntity.triggerEvent(id, param);
     }
 
     @Override

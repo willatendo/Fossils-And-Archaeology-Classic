@@ -1,0 +1,821 @@
+{
+  "type": "classic",
+  "animation_events": [
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "h_4"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.34906584
+          }
+        }
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "h_5"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.43633232
+          }
+        }
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "h_6"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.4886922
+          }
+        }
+      }
+    },
+    {
+      "axis": "x_rotation",
+      "bones": [
+        "d_l_1"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": -0.17453292
+          }
+        }
+      }
+    },
+    {
+      "axis": "x_rotation",
+      "bones": [
+        "d_r_1"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.17453292
+          }
+        }
+      }
+    },
+    {
+      "axis": "x_rotation",
+      "bones": [
+        "d_l_2"
+      ],
+      "value": {
+        "type": "operated",
+        "operation": "add",
+        "value_1": {
+          "type": "parametered",
+          "operation": "multiply",
+          "parameter": "walk_speed",
+          "value": {
+            "type": "operated",
+            "operation": "multiply",
+            "value_1": {
+              "type": "cos",
+              "value": {
+                "type": "parametered",
+                "operation": "divide_reverse",
+                "parameter": "walk_position",
+                "value": {
+                  "type": "operated",
+                  "operation": "multiply",
+                  "value_1": {
+                    "type": "simple",
+                    "value": 1.9191077
+                  },
+                  "value_2": {
+                    "type": "simple",
+                    "value": 0.5
+                  }
+                }
+              }
+            },
+            "value_2": {
+              "type": "simple",
+              "value": -0.17453292
+            }
+          }
+        },
+        "value_2": {
+          "type": "simple",
+          "value": 0.87266463
+        }
+      }
+    },
+    {
+      "axis": "x_rotation",
+      "bones": [
+        "d_r_2"
+      ],
+      "value": {
+        "type": "operated",
+        "operation": "add",
+        "value_1": {
+          "type": "parametered",
+          "operation": "multiply",
+          "parameter": "walk_speed",
+          "value": {
+            "type": "operated",
+            "operation": "multiply",
+            "value_1": {
+              "type": "cos",
+              "value": {
+                "type": "parametered",
+                "operation": "divide_reverse",
+                "parameter": "walk_position",
+                "value": {
+                  "type": "operated",
+                  "operation": "multiply",
+                  "value_1": {
+                    "type": "simple",
+                    "value": 1.9191077
+                  },
+                  "value_2": {
+                    "type": "simple",
+                    "value": 0.5
+                  }
+                }
+              }
+            },
+            "value_2": {
+              "type": "simple",
+              "value": 0.17453292
+            }
+          }
+        },
+        "value_2": {
+          "type": "simple",
+          "value": 0.87266463
+        }
+      }
+    },
+    {
+      "axis": "x_rotation",
+      "bones": [
+        "d_d_l_1"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.17453292
+          }
+        }
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "d_d_l_1"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.17453292
+          }
+        }
+      }
+    },
+    {
+      "axis": "x_rotation",
+      "bones": [
+        "d_d_r_1"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": -0.17453292
+          }
+        }
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "d_d_r_1"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.17453292
+          }
+        }
+      }
+    },
+    {
+      "axis": "x_rotation",
+      "bones": [
+        "d_d_l_2"
+      ],
+      "value": {
+        "type": "operated",
+        "operation": "add",
+        "value_1": {
+          "type": "parametered",
+          "operation": "multiply",
+          "parameter": "walk_speed",
+          "value": {
+            "type": "operated",
+            "operation": "multiply",
+            "value_1": {
+              "type": "cos",
+              "value": {
+                "type": "parametered",
+                "operation": "divide_reverse",
+                "parameter": "walk_position",
+                "value": {
+                  "type": "operated",
+                  "operation": "multiply",
+                  "value_1": {
+                    "type": "simple",
+                    "value": 1.9191077
+                  },
+                  "value_2": {
+                    "type": "simple",
+                    "value": 0.5
+                  }
+                }
+              }
+            },
+            "value_2": {
+              "type": "simple",
+              "value": 0.17453292
+            }
+          }
+        },
+        "value_2": {
+          "type": "simple",
+          "value": 1.2217305
+        }
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "d_d_l_2"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.17453292
+          }
+        }
+      }
+    },
+    {
+      "axis": "x_rotation",
+      "bones": [
+        "d_d_r_2"
+      ],
+      "value": {
+        "type": "operated",
+        "operation": "add",
+        "value_1": {
+          "type": "parametered",
+          "operation": "multiply",
+          "parameter": "walk_speed",
+          "value": {
+            "type": "operated",
+            "operation": "multiply",
+            "value_1": {
+              "type": "cos",
+              "value": {
+                "type": "parametered",
+                "operation": "divide_reverse",
+                "parameter": "walk_position",
+                "value": {
+                  "type": "operated",
+                  "operation": "multiply",
+                  "value_1": {
+                    "type": "simple",
+                    "value": 1.9191077
+                  },
+                  "value_2": {
+                    "type": "simple",
+                    "value": 0.5
+                  }
+                }
+              }
+            },
+            "value_2": {
+              "type": "simple",
+              "value": -0.17453292
+            }
+          }
+        },
+        "value_2": {
+          "type": "simple",
+          "value": 1.2217305
+        }
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "d_d_r_2"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.17453292
+          }
+        }
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "t_1"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.4886922
+          }
+        }
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "t_2"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.34906584
+          }
+        }
+      }
+    },
+    {
+      "axis": "z_rotation",
+      "bones": [
+        "t_2"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.17453292
+          }
+        }
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "t_3"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.17453292
+          }
+        }
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "t_4"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.17453292
+          }
+        }
+      }
+    }
+  ],
+  "required_parameters": [
+    "walk_position",
+    "walk_speed"
+  ]
+}

@@ -3,6 +3,7 @@ package ca.willatendo.fossilsclassic.server.chromosome;
 import ca.willatendo.fossilsclassic.server.gene.genes.Gene;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
@@ -10,6 +11,10 @@ import net.minecraft.network.codec.StreamCodec;
 public record BuiltInChromosome(CosmeticChooser cosmeticChooser, HolderSet<Gene> cosmeticGenes) implements Chromosome {
     public static final MapCodec<BuiltInChromosome> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(CosmeticChooser.CODEC.fieldOf("cosmetic_chooser").forGetter(BuiltInChromosome::cosmeticChooser), Gene.LIST_CODEC.fieldOf("cosmetic_genes").forGetter(BuiltInChromosome::cosmeticGenes)).apply(instance, BuiltInChromosome::new));
     public static final StreamCodec<RegistryFriendlyByteBuf, BuiltInChromosome> STREAM_CODEC = StreamCodec.composite(CosmeticChooser.STREAM_CODEC, BuiltInChromosome::cosmeticChooser, Gene.LIST_STREAM_CODEC, BuiltInChromosome::cosmeticGenes, BuiltInChromosome::new);
+
+    public BuiltInChromosome(Holder<Gene> cosmeticGene) {
+        this(CosmeticChooser.Single.INSTANCE, HolderSet.direct(cosmeticGene));
+    }
 
     @Override
     public CosmeticChooser getCosmeticChooser() {

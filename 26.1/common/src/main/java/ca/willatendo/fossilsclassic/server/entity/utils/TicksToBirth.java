@@ -23,9 +23,9 @@ public interface TicksToBirth {
 
     void kill();
 
-    default void onEntityTicksComplete(Mob offspringMod, Mob offspringMob, ServerLevel serverLevel) {
-        offspringMob.finalizeSpawn(serverLevel, serverLevel.getCurrentDifficultyAt(offspringMod.blockPosition()), EntitySpawnReason.BREEDING, null);
-        offspringMod.remove(Entity.RemovalReason.DISCARDED);
+    default void onEntityTicksComplete(Mob parentMob, Mob offspringMob, ServerLevel serverLevel) {
+        offspringMob.finalizeSpawn(serverLevel, serverLevel.getCurrentDifficultyAt(parentMob.blockPosition()), EntitySpawnReason.BREEDING, null);
+        parentMob.remove(Entity.RemovalReason.DISCARDED);
     }
 
     default void birthTick(Mob parentMob, ServerLevel serverLevel, Optional<EntityReference<LivingEntity>> owner) {

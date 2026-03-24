@@ -43,6 +43,7 @@ public final class FCLanguageProvider extends SimpleLanguageProvider {
         this.add("container.fossilsclassic.analyzer", "Analyzer");
         this.add("container.fossilsclassic.archaeology_workbench", "Archaeology Workbench");
         this.add("container.fossilsclassic.cultivator", "Cultivator");
+        this.add("container.fossilsclassic.feeder", "Feeder");
 
         this.add("dataPack.fossilsclassic.palaeocraft_example", "Palaeocraft Example");
 
@@ -54,6 +55,7 @@ public final class FCLanguageProvider extends SimpleLanguageProvider {
         this.add("dinopedia.fossilsclassic.not_the_owner", "You do not own this animal!");
         this.add("dinopedia.fossilsclassic.owner", "Owner: %s");
         this.add("dinopedia.fossilsclassic.remaining_ticks", "Progress: %s");
+        this.add("dinopedia.fossilsclassic.rideable", "*Rideable");
         this.add("dinopedia.fossilsclassic.status", "Status: %s");
         this.add("dinopedia.fossilsclassic.status.cold", "Cold");
         this.add("dinopedia.fossilsclassic.status.dry", "Dry");
@@ -64,6 +66,7 @@ public final class FCLanguageProvider extends SimpleLanguageProvider {
         this.add(FCEntityTypes.BONES.get());
         this.add(FCEntityTypes.FAILURESAURUS.get());
 
+        this.add(FCEntityTypes.STEGOSAURUS.get());
         this.add(FCEntityTypes.TRICERATOPS.get());
         this.add("entity.fossilsclassic.dinosaur.set_command", "Command: %s");
 
@@ -94,6 +97,8 @@ public final class FCLanguageProvider extends SimpleLanguageProvider {
         this.add(FCEntityTypes.STEGOSAURUS_EGG.get());
         this.add(FCEntityTypes.DILOPHOSAURUS_EGG.get());
         this.add(FCEntityTypes.BRACHIOSAURUS_EGG.get());
+        this.add(FCEntityTypes.INCUBATED_CHICKEN_EGG.get());
+        this.add(FCEntityTypes.INCUBATED_PARROT_EGG.get());
 
         this.add("fossil.fossilsclassic.brachiosaurus.name", "Brachiosaurus");
         this.add("fossil.fossilsclassic.futabasaurus.name", "Futabasaurus");
@@ -121,6 +126,7 @@ public final class FCLanguageProvider extends SimpleLanguageProvider {
         this.add(FCItems.VELOCIRAPTOR_EGG.get());
         this.add(FCItems.TYRANNOSAURUS_EGG.get());
         this.add(FCItems.PTERANODON_EGG.get());
+        this.add(FCItems.NAUTILUS_EGGS.get());
         this.add(FCItems.FUTABASAURUS_EGG.get());
         this.add(FCItems.MOSASAURUS_EGG.get());
         this.add(FCItems.STEGOSAURUS_EGG.get());
@@ -130,6 +136,7 @@ public final class FCLanguageProvider extends SimpleLanguageProvider {
         this.add(FCItems.RAW_VELOCIRAPTOR.get());
         this.add(FCItems.RAW_TYRANNOSAURUS.get());
         this.add(FCItems.RAW_PTERANODON.get());
+        this.add(FCItems.LIVING_BABY_NAUTILUS.get());
         this.add(FCItems.RAW_FUTABASAURUS.get());
         this.add(FCItems.RAW_MOSASAURUS.get());
         this.add(FCItems.RAW_STEGOSAURUS.get());
@@ -141,6 +148,7 @@ public final class FCLanguageProvider extends SimpleLanguageProvider {
         this.add(FCItems.COOKED_VELOCIRAPTOR.get());
         this.add(FCItems.COOKED_TYRANNOSAURUS.get());
         this.add(FCItems.COOKED_PTERANODON.get());
+        this.add(FCItems.SIO_CHIU_LE.get(), "Sio-Chui-Le");
         this.add(FCItems.COOKED_FUTABASAURUS.get());
         this.add(FCItems.COOKED_MOSASAURUS.get());
         this.add(FCItems.COOKED_STEGOSAURUS.get());
@@ -158,7 +166,10 @@ public final class FCLanguageProvider extends SimpleLanguageProvider {
         this.add(FCItems.MAGIC_CONCH.get());
         this.add(FCItems.FROZEN_MEAT.get());
         this.add(FCItems.BROKEN_FROZEN_MEAT.get(), "Frozen Meat");
+        this.add(FCItems.ARMADILLO_DNA.get());
         this.add(FCItems.AXOLOTL_DNA.get());
+        this.add(FCItems.BAT_DNA.get());
+        this.add(FCItems.CAMEL_DNA.get());
         this.add(FCItems.CAT_DNA.get());
         this.add(FCItems.CHICKEN_DNA.get());
         this.add(FCItems.COW_DNA.get());
@@ -186,6 +197,7 @@ public final class FCLanguageProvider extends SimpleLanguageProvider {
         this.add("item.fossilsclassic.bat_embryo_syringe.embryo_name", "Bat");
         this.add(FCItems.CAT_EMBRYO_SYRINGE.get());
         this.add("item.fossilsclassic.cat_embryo_syringe.embryo_name", "Cat");
+        this.add(FCItems.INCUBATED_CHICKEN_EGG.get());
         this.add(FCItems.CAMEL_EMBRYO_SYRINGE.get());
         this.add("item.fossilsclassic.camel_embryo_syringe.embryo_name", "Camel");
         this.add(FCItems.COW_EMBRYO_SYRINGE.get());
@@ -209,6 +221,7 @@ public final class FCLanguageProvider extends SimpleLanguageProvider {
         this.add(FCItems.PANDA_EMBRYO_SYRINGE.get());
         this.add("item.fossilsclassic.panda_embryo_syringe.embryo_name", "Panda");
         this.add(FCItems.PIG_EMBRYO_SYRINGE.get());
+        this.add(FCItems.INCUBATED_PARROT_EGG.get());
         this.add("item.fossilsclassic.pig_embryo_syringe.embryo_name", "Pig");
         this.add(FCItems.POLAR_BEAR_EMBRYO_SYRINGE.get());
         this.add("item.fossilsclassic.polar_bear_embryo_syringe.embryo_name", "Polar Bear");
@@ -235,6 +248,7 @@ public final class FCLanguageProvider extends SimpleLanguageProvider {
         this.add(FCItems.SCARAB_GEM_PICKAXE.get());
         this.add(FCItems.SCARAB_GEM_AXE.get());
         this.add(FCItems.SCARAB_GEM_HOE.get());
+        this.add(FCItems.SCARAB_GEM_SPEAR.get());
         this.add(FCItems.SCARAB_GEM_UPGRADE_SMITHING_TEMPLATE.get(), "Scarab Gem Upgrade");
         this.add("item.fossilsclassic.smithing_template.scarab_gem_upgrade.additions_slot_description", "Add Scarab Gem");
         this.add("item.fossilsclassic.smithing_template.scarab_gem_upgrade.applies_to", "Netherite Equipment");
@@ -260,10 +274,17 @@ public final class FCLanguageProvider extends SimpleLanguageProvider {
         this.add(FCItems.BONES_SPAWN_EGG.get());
         this.add(FCItems.FAILURESAURUS_SPAWN_EGG.get());
 
+        this.add(FCItems.STEGOSAURUS_SPAWN_EGG.get());
+        this.add(FCItems.TRICERATOPS_SPAWN_EGG.get());
+
         this.add(FCItems.CUSTOM_SPAWN_EGG.get());
         this.add("item.fossilsclassic.custom_spawn_egg.no_entity", "No entity assigned to spawn!");
 
-        this.add(FCCreativeModeTabs.FOSSILS_CLASSIC.get(), "F/A: Classic");
+        this.add(FCItems.SET_OWNER_DEBUG_TOOL.get());
+
+        this.add(FCCreativeModeTabs.FOSSILS_CLASSIC_BLOCKS.get(), "F/A: Classic Blocks");
+        this.add(FCCreativeModeTabs.FOSSILS_CLASSIC_PALAEONTOLOGY_ITEMS.get(), "F/A: Classic Palaentology Items");
+        this.add(FCCreativeModeTabs.FOSSILS_CLASSIC_ARCHAEOLOGY_ITEMS.get(), "F/A: Classic Archaeology Items");
         this.add(FCCreativeModeTabs.FOSSILS_CLASSIC_SPAWN_EGGS.get(), "F/A: Classic Spawn Eggs");
         this.add(FCCreativeModeTabs.FOSSILS_CLASSIC_CUSTOM_CONTENT.get(), "F/A: Classic Custom Content");
 
@@ -279,6 +300,7 @@ public final class FCLanguageProvider extends SimpleLanguageProvider {
         this.addStat(FCStats.INTERACT_WITH_ANALYZER, "Interactions with Analyzer");
         this.addStat(FCStats.INTERACT_WITH_ARCHAEOLOGY_WORKBENCH, "Interactions with Archaeology Workbench");
         this.addStat(FCStats.INTERACT_WITH_CULTIVATOR, "Interactions with Cultivator");
+        this.addStat(FCStats.INTERACT_WITH_FEEDER, "Interactions with Feeder");
 
         this.add("stone_tablet.dimensions", "%sx%s");
         this.add("stone_tablet.fossilsclassic.lighting.title", "Lightning");
@@ -326,6 +348,9 @@ public final class FCLanguageProvider extends SimpleLanguageProvider {
         this.add("subtitles.block.drum.hit", "Drum hit");
         this.add("subtitles.block.drum.triple_hit", "Drum triple hit");
 
+        this.add("subtitles.entity.stegosaurus.ambientSound", "Stegosaurus grunts");
+        this.add("subtitles.entity.stegosaurus.deathSound", "Stegosaurus dies");
+        this.add("subtitles.entity.stegosaurus.hurtSound", "Stegosaurus hurts");
         this.add("subtitles.entity.triceratops.ambientSound", "Triceratops grunts");
         this.add("subtitles.entity.triceratops.deathSound", "Triceratops dies");
         this.add("subtitles.entity.triceratops.hurtSound", "Triceratops hurts");

@@ -1,4 +1,4 @@
-// 1.21.11	2026-03-14T18:36:44.3863905	Loot Tables
+// 1.21.11	2026-03-22T14:46:48.8051287	Loot Tables
 d87285f431f6b3d7434a5296771d0dfb6540581a data/fossilsclassic/loot_table/blocks/analyzer.json
 031fbf45c759a88caf6f99616dd6cebf154c47b5 data/fossilsclassic/loot_table/blocks/archaeology_workbench.json
 7057808598840fb4f8729d30388df6b5880f14ec data/fossilsclassic/loot_table/blocks/axolotlspawn.json
@@ -23,8 +23,9 @@ c119cf2533d334813faa33a98954ce017c604bb8 data/fossilsclassic/loot_table/entities
 201eed6e35270dbaa84ca106cced9c082177c631 data/fossilsclassic/loot_table/entities/futabasaurus_egg.json
 e2dbafb5525ea1172862a1787144689975149146 data/fossilsclassic/loot_table/entities/mosasaurus_egg.json
 b34174b1b22270c9cfcd33d72ac32a0700316ef5 data/fossilsclassic/loot_table/entities/pteranodon_egg.json
+e9f552b560a24f82ebc9af4a581dfb636177f797 data/fossilsclassic/loot_table/entities/stegosaurus.json
 b562ec9e3a0476c3cae010894ea58ec827b3928e data/fossilsclassic/loot_table/entities/stegosaurus_egg.json
-431ce35d96933555fa965f949afccb1324520461 data/fossilsclassic/loot_table/entities/triceratops.json
+74b591db413a9276ce06a720fe0719e3bb6049f7 data/fossilsclassic/loot_table/entities/triceratops.json
 3bef1cbad2b63d3f0042f9b724e306de5ba61fd1 data/fossilsclassic/loot_table/entities/triceratops_egg.json
 3d404706b189b4427fbfaa9a7b005aeb14035044 data/fossilsclassic/loot_table/entities/tyrannosaurus_egg.json
 9780434c4fff228a1b06c8e29d4f021e9d9a74d0 data/fossilsclassic/loot_table/entities/velociraptor_egg.json

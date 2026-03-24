@@ -9,6 +9,9 @@ import net.minecraft.sounds.SoundEvent;
 public final class FCSoundEvents {
     public static final SoundEventsSubRegistry SOUND_EVENTS = new SoundEventsSubRegistry(FCCoreUtils.ID);
 
+    public static final SimpleHolder<SoundEvent> STEGOSAURUS_AMBIENT = SOUND_EVENTS.registerVariableRange("entity.stegosaurus.ambient");
+    public static final SimpleHolder<SoundEvent> STEGOSAURUS_DEATH = SOUND_EVENTS.registerVariableRange("entity.stegosaurus.death");
+    public static final SimpleHolder<SoundEvent> STEGOSAURUS_HURT = SOUND_EVENTS.registerVariableRange("entity.stegosaurus.hurt");
     public static final SimpleHolder<SoundEvent> TRICERATOPS_AMBIENT = SOUND_EVENTS.registerVariableRange("entity.triceratops.ambient");
     public static final SimpleHolder<SoundEvent> TRICERATOPS_DEATH = SOUND_EVENTS.registerVariableRange("entity.triceratops.death");
     public static final SimpleHolder<SoundEvent> TRICERATOPS_HURT = SOUND_EVENTS.registerVariableRange("entity.triceratops.hurt");

@@ -76,6 +76,7 @@ public final class FossilsClassicData {
 
         event.addProvider(new FCRecipeProvider.Runner(packOutput, registries));
         event.addProvider(new SimpleLootTableProvider(packOutput, registries, new LootTableProvider.SubProviderEntry(FCBlockLootSubProvider::new, LootContextParamSets.BLOCK), new LootTableProvider.SubProviderEntry(FEntityLootSubProvider::new, LootContextParamSets.ENTITY), new LootTableProvider.SubProviderEntry(FCChestLootSubProvider::new, LootContextParamSets.CHEST)));
+        event.addProvider(new FCDataMapProvider(packOutput, registries));
 
         FCBlockTagsProvider fcBlockTagsProvider = new FCBlockTagsProvider(packOutput, registries, FCCoreUtils.ID);
         event.addProvider(fcBlockTagsProvider);

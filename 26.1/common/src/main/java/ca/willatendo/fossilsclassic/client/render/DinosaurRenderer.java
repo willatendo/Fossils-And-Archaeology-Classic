@@ -41,7 +41,7 @@ public abstract class DinosaurRenderer<D extends Dinosaur, S extends DinosaurRen
     @Override
     public void extractRenderState(D dinosaur, S dinosaurRenderState, float partialTick) {
         super.extractRenderState(dinosaur, dinosaurRenderState, partialTick);
-        dinosaurRenderState.size = dinosaur.getGrowthStage();
+        dinosaurRenderState.growthStage = dinosaur.getGrowthStage();
         RegistryAccess registryAccess = dinosaur.registryAccess();
         Registry<Gene> genes = registryAccess.lookupOrThrow(FCRegistries.GENE);
         dinosaurRenderState.geneCosmetic = GeneCosmeticLoader.getGeneCosmetic(genes.getKey(dinosaur.getCosmeticGene().value()));

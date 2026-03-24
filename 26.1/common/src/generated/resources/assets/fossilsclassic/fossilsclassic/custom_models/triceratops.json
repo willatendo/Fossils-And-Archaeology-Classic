@@ -1,4 +1,7 @@
 {
+  "animations": [
+    "fossilsclassic:triceratops/walk"
+  ],
   "parts": [
     {
       "children": [

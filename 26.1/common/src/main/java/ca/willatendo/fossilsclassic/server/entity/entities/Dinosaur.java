@@ -35,6 +35,7 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.variant.VariantUtils;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -46,7 +47,10 @@ import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.pathfinder.WalkNodeEvaluator;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 
+import java.util.List;
 import java.util.Optional;
 
 public abstract class Dinosaur extends Animal implements CommandableEntity, TameAccessor {
@@ -85,12 +89,20 @@ public abstract class Dinosaur extends Animal implements CommandableEntity, Tame
 
     protected abstract float getEyeHeight(float boundingBoxHeight);
 
+    protected abstract float getAttachmentY(float boundingBoxHeight);
+
     protected abstract void updateAttributesWithGrowthStage(int growthStage, boolean updateHealth);
 
     protected abstract Diet getDiet();
 
+    protected abstract Dinosaur getSpawnEggOffspring(ServerLevel serverLevel);
+
     public final float getMaxHunger() {
         return (float) this.getAttributeValue(FCAttributes.MAX_HUNGER);
+    }
+
+    public final boolean isHungry() {
+        return this.getHunger() <= ((this.getMaxHunger() * 4.0F) / 5.0F);
     }
 
     @Override
@@ -228,7 +240,7 @@ public abstract class Dinosaur extends Animal implements CommandableEntity, Tame
     private EntityDimensions getDimensionsForGrowthStage(int growthStage) {
         EntityDimensions defaultDimensions = this.getType().getDimensions();
         float height = defaultDimensions.height() + (this.getBoundingBoxHeightGrowth() * growthStage);
-        return EntityDimensions.scalable(defaultDimensions.width() + (this.getBoundingBoxWidthGrowth() * growthStage), height).withEyeHeight(this.getEyeHeight(height));
+        return EntityDimensions.scalable(defaultDimensions.width() + (this.getBoundingBoxWidthGrowth() * growthStage), height).withEyeHeight(this.getEyeHeight(height)).withAttachments(EntityAttachments.builder().attach(EntityAttachment.PASSENGER, 0.0F, this.getAttachmentY(height), 0.0F));
     }
 
     @Override
@@ -378,18 +390,13 @@ public abstract class Dinosaur extends Animal implements CommandableEntity, Tame
     }
 
     @Override
-    public InteractionResult interact(Player player, InteractionHand interactionHand) {
+    public InteractionResult mobInteract(Player player, InteractionHand interactionHand) {
         ItemStack itemStack = player.getItemInHand(interactionHand);
-        if (interactionHand == InteractionHand.MAIN_HAND && this.commandingInformation().canCommandWithItem(itemStack) && this.isOwnedBy(player)) {
-            this.cycleCommand();
-            player.displayClientMessage(FCCoreUtils.translationWithArguments("entity", "dinosaur.set_command", this.getCommand().value().getName().copy().withStyle(ChatFormatting.BOLD, ChatFormatting.DARK_GRAY)).copy().withStyle(ChatFormatting.GRAY), true);
-            return InteractionResult.SUCCESS_SERVER;
-        }
-
-        int foodValue = this.getDiet().getFoodValue(itemStack);
-        if (foodValue > 0) {
+        int potentialFoodValue = this.getDiet().getFoodValue(itemStack);
+        boolean isFood = potentialFoodValue > 0;
+        if (isFood) {
             if (this.getHunger() < this.getMaxHunger()) {
-                float addition = this.getHunger() + foodValue;
+                float addition = this.getHunger() + potentialFoodValue;
                 if (addition < this.getMaxHunger()) {
                     this.setHunger(addition);
                     itemStack.shrink(1);
@@ -412,10 +419,28 @@ public abstract class Dinosaur extends Animal implements CommandableEntity, Tame
                 if (player instanceof ServerPlayer serverPlayer) {
                     this.sendMessageToPlayer(DinosaurSpeechBubble.FULL, serverPlayer);
                 }
+                if (this.isBaby()) {
+                    this.tryToTame(player);
+                } else {
+                    this.setInLove(player);
+                }
             }
             return InteractionResult.SUCCESS;
         }
-        return super.interact(player, interactionHand);
+
+        if (itemStack.isEmpty() && this instanceof RideableDinosaur rideableDinosaur && this.getGrowthStage() >= rideableDinosaur.getMinRideableAge() && !this.isVehicle() && !player.isSecondaryUseActive() && this.isOwnedBy(player)) {
+            if (!this.level().isClientSide()) {
+                player.startRiding(this);
+            }
+            return InteractionResult.SUCCESS;
+        }
+
+        if (!isFood && interactionHand == InteractionHand.MAIN_HAND && this.commandingInformation().canCommandWithItem(itemStack) && this.isOwnedBy(player)) {
+            this.cycleCommand();
+            player.displayClientMessage(FCCoreUtils.translationWithArguments("entity", "dinosaur.set_command", this.getCommand().value().getName().copy().withStyle(ChatFormatting.BOLD, ChatFormatting.DARK_GRAY)).copy().withStyle(ChatFormatting.GRAY), true);
+            return InteractionResult.SUCCESS_SERVER;
+        }
+        return super.mobInteract(player, interactionHand);
     }
 
     private void tryToTame(Player player) {
@@ -514,6 +539,55 @@ public abstract class Dinosaur extends Animal implements CommandableEntity, Tame
     @Override
     protected int getBaseExperienceReward(ServerLevel serverLevel) {
         return super.getBaseExperienceReward(serverLevel) * this.getGrowthStage();
+    }
+
+    @Override
+    public InteractionResult interact(Player player, InteractionHand interactionHand) {
+        ItemStack itemStack = player.getItemInHand(interactionHand);
+        if (itemStack.getItem() instanceof SpawnEggItem spawnEggItem) {
+            if (this.level() instanceof ServerLevel serverLevel) {
+                Optional<Dinosaur> optional = this.spawnOffspringFromSpawnEgg(spawnEggItem, player, this, this.getType(), serverLevel, this.position(), itemStack);
+                optional.ifPresent(dinosaur -> this.onOffspringSpawnedFromEgg(player, dinosaur));
+                if (optional.isEmpty()) {
+                    return InteractionResult.PASS;
+                }
+            }
+
+            return InteractionResult.SUCCESS_SERVER;
+        }
+        return super.interact(player, interactionHand);
+    }
+
+    public Optional<Dinosaur> spawnOffspringFromSpawnEgg(SpawnEggItem spawnEggItem, Player player, Dinosaur parent, EntityType<?> entityType, ServerLevel serverLevel, Vec3 pos, ItemStack itemStack) {
+        if (!spawnEggItem.spawnsEntity(itemStack, entityType)) {
+            return Optional.empty();
+        } else {
+            Dinosaur offspring = parent.getSpawnEggOffspring(serverLevel);
+            if (offspring == null) {
+                return Optional.empty();
+            } else {
+                offspring.snapTo(pos.x(), pos.y(), pos.z(), 0.0F, 0.0F);
+                offspring.applyComponentsFromItemStack(itemStack);
+                serverLevel.addFreshEntityWithPassengers(offspring);
+                itemStack.consume(1, player);
+                return Optional.of(offspring);
+            }
+        }
+    }
+
+    @Override
+    protected void onOffspringSpawnedFromEgg(Player player, Mob child) {
+        if (child instanceof Dinosaur dinosaur) {
+            Chromosome chromosome = dinosaur.getChromosome().value();
+            chromosome.getCosmeticChooser().getGene(chromosome.getCosmeticGenes(), dinosaur.getRandom(), dinosaur.level().getBiome(dinosaur.blockPosition())).ifPresent(dinosaur::setCosmeticGene);
+
+            dinosaur.setHunger(dinosaur.getMaxHunger());
+            dinosaur.setCommand(FCCommandTypes.FREE_MOVE);
+            if (player.isCrouching()) {
+                dinosaur.setGrowthStage(0, true);
+            }
+        }
+        super.onOffspringSpawnedFromEgg(player, child);
     }
 
     @Override

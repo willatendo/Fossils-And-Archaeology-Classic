@@ -15,18 +15,25 @@ import ca.willatendo.fossilsclassic.server.entity.fossil_variant.FossilVariant;
 import ca.willatendo.fossilsclassic.server.entity.stone_tablet_variant.StoneTabletVariant;
 import ca.willatendo.fossilsclassic.server.feeder_food.FeederFoodValue;
 import ca.willatendo.fossilsclassic.server.gene.genes.Gene;
+import ca.willatendo.fossilsclassic.server.item.FCItems;
 import ca.willatendo.fossilsclassic.server.registry.FCBuiltInRegistries;
 import ca.willatendo.fossilsclassic.server.registry.FCRegistries;
 import ca.willatendo.fossilsclassic.server.stats.FCStats;
 import ca.willatendo.fossilsclassic.server.utils.BirthUtils;
 import ca.willatendo.simplelibrary.core.utils.AttachmentTypeUtils;
 import ca.willatendo.simplelibrary.server.EventListener;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.packs.repository.Pack;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.SpawnPlacementTypes;
+import net.minecraft.world.entity.animal.nautilus.Nautilus;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeBookCategory;
 import net.minecraft.world.level.levelgen.Heightmap;
 
@@ -74,6 +81,7 @@ public final class FossilsClassicEventListener implements EventListener {
         attributeRegister.apply(FCEntityTypes.BONES.get(), Bones.createAttributes());
         attributeRegister.apply(FCEntityTypes.FAILURESAURUS.get(), Failuresaurs.createAttributes());
 
+        attributeRegister.apply(FCEntityTypes.STEGOSAURUS.get(), Stegosaurus.stegosaurusAttributes());
         attributeRegister.apply(FCEntityTypes.TRICERATOPS.get(), Triceratops.triceratopsAttributes());
         // attributeRegister.apply(FCEntityTypes.CUSTOM.get(), Custom.baseAttributes());
 
@@ -98,6 +106,20 @@ public final class FossilsClassicEventListener implements EventListener {
     @Override
     public void registerSpawnPlacements(SpawnPlacementRegister spawnPlacementRegister) {
         spawnPlacementRegister.apply(FCEntityTypes.BONES.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Bones::checkBonesSpawnRules);
+    }
+
+    @Override
+    public InteractionResult playerEntityInteractEvent(Entity entity, Player player) {
+        if (entity instanceof Nautilus nautilus && nautilus.isBaby() && !nautilus.level().isClientSide() && player.getMainHandItem().isEmpty()) {
+            ItemStack livingBabyNautilusItemStack = new ItemStack(FCItems.LIVING_BABY_NAUTILUS.get());
+            if (nautilus.hasCustomName()) {
+                livingBabyNautilusItemStack.set(DataComponents.CUSTOM_NAME, nautilus.getCustomName());
+            }
+            player.setItemInHand(InteractionHand.MAIN_HAND, livingBabyNautilusItemStack);
+            nautilus.discard();
+            return InteractionResult.SUCCESS.heldItemTransformedTo(livingBabyNautilusItemStack);
+        }
+        return EventListener.super.playerEntityInteractEvent(entity, player);
     }
 
     @Override

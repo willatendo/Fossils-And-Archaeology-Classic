@@ -23,6 +23,7 @@ public final class FCBlockTagsProvider extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(FCBlocks.ARCHAEOLOGY_WORKBENCH.get(), FCBlocks.DRUM.get());
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(FCBlocks.PERMAFROST.get());
 
+        this.tag(FCBlockTags.FEEDER).add(FCBlocks.FEEDER.get());
         this.tag(FCBlockTags.JURASSIC_FERN_PLANTABLE_ON).addTag(BlockTags.DIRT);
         this.tag(FCBlockTags.PERMAFROST_FROSTABLE).add(Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE, Blocks.TUFF, Blocks.DEEPSLATE, Blocks.CALCITE);
     }

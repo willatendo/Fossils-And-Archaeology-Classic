@@ -3,6 +3,8 @@ package ca.willatendo.fossilsclassic.server.block.blocks;
 import ca.willatendo.fossilsclassic.core.utils.FCCoreUtils;
 import ca.willatendo.fossilsclassic.server.block.FCBlockEntityTypes;
 import ca.willatendo.fossilsclassic.server.block.entities.CultivatorBlockEntity;
+import ca.willatendo.fossilsclassic.server.entity.FCEntityTypes;
+import ca.willatendo.fossilsclassic.server.game_event.FCGameEvents;
 import ca.willatendo.fossilsclassic.server.game_rules.FCGameRules;
 import ca.willatendo.fossilsclassic.server.stats.FCStats;
 import ca.willatendo.simplelibrary.server.utils.ServerUtils;
@@ -33,6 +35,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 
 import java.util.List;
@@ -47,6 +50,7 @@ public class CultivatorBlock extends BaseEntityBlock {
     }
 
     public static void shatter(Level level, BlockPos blockPos, CultivatorBlockEntity cultivatorBlockEntity) {
+        level.gameEvent(FCGameEvents.CULTIVATOR_SHATTERED, blockPos, GameEvent.Context.of(level.getBlockState(blockPos)));
         level.setBlock(blockPos, Blocks.WATER.defaultBlockState(), 3);
         level.removeBlockEntity(blockPos);
         level.playLocalSound(blockPos, SoundEvents.GLASS_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F, false);
@@ -68,8 +72,7 @@ public class CultivatorBlock extends BaseEntityBlock {
             monsterLivingEntity = EntityType.ZOMBIFIED_PIGLIN.create(level, EntitySpawnReason.EVENT);
         }
         if (chance >= 10) {
-            monsterLivingEntity = EntityType.ZOMBIE.create(level, EntitySpawnReason.EVENT);
-            // monsterLivingEntity = FossilsLegacyEntityTypes.FAILURESAURUS.get().create(level);
+            monsterLivingEntity = FCEntityTypes.FAILURESAURUS.get().create(level, EntitySpawnReason.EVENT);
         }
 
         monsterLivingEntity.snapTo(blockPos, level.getRandom().nextFloat() * 360F, 0.0F);

@@ -14,6 +14,7 @@ public final class FCBiomassValues {
     public static final ResourceKey<BiomassValue> VELOCIRAPTOR_EGG = FCBiomassValues.create("velociraptor_egg");
     public static final ResourceKey<BiomassValue> TYRANNOSAURUS_EGG = FCBiomassValues.create("tyrannosaurus_egg");
     public static final ResourceKey<BiomassValue> PTERANODON_EGG = FCBiomassValues.create("pteranodon_egg");
+    public static final ResourceKey<BiomassValue> NAUTILUS_EGGS = FCBiomassValues.create("nautilus_eggs");
     public static final ResourceKey<BiomassValue> FUTABASAURUS_EGG = FCBiomassValues.create("futabasaurus_egg");
     public static final ResourceKey<BiomassValue> MOSASAURUS_EGG = FCBiomassValues.create("mosasaurus_egg");
     public static final ResourceKey<BiomassValue> STEGOSAURUS_EGG = FCBiomassValues.create("stegosaurus_egg");
@@ -52,6 +53,7 @@ public final class FCBiomassValues {
         bootstrapContext.register(VELOCIRAPTOR_EGG, new BiomassValue(FCItems.VELOCIRAPTOR_EGG.get(), 12000));
         bootstrapContext.register(TYRANNOSAURUS_EGG, new BiomassValue(FCItems.TYRANNOSAURUS_EGG.get(), 12000));
         bootstrapContext.register(PTERANODON_EGG, new BiomassValue(FCItems.PTERANODON_EGG.get(), 12000));
+        bootstrapContext.register(NAUTILUS_EGGS, new BiomassValue(FCItems.NAUTILUS_EGGS.get(), 12000));
         bootstrapContext.register(FUTABASAURUS_EGG, new BiomassValue(FCItems.FUTABASAURUS_EGG.get(), 12000));
         bootstrapContext.register(MOSASAURUS_EGG, new BiomassValue(FCItems.MOSASAURUS_EGG.get(), 12000));
         bootstrapContext.register(STEGOSAURUS_EGG, new BiomassValue(FCItems.STEGOSAURUS_EGG.get(), 12000));

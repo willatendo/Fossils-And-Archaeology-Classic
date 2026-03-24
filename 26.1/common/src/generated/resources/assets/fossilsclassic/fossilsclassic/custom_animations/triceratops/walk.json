@@ -1,0 +1,782 @@
+{
+  "type": "classic",
+  "animation_events": [
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "lower_body"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.17453292
+          }
+        }
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "back"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.2617994
+          }
+        }
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "tail"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.34906584
+          }
+        }
+      }
+    },
+    {
+      "axis": "x_rotation",
+      "bones": [
+        "right_front_thigh"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": -0.17453292
+          }
+        }
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "right_front_thigh"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.08726646
+          }
+        }
+      }
+    },
+    {
+      "axis": "x_rotation",
+      "bones": [
+        "right_front_leg"
+      ],
+      "value": {
+        "type": "operated",
+        "operation": "add",
+        "value_1": {
+          "type": "parametered",
+          "operation": "multiply",
+          "parameter": "walk_speed",
+          "value": {
+            "type": "operated",
+            "operation": "multiply",
+            "value_1": {
+              "type": "cos",
+              "value": {
+                "type": "parametered",
+                "operation": "divide_reverse",
+                "parameter": "walk_position",
+                "value": {
+                  "type": "operated",
+                  "operation": "multiply",
+                  "value_1": {
+                    "type": "simple",
+                    "value": 1.9191077
+                  },
+                  "value_2": {
+                    "type": "simple",
+                    "value": 0.5
+                  }
+                }
+              }
+            },
+            "value_2": {
+              "type": "simple",
+              "value": -0.17453292
+            }
+          }
+        },
+        "value_2": {
+          "type": "simple",
+          "value": 0.994461
+        }
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "right_front_leg"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.08726646
+          }
+        }
+      }
+    },
+    {
+      "axis": "x_rotation",
+      "bones": [
+        "left_front_thigh"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.17453292
+          }
+        }
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "left_front_thigh"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.08726646
+          }
+        }
+      }
+    },
+    {
+      "axis": "x_rotation",
+      "bones": [
+        "left_front_leg"
+      ],
+      "value": {
+        "type": "operated",
+        "operation": "add",
+        "value_1": {
+          "type": "parametered",
+          "operation": "multiply",
+          "parameter": "walk_speed",
+          "value": {
+            "type": "operated",
+            "operation": "multiply",
+            "value_1": {
+              "type": "cos",
+              "value": {
+                "type": "parametered",
+                "operation": "divide_reverse",
+                "parameter": "walk_position",
+                "value": {
+                  "type": "operated",
+                  "operation": "multiply",
+                  "value_1": {
+                    "type": "simple",
+                    "value": 1.9191077
+                  },
+                  "value_2": {
+                    "type": "simple",
+                    "value": 0.5
+                  }
+                }
+              }
+            },
+            "value_2": {
+              "type": "simple",
+              "value": 0.17453292
+            }
+          }
+        },
+        "value_2": {
+          "type": "simple",
+          "value": 0.994461
+        }
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "left_front_leg"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.08726646
+          }
+        }
+      }
+    },
+    {
+      "axis": "x_rotation",
+      "bones": [
+        "right_back_thigh"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.17453292
+          }
+        }
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "right_back_thigh"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.08726646
+          }
+        }
+      }
+    },
+    {
+      "axis": "x_rotation",
+      "bones": [
+        "right_back_leg"
+      ],
+      "value": {
+        "type": "operated",
+        "operation": "add",
+        "value_1": {
+          "type": "parametered",
+          "operation": "multiply",
+          "parameter": "walk_speed",
+          "value": {
+            "type": "operated",
+            "operation": "multiply",
+            "value_1": {
+              "type": "cos",
+              "value": {
+                "type": "parametered",
+                "operation": "divide_reverse",
+                "parameter": "walk_position",
+                "value": {
+                  "type": "operated",
+                  "operation": "multiply",
+                  "value_1": {
+                    "type": "simple",
+                    "value": 1.9191077
+                  },
+                  "value_2": {
+                    "type": "simple",
+                    "value": 0.5
+                  }
+                }
+              }
+            },
+            "value_2": {
+              "type": "simple",
+              "value": 0.17453292
+            }
+          }
+        },
+        "value_2": {
+          "type": "simple",
+          "value": 0.994461
+        }
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "right_back_leg"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.08726646
+          }
+        }
+      }
+    },
+    {
+      "axis": "x_rotation",
+      "bones": [
+        "left_back_thigh"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": -0.17453292
+          }
+        }
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "left_back_thigh"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.08726646
+          }
+        }
+      }
+    },
+    {
+      "axis": "x_rotation",
+      "bones": [
+        "left_back_leg"
+      ],
+      "value": {
+        "type": "operated",
+        "operation": "add",
+        "value_1": {
+          "type": "parametered",
+          "operation": "multiply",
+          "parameter": "walk_speed",
+          "value": {
+            "type": "operated",
+            "operation": "multiply",
+            "value_1": {
+              "type": "cos",
+              "value": {
+                "type": "parametered",
+                "operation": "divide_reverse",
+                "parameter": "walk_position",
+                "value": {
+                  "type": "operated",
+                  "operation": "multiply",
+                  "value_1": {
+                    "type": "simple",
+                    "value": 1.9191077
+                  },
+                  "value_2": {
+                    "type": "simple",
+                    "value": 0.5
+                  }
+                }
+              }
+            },
+            "value_2": {
+              "type": "simple",
+              "value": -0.17453292
+            }
+          }
+        },
+        "value_2": {
+          "type": "simple",
+          "value": 0.994461
+        }
+      }
+    },
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "left_back_leg"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_speed",
+        "value": {
+          "type": "operated",
+          "operation": "multiply",
+          "value_1": {
+            "type": "cos",
+            "value": {
+              "type": "parametered",
+              "operation": "divide_reverse",
+              "parameter": "walk_position",
+              "value": {
+                "type": "operated",
+                "operation": "multiply",
+                "value_1": {
+                  "type": "simple",
+                  "value": 1.9191077
+                },
+                "value_2": {
+                  "type": "simple",
+                  "value": 0.5
+                }
+              }
+            }
+          },
+          "value_2": {
+            "type": "simple",
+            "value": 0.08726646
+          }
+        }
+      }
+    }
+  ],
+  "required_parameters": [
+    "walk_position",
+    "walk_speed"
+  ]
+}

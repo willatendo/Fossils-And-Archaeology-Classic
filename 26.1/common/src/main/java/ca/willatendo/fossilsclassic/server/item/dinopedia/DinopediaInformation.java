@@ -2,6 +2,7 @@ package ca.willatendo.fossilsclassic.server.item.dinopedia;
 
 import ca.willatendo.fossilsclassic.core.utils.FCCoreUtils;
 import ca.willatendo.fossilsclassic.server.entity.entities.Dinosaur;
+import ca.willatendo.fossilsclassic.server.entity.utils.RideableDinosaur;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
@@ -35,9 +36,12 @@ public final class DinopediaInformation {
         DinopediaInformation.Builder builder = DinopediaInformation.builder();
         builder.addEntityName(dinosaur);
         if (dinosaur.isTame()) {
-            builder.addLine(FCCoreUtils.translationWithArguments("dinopedia", "owner", dinosaur.getOwnerReference().getEntity(dinosaur.level(), LivingEntity.class).getDisplayName()));
+            builder.addLine(FCCoreUtils.translationWithArguments("dinopedia", "owner", dinosaur.getOwnerReference().getEntity(dinosaur.level(), LivingEntity.class).getDisplayName().copy().withStyle(ChatFormatting.BOLD, ChatFormatting.DARK_GRAY)).copy().withStyle(ChatFormatting.GRAY));
         }
         builder.addLine(FCCoreUtils.translationWithArguments("dinopedia", "age", Component.literal(dinosaur.getDaysAlive() + "").withStyle(ChatFormatting.BOLD, ChatFormatting.DARK_GRAY)).copy().withStyle(ChatFormatting.GRAY), FCCoreUtils.translationWithArguments("dinopedia", "health", Component.literal((int) dinosaur.getHealth() + "").withStyle(ChatFormatting.BOLD, ChatFormatting.DARK_GRAY), Component.literal((int) dinosaur.getMaxHealth() + "").withStyle(ChatFormatting.BOLD, ChatFormatting.DARK_GRAY)).copy().withStyle(ChatFormatting.GRAY), FCCoreUtils.translationWithArguments("dinopedia", "hunger", Component.literal((int) dinosaur.getHunger() + "").withStyle(ChatFormatting.BOLD, ChatFormatting.DARK_GRAY), Component.literal((int) dinosaur.getMaxHunger() + "").withStyle(ChatFormatting.BOLD, ChatFormatting.DARK_GRAY)).copy().withStyle(ChatFormatting.GRAY));
+        if (dinosaur instanceof RideableDinosaur rideableDinosaur && dinosaur.getGrowthStage() >= rideableDinosaur.getMinRideableAge()) {
+            builder.addLine(FCCoreUtils.translationWithArguments("dinopedia", "rideable").copy().withStyle(ChatFormatting.GRAY));
+        }
         return builder.build();
     }
 

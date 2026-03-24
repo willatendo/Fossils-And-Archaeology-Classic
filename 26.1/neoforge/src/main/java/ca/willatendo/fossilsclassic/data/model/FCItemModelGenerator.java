@@ -2,11 +2,13 @@ package ca.willatendo.fossilsclassic.data.model;
 
 import ca.willatendo.fossilsclassic.core.utils.FCCoreUtils;
 import ca.willatendo.fossilsclassic.server.item.FCItems;
+import ca.willatendo.simplelibrary.core.utils.CoreUtils;
 import ca.willatendo.simplelibrary.data.model.SimpleItemModelGenerator;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.renderer.item.ItemModel;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 
 public final class FCItemModelGenerator extends SimpleItemModelGenerator {
@@ -31,6 +33,7 @@ public final class FCItemModelGenerator extends SimpleItemModelGenerator {
         this.generatedItem(FCItems.VELOCIRAPTOR_EGG.get());
         this.generatedItem(FCItems.TYRANNOSAURUS_EGG.get());
         this.generatedItem(FCItems.PTERANODON_EGG.get());
+        this.generatedItem(FCItems.NAUTILUS_EGGS.get());
         this.generatedItem(FCItems.FUTABASAURUS_EGG.get());
         this.generatedItem(FCItems.MOSASAURUS_EGG.get());
         this.generatedItem(FCItems.STEGOSAURUS_EGG.get());
@@ -40,6 +43,7 @@ public final class FCItemModelGenerator extends SimpleItemModelGenerator {
         this.generatedItem(FCItems.RAW_VELOCIRAPTOR.get());
         this.generatedItem(FCItems.RAW_TYRANNOSAURUS.get());
         this.generatedItem(FCItems.RAW_PTERANODON.get());
+        this.generatedItem(FCItems.LIVING_BABY_NAUTILUS.get());
         this.generatedItem(FCItems.RAW_FUTABASAURUS.get());
         this.generatedItem(FCItems.RAW_MOSASAURUS.get());
         this.generatedItem(FCItems.RAW_STEGOSAURUS.get());
@@ -51,6 +55,7 @@ public final class FCItemModelGenerator extends SimpleItemModelGenerator {
         this.generatedItem(FCItems.COOKED_VELOCIRAPTOR.get());
         this.generatedItem(FCItems.COOKED_TYRANNOSAURUS.get());
         this.generatedItem(FCItems.COOKED_PTERANODON.get());
+        this.generatedItem(FCItems.SIO_CHIU_LE.get());
         this.generatedItem(FCItems.COOKED_FUTABASAURUS.get());
         this.generatedItem(FCItems.COOKED_MOSASAURUS.get());
         this.generatedItem(FCItems.COOKED_STEGOSAURUS.get());
@@ -67,7 +72,10 @@ public final class FCItemModelGenerator extends SimpleItemModelGenerator {
         this.generatedItem(FCItems.CHICKEN_ESSENCE_BOTTLE.get());
         this.generatedItem(FCItems.MAGIC_CONCH.get());
         this.handheldItemAndBroken(FCItems.FROZEN_MEAT.get(), FCItems.BROKEN_FROZEN_MEAT.get());
+        this.generatedItem(FCItems.ARMADILLO_DNA.get());
         this.generatedItem(FCItems.AXOLOTL_DNA.get());
+        this.generatedItem(FCItems.BAT_DNA.get());
+        this.generatedItem(FCItems.CAMEL_DNA.get());
         this.generatedItem(FCItems.CAT_DNA.get());
         this.generatedItem(FCItems.CHICKEN_DNA.get());
         this.generatedItem(FCItems.COW_DNA.get());
@@ -92,6 +100,7 @@ public final class FCItemModelGenerator extends SimpleItemModelGenerator {
         this.generatedItem(FCItems.ARMADILLO_EMBRYO_SYRINGE.get());
         this.generatedItem(FCItems.BAT_EMBRYO_SYRINGE.get());
         this.generatedItem(FCItems.CAT_EMBRYO_SYRINGE.get());
+        this.generatedItem(FCItems.INCUBATED_CHICKEN_EGG.get());
         this.generatedItem(FCItems.CAMEL_EMBRYO_SYRINGE.get());
         this.generatedItem(FCItems.COW_EMBRYO_SYRINGE.get());
         this.generatedItem(FCItems.DOLPHIN_EMBRYO_SYRINGE.get());
@@ -103,6 +112,7 @@ public final class FCItemModelGenerator extends SimpleItemModelGenerator {
         this.generatedItem(FCItems.MULE_EMBRYO_SYRINGE.get());
         this.generatedItem(FCItems.OCELOT_EMBRYO_SYRINGE.get());
         this.generatedItem(FCItems.PANDA_EMBRYO_SYRINGE.get());
+        this.generatedItem(FCItems.INCUBATED_PARROT_EGG.get());
         this.generatedItem(FCItems.PIG_EMBRYO_SYRINGE.get());
         this.generatedItem(FCItems.POLAR_BEAR_EMBRYO_SYRINGE.get());
         this.generatedItem(FCItems.RABBIT_EMBRYO_SYRINGE.get());
@@ -123,6 +133,8 @@ public final class FCItemModelGenerator extends SimpleItemModelGenerator {
         this.handheldItem(FCItems.SCARAB_GEM_PICKAXE.get());
         this.handheldItem(FCItems.SCARAB_GEM_AXE.get());
         this.handheldItem(FCItems.SCARAB_GEM_HOE.get());
+        this.itemModelGenerators.generateSpear(FCItems.SCARAB_GEM_SPEAR.get());
+
         this.handheldItem(FCItems.SCARAB_GEM_UPGRADE_SMITHING_TEMPLATE.get());
         this.handheldItemAndBroken(FCItems.WOODEN_JAVELIN.get(), FCItems.BROKEN_WOODEN_JAVELIN.get());
         this.handheldItemAndBroken(FCItems.STONE_JAVELIN.get(), FCItems.BROKEN_STONE_JAVELIN.get());
@@ -136,9 +148,13 @@ public final class FCItemModelGenerator extends SimpleItemModelGenerator {
         this.generatedItem(FCItems.BONES_SPAWN_EGG.get());
         this.generatedItem(FCItems.FAILURESAURUS_SPAWN_EGG.get());
 
+        this.generatedItem(FCItems.STEGOSAURUS_SPAWN_EGG.get());
         this.generatedItem(FCItems.TRICERATOPS_SPAWN_EGG.get());
 
         this.generatedItem(FCItems.CUSTOM_SPAWN_EGG.get());
+
+        Identifier boneTexture = CoreUtils.minecraft("item/bone");
+        this.generatedItem(FCItems.SET_OWNER_DEBUG_TOOL.get(), boneTexture);
     }
 
     private void handheldItemAndBroken(Item baseItem, Item brokenItem) {

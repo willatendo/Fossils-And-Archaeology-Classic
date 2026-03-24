@@ -8,6 +8,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 
 public final class FCGenes {
+    public static final ResourceKey<Gene> COSMETICS_STEGOSAURUS = FCGenes.create("cosmetics/stegosaurus");
     public static final ResourceKey<Gene> COSMETICS_BROWN_TRICERATOPS = FCGenes.create("cosmetics/brown_triceratops");
     public static final ResourceKey<Gene> COSMETICS_GREEN_TRICERATOPS = FCGenes.create("cosmetics/green_triceratops");
 
@@ -16,6 +17,7 @@ public final class FCGenes {
     }
 
     public static void bootstrap(BootstrapContext<Gene> bootstrapContext) {
+        bootstrapContext.register(COSMETICS_STEGOSAURUS, new CosmeticGene(FCCoreUtils.translation("gene", "cosmetic.stegosaurus")));
         bootstrapContext.register(COSMETICS_BROWN_TRICERATOPS, new CosmeticGene(FCCoreUtils.translation("gene", "cosmetic.brown_triceratops")));
         bootstrapContext.register(COSMETICS_GREEN_TRICERATOPS, new CosmeticGene(FCCoreUtils.translation("gene", "cosmetic.green_triceratops")));
     }

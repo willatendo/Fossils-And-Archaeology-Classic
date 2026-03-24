@@ -11,4 +11,5 @@ public final class FCStats {
     public static final Identifier INTERACT_WITH_ANALYZER = CUSTOM_STATS.registerCustomStat("interact_with_analyzer", StatFormatter.DEFAULT);
     public static final Identifier INTERACT_WITH_ARCHAEOLOGY_WORKBENCH = CUSTOM_STATS.registerCustomStat("interact_with_archaeology_workbench", StatFormatter.DEFAULT);
     public static final Identifier INTERACT_WITH_CULTIVATOR = CUSTOM_STATS.registerCustomStat("interact_with_cultivator", StatFormatter.DEFAULT);
+    public static final Identifier INTERACT_WITH_FEEDER = CUSTOM_STATS.registerCustomStat("interact_with_feeder", StatFormatter.DEFAULT);
 }

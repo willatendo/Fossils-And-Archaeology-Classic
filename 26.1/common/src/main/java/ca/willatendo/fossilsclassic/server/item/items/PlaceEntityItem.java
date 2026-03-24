@@ -16,14 +16,22 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 
+import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 public class PlaceEntityItem<T extends Entity> extends Item {
     private final Supplier<EntityType<T>> entityType;
+    private final BiConsumer<ItemStack, T> consumer;
 
-    public PlaceEntityItem(Supplier<EntityType<T>> entityType, Item.Properties properties) {
+    public PlaceEntityItem(Supplier<EntityType<T>> entityType, BiConsumer<ItemStack, T> consumer, Item.Properties properties) {
         super(properties);
         this.entityType = entityType;
+        this.consumer = consumer;
+    }
+
+    public PlaceEntityItem(Supplier<EntityType<T>> entityType, Item.Properties properties) {
+        this(entityType, (itemStack, t) -> {
+        }, properties);
     }
 
     public Supplier<EntityType<T>> getEntityType() {
@@ -47,7 +55,7 @@ public class PlaceEntityItem<T extends Entity> extends Item {
 
             if (this.entityType.get() != null) {
                 Player player = useOnContext.getPlayer();
-                this.entityType.get().spawn(serverLevel, entity -> this.entityPlaceModification(itemStack, entity), placeBlockPos, EntitySpawnReason.SPAWN_ITEM_USE, false, false);
+                this.entityType.get().spawn(serverLevel, t -> this.consumer.accept(itemStack, t), placeBlockPos, EntitySpawnReason.SPAWN_ITEM_USE, false, false);
                 itemStack.shrink(1);
                 player.awardStat(Stats.ITEM_USED.get(this));
                 level.gameEvent(player, GameEvent.ENTITY_PLACE, placeBlockPos);
@@ -57,8 +65,5 @@ public class PlaceEntityItem<T extends Entity> extends Item {
         } else {
             return InteractionResult.SUCCESS;
         }
-    }
-
-    public void entityPlaceModification(ItemStack itemStack, T entity) {
     }
 }

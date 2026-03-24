@@ -3,14 +3,17 @@ package ca.willatendo.fossilsclassic.server.item;
 import ca.willatendo.fossilsclassic.core.utils.FCCoreUtils;
 import ca.willatendo.fossilsclassic.server.block.FCBlocks;
 import ca.willatendo.fossilsclassic.server.entity.FCEntityTypes;
+import ca.willatendo.fossilsclassic.server.entity.entities.ThrownAnimalEgg;
 import ca.willatendo.fossilsclassic.server.item.items.*;
 import ca.willatendo.fossilsclassic.server.item.items.EggItem;
 import ca.willatendo.simplelibrary.core.holder.SimpleHolder;
 import ca.willatendo.simplelibrary.core.registry.sub.ItemSubRegistry;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.animal.chicken.Chicken;
+import net.minecraft.world.entity.animal.nautilus.Nautilus;
+import net.minecraft.world.entity.animal.parrot.Parrot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.equipment.ArmorType;
 
@@ -49,7 +52,10 @@ public final class FCItems {
     public static final SimpleHolder<EggItem> VELOCIRAPTOR_EGG = ITEMS.registerItem("velociraptor_egg", properties -> new EggItem(FCEntityTypes.VELOCIRAPTOR_EGG::get, properties), () -> new Item.Properties().stacksTo(1));
     public static final SimpleHolder<EggItem> TYRANNOSAURUS_EGG = ITEMS.registerItem("tyrannosaurus_egg", properties -> new EggItem(FCEntityTypes.TYRANNOSAURUS_EGG::get, properties), () -> new Item.Properties().stacksTo(1));
     public static final SimpleHolder<EggItem> PTERANODON_EGG = ITEMS.registerItem("pteranodon_egg", properties -> new EggItem(FCEntityTypes.PTERANODON_EGG::get, properties), () -> new Item.Properties().stacksTo(1));
-    //public static final SimpleHolder<PlaceEntityItem<Nautilus>> NAUTILUS_EGGS = ITEMS.registerItem("nautilus_eggs", properties -> new PlaceEntityItem<>(() -> EntityType.NAUTILUS, properties), new Item.Properties().stacksTo(1));
+    public static final SimpleHolder<PlaceEntityItem<Nautilus>> NAUTILUS_EGGS = ITEMS.registerItem("nautilus_eggs", properties -> new PlaceEntityItem<>(() -> EntityType.NAUTILUS, (itemStack, nautilus) -> {
+        nautilus.setBaby(true);
+        nautilus.setPersistenceRequired();
+    }, properties), new Item.Properties().stacksTo(1));
     public static final SimpleHolder<EggItem> FUTABASAURUS_EGG = ITEMS.registerItem("futabasaurus_egg", properties -> new EggItem(FCEntityTypes.FUTABASAURUS_EGG::get, properties), () -> new Item.Properties().stacksTo(1));
     public static final SimpleHolder<EggItem> MOSASAURUS_EGG = ITEMS.registerItem("mosasaurus_egg", properties -> new EggItem(FCEntityTypes.MOSASAURUS_EGG::get, properties), () -> new Item.Properties().stacksTo(1));
     public static final SimpleHolder<EggItem> STEGOSAURUS_EGG = ITEMS.registerItem("stegosaurus_egg", properties -> new EggItem(FCEntityTypes.STEGOSAURUS_EGG::get, properties), () -> new Item.Properties().stacksTo(1));
@@ -59,6 +65,13 @@ public final class FCItems {
     public static final SimpleHolder<Item> RAW_VELOCIRAPTOR = ITEMS.registerItem("raw_velociraptor", new Item.Properties().food(FCFoods.RAW_DINOSAUR_MEAT));
     public static final SimpleHolder<Item> RAW_TYRANNOSAURUS = ITEMS.registerItem("raw_tyrannosaurus", new Item.Properties().food(FCFoods.RAW_DINOSAUR_MEAT));
     public static final SimpleHolder<Item> RAW_PTERANODON = ITEMS.registerItem("raw_pteranodon", new Item.Properties().food(FCFoods.RAW_DINOSAUR_MEAT));
+    public static final SimpleHolder<Item> LIVING_BABY_NAUTILUS = ITEMS.registerItem("living_baby_nautilus", properties -> new PlaceEntityItem<>(() -> EntityType.NAUTILUS, (itemStack, nautilus) -> {
+        if (itemStack.has(DataComponents.CUSTOM_NAME)) {
+            nautilus.setCustomName(itemStack.getCustomName());
+        }
+        nautilus.setBaby(true);
+        nautilus.setPersistenceRequired();
+    }, properties), new Item.Properties().stacksTo(1));
     public static final SimpleHolder<Item> RAW_FUTABASAURUS = ITEMS.registerItem("raw_futabasaurus", new Item.Properties().food(FCFoods.RAW_DINOSAUR_MEAT));
     public static final SimpleHolder<Item> RAW_MOSASAURUS = ITEMS.registerItem("raw_mosasaurus", new Item.Properties().food(FCFoods.RAW_DINOSAUR_MEAT));
     public static final SimpleHolder<Item> RAW_STEGOSAURUS = ITEMS.registerItem("raw_stegosaurus", new Item.Properties().food(FCFoods.RAW_DINOSAUR_MEAT));
@@ -70,6 +83,7 @@ public final class FCItems {
     public static final SimpleHolder<Item> COOKED_VELOCIRAPTOR = ITEMS.registerItem("cooked_velociraptor", new Item.Properties().food(FCFoods.COOKED_DINOSAUR_MEAT));
     public static final SimpleHolder<Item> COOKED_TYRANNOSAURUS = ITEMS.registerItem("cooked_tyrannosaurus", new Item.Properties().food(FCFoods.COOKED_DINOSAUR_MEAT));
     public static final SimpleHolder<Item> COOKED_PTERANODON = ITEMS.registerItem("cooked_pteranodon", new Item.Properties().food(FCFoods.COOKED_DINOSAUR_MEAT));
+    public static final SimpleHolder<Item> SIO_CHIU_LE = ITEMS.registerItem("sio_chiu_le", new Item.Properties().food(FCFoods.SIO_CHIU_LE));
     public static final SimpleHolder<Item> COOKED_FUTABASAURUS = ITEMS.registerItem("cooked_futabasaurus", new Item.Properties().food(FCFoods.COOKED_DINOSAUR_MEAT));
     public static final SimpleHolder<Item> COOKED_MOSASAURUS = ITEMS.registerItem("cooked_mosasaurus", new Item.Properties().food(FCFoods.COOKED_DINOSAUR_MEAT));
     public static final SimpleHolder<Item> COOKED_STEGOSAURUS = ITEMS.registerItem("cooked_stegosaurus", new Item.Properties().food(FCFoods.COOKED_DINOSAUR_MEAT));
@@ -87,7 +101,10 @@ public final class FCItems {
     public static final SimpleHolder<MagicConchItem> MAGIC_CONCH = ITEMS.registerItem("magic_conch", MagicConchItem::new, new Item.Properties().stacksTo(1));
     public static final SimpleHolder<FrozenMeatItem> FROZEN_MEAT = ITEMS.registerItem("frozen_meat", properties -> new FrozenMeatItem(FCToolMaterials.ICED_MEAT, 3.0F, -2.4F, FCItems.BROKEN_FROZEN_MEAT, properties), new Item.Properties());
     public static final SimpleHolder<Item> BROKEN_FROZEN_MEAT = ITEMS.registerItem("broken_frozen_meat", () -> new Item.Properties().sword(FCToolMaterials.ICED_MEAT, 3.0F, -2.4F));
+    public static final SimpleHolder<Item> ARMADILLO_DNA = ITEMS.registerItem("armadillo_dna");
     public static final SimpleHolder<Item> AXOLOTL_DNA = ITEMS.registerItem("axolotl_dna");
+    public static final SimpleHolder<Item> BAT_DNA = ITEMS.registerItem("bat_dna");
+    public static final SimpleHolder<Item> CAMEL_DNA = ITEMS.registerItem("camel_dna");
     public static final SimpleHolder<Item> CAT_DNA = ITEMS.registerItem("cat_dna");
     public static final SimpleHolder<Item> CHICKEN_DNA = ITEMS.registerItem("chicken_dna");
     public static final SimpleHolder<Item> COW_DNA = ITEMS.registerItem("cow_dna");
@@ -112,7 +129,7 @@ public final class FCItems {
     public static final SimpleHolder<SyringeItem> ARMADILLO_EMBRYO_SYRINGE = FCItems.registerSyringe("armadillo_embryo_syringe", () -> EntityType.ARMADILLO);
     public static final SimpleHolder<SyringeItem> BAT_EMBRYO_SYRINGE = FCItems.registerSyringe("bat_embryo_syringe", () -> EntityType.BAT);
     public static final SimpleHolder<SyringeItem> CAT_EMBRYO_SYRINGE = FCItems.registerSyringe("cat_embryo_syringe", () -> EntityType.CAT);
-    //public static final SimpleHolder<IncubatedEggItem> INCUBATED_CHICKEN_EGG = FCItems.registerSyringe("incubated_chicken_egg", properties -> new IncubatedEggItem(0, properties), new Item.Properties().stacksTo(16));
+    public static final SimpleHolder<AnimalEggItem<Chicken>> INCUBATED_CHICKEN_EGG = ITEMS.registerItem("incubated_chicken_egg", properties -> new AnimalEggItem<>(ThrownAnimalEgg.ThrownIncubatedChickenEgg::new, ThrownAnimalEgg.ThrownIncubatedChickenEgg::new, properties), new Item.Properties().stacksTo(16));
     public static final SimpleHolder<SyringeItem> CAMEL_EMBRYO_SYRINGE = FCItems.registerSyringe("camel_embryo_syringe", () -> EntityType.CAMEL);
     public static final SimpleHolder<SyringeItem> COW_EMBRYO_SYRINGE = FCItems.registerSyringe("cow_embryo_syringe", () -> EntityType.COW);
     public static final SimpleHolder<SyringeItem> DOLPHIN_EMBRYO_SYRINGE = FCItems.registerSyringe("dolphin_embryo_syringe", () -> EntityType.DOLPHIN);
@@ -124,7 +141,7 @@ public final class FCItems {
     public static final SimpleHolder<SyringeItem> MULE_EMBRYO_SYRINGE = FCItems.registerSyringe("mule_embryo_syringe", () -> EntityType.MULE);
     public static final SimpleHolder<SyringeItem> OCELOT_EMBRYO_SYRINGE = FCItems.registerSyringe("ocelot_embryo_syringe", () -> EntityType.OCELOT);
     public static final SimpleHolder<SyringeItem> PANDA_EMBRYO_SYRINGE = FCItems.registerSyringe("panda_embryo_syringe", () -> EntityType.PANDA);
-    //public static final SimpleHolder<IncubatedEggItem> INCUBATED_PARROT_EGG = FCItems.registerSyringe("incubated_parrot_egg", properties -> new IncubatedEggItem(1, properties), new Item.Properties().stacksTo(16));
+    public static final SimpleHolder<AnimalEggItem<Parrot>> INCUBATED_PARROT_EGG = ITEMS.registerItem("incubated_parrot_egg", properties -> new AnimalEggItem<>(ThrownAnimalEgg.ThrownIncubatedParrotEgg::new, ThrownAnimalEgg.ThrownIncubatedParrotEgg::new, properties), new Item.Properties().stacksTo(16));
     public static final SimpleHolder<SyringeItem> PIG_EMBRYO_SYRINGE = FCItems.registerSyringe("pig_embryo_syringe", () -> EntityType.PIG);
     public static final SimpleHolder<SyringeItem> POLAR_BEAR_EMBRYO_SYRINGE = FCItems.registerSyringe("polar_bear_embryo_syringe", () -> EntityType.POLAR_BEAR);
     public static final SimpleHolder<SyringeItem> RABBIT_EMBRYO_SYRINGE = FCItems.registerSyringe("rabbit_embryo_syringe", () -> EntityType.RABBIT);
@@ -145,6 +162,7 @@ public final class FCItems {
     public static final SimpleHolder<Item> SCARAB_GEM_PICKAXE = ITEMS.registerItem("scarab_gem_pickaxe", () -> new Item.Properties().pickaxe(FCToolMaterials.SCARAB_GEM, 1.0F, -2.8F));
     public static final SimpleHolder<AxeItem> SCARAB_GEM_AXE = ITEMS.registerItem("scarab_gem_axe", properties -> new AxeItem(FCToolMaterials.SCARAB_GEM, 5.0F, -3.0F, properties));
     public static final SimpleHolder<HoeItem> SCARAB_GEM_HOE = ITEMS.registerItem("scarab_gem_hoe", properties -> new HoeItem(FCToolMaterials.SCARAB_GEM, -4.0F, 0.0F, properties));
+    public static final SimpleHolder<Item> SCARAB_GEM_SPEAR = ITEMS.registerItem("scarab_gem_spear", () -> new Item.Properties().spear(FCToolMaterials.SCARAB_GEM, 1.15F, 1.2F, 0.4F, 2.0F, 6.0F, 4.5F, 5.1F, 7.0F, 4.6F).fireResistant());
     public static final SimpleHolder<ModSmithingTemplateItem> SCARAB_GEM_UPGRADE_SMITHING_TEMPLATE = ITEMS.registerItem("scarab_gem_upgrade_smithing_template", ModSmithingTemplateItem::createGemUpgradeTemplate, new Item.Properties().rarity(Rarity.UNCOMMON));
     public static final SimpleHolder<JavelinItem> WOODEN_JAVELIN = ITEMS.registerItem("wooden_javelin", properties -> new JavelinItem(ToolMaterial.WOOD, FCItems.BROKEN_WOODEN_JAVELIN::get, FCEntityTypes.THROWN_WOODEN_JAVELIN::get, properties), new Item.Properties());
     public static final SimpleHolder<BrokenJavelinItem> BROKEN_WOODEN_JAVELIN = ITEMS.registerItem("broken_wooden_javelin", properties -> new BrokenJavelinItem(ToolMaterial.WOOD, FCEntityTypes.THROWN_WOODEN_JAVELIN::get, properties), new Item.Properties());
@@ -163,8 +181,8 @@ public final class FCItems {
     public static final SimpleHolder<JavelinItem> SCARAB_GEM_JAVELIN = ITEMS.registerItem("scarab_gem_javelin", properties -> new JavelinItem(FCToolMaterials.SCARAB_GEM, FCItems.BROKEN_SCARAB_GEM_JAVELIN::get, FCEntityTypes.THROWN_SCARAB_GEM_JAVELIN::get, true, properties), new Item.Properties());
     public static final SimpleHolder<BrokenJavelinItem> BROKEN_SCARAB_GEM_JAVELIN = ITEMS.registerItem("broken_scarab_gem_javelin", properties -> new BrokenJavelinItem(FCToolMaterials.SCARAB_GEM, FCEntityTypes.THROWN_SCARAB_GEM_JAVELIN::get, true, properties), new Item.Properties());
     //public static final SimpleHolder<SpawnEggItem> ANU_SPAWN_EGG = ITEMS.registerItem("anu_spawn_egg", () -> new SpawnEggItem(FossilsLegacyEntityTypes.ANU.get(), 0x432600, 0xa62c14, new Item.Properties()));
-    public static final SimpleHolder<SpawnEggItem> BONES_SPAWN_EGG = FCItems.registerSpawnEgg("bones_spawn_egg", FCEntityTypes.BONES);
-    public static final SimpleHolder<SpawnEggItem> FAILURESAURUS_SPAWN_EGG = FCItems.registerSpawnEgg("failuresaurus_spawn_egg", FCEntityTypes.FAILURESAURUS);
+    public static final SimpleHolder<SpawnEggItem> BONES_SPAWN_EGG = ITEMS.registerSpawnEgg("bones_spawn_egg", FCEntityTypes.BONES);
+    public static final SimpleHolder<SpawnEggItem> FAILURESAURUS_SPAWN_EGG = ITEMS.registerSpawnEgg("failuresaurus_spawn_egg", FCEntityTypes.FAILURESAURUS);
     /*public static final SimpleHolder<DinosaurSpawnEggItem> BRACHIOSAURUS_SPAWN_EGG = ITEMS.registerItem("brachiosaurus_spawn_egg", () -> new DinosaurSpawnEggItem(FossilsLegacyEntityTypes.BRACHIOSAURUS.get(), 0x3b3e55, 0x7f8ba1, new Item.Properties()));
     public static final SimpleHolder<DinosaurSpawnEggItem> DILOPHOSAURUS_SPAWN_EGG = ITEMS.registerItem("dilophosaurus_spawn_egg", () -> new DinosaurSpawnEggItem(FossilsLegacyEntityTypes.DILOPHOSAURUS.get(), 0x686442, 0xf1bc2c, new Item.Properties()));
     public static final SimpleHolder<DinosaurSpawnEggItem> FUTABASAURUS_SPAWN_EGG = ITEMS.registerItem("futabasaurus_spawn_egg", () -> new DinosaurSpawnEggItem(FossilsLegacyEntityTypes.FUTABASAURUS.get(), 0xca6700, 0xb92200, new Item.Properties()));
@@ -173,17 +191,15 @@ public final class FCItems {
     public static final SimpleHolder<SpawnEggItem> NAUTILUS_SPAWN_EGG = ITEMS.registerItem("nautilus_spawn_egg", () -> new SpawnEggItem(FossilsLegacyEntityTypes.NAUTILUS.get(), 0xc1c1c1, 0xa95453, new Item.Properties()));
     public static final SimpleHolder<DinosaurSpawnEggItem> PTERANODON_SPAWN_EGG = ITEMS.registerItem("pteranodon_spawn_egg", () -> new DinosaurSpawnEggItem(FossilsLegacyEntityTypes.PTERANODON.get(), 0x7c5d89, 0x450e5b, new Item.Properties()));
     public static final SimpleHolder<DinosaurSpawnEggItem> SMILODON_SPAWN_EGG = ITEMS.registerItem("smilodon_spawn_egg", () -> new DinosaurSpawnEggItem(FossilsLegacyEntityTypes.SMILODON.get(), 0xefa745, 0x9a6527, new Item.Properties()));
-    public static final SimpleHolder<DinosaurSpawnEggItem> STEGOSAURUS_SPAWN_EGG = ITEMS.registerItem("stegosaurus_spawn_egg", () -> new DinosaurSpawnEggItem(FossilsLegacyEntityTypes.STEGOSAURUS.get(), 0x839d00, 0x785f00, new Item.Properties()));
     */
-    public static final SimpleHolder<SpawnEggItem> TRICERATOPS_SPAWN_EGG = FCItems.registerSpawnEgg("triceratops_spawn_egg", FCEntityTypes.TRICERATOPS);
+    public static final SimpleHolder<SpawnEggItem> STEGOSAURUS_SPAWN_EGG = ITEMS.registerSpawnEgg("stegosaurus_spawn_egg", FCEntityTypes.STEGOSAURUS);
+    public static final SimpleHolder<SpawnEggItem> TRICERATOPS_SPAWN_EGG = ITEMS.registerSpawnEgg("triceratops_spawn_egg", FCEntityTypes.TRICERATOPS);
     /*public static final SimpleHolder<DinosaurSpawnEggItem> TYRANNOSAURUS_SPAWN_EGG = ITEMS.registerItem("tyrannosaurus_spawn_egg", () -> new DinosaurSpawnEggItem(FossilsLegacyEntityTypes.TYRANNOSAURUS.get(), 0x918066, 0x4f473a, new Item.Properties()));
     public static final SimpleHolder<DinosaurSpawnEggItem> VELOCIRAPTOR_SPAWN_EGG = ITEMS.registerItem("velociraptor_spawn_egg", () -> new DinosaurSpawnEggItem(FossilsLegacyEntityTypes.VELOCIRAPTOR.get(), 0x66965f, 0x884c2e, new Item.Properties()));*/
 
     public static final SimpleHolder<CustomSpawnEggItem> CUSTOM_SPAWN_EGG = ITEMS.registerItem("custom_spawn_egg", CustomSpawnEggItem::new);
 
-    private static <T extends Entity> SimpleHolder<SpawnEggItem> registerSpawnEgg(String name, SimpleHolder<EntityType<T>> entityType) {
-        return ITEMS.registerItem(name, SpawnEggItem::new, () -> new Item.Properties().spawnEgg(entityType.get()));
-    }
+    public static final SimpleHolder<DebugToolItem> SET_OWNER_DEBUG_TOOL = ITEMS.registerItem("set_owner_debug_tool", properties -> new DebugToolItem((player, dinosaur) -> dinosaur.setOwner(player), properties));
 
     private static <T extends Mob> SimpleHolder<SyringeItem> registerSyringe(String name, Supplier<EntityType<T>> entityType) {
         return ITEMS.registerItem(name, SyringeItem::new, () -> new Item.Properties().spawnEgg(entityType.get()));

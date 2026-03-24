@@ -1,0 +1,10 @@
+{
+  "type": "fossilsclassic:cultivation_recipe",
+  "category": "egg",
+  "experience": 0.35,
+  "ingredient": "fossilsclassic:nautilus_dna",
+  "result": {
+    "id": "fossilsclassic:nautilus_eggs"
+  },
+  "time": 6000
+}

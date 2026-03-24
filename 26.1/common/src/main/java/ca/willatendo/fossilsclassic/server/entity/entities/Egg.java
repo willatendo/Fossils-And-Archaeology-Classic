@@ -14,6 +14,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -25,7 +26,7 @@ import net.minecraft.world.level.storage.ValueOutput;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-public abstract class Egg extends Mob implements TicksToBirth, DinopediaInteractable {
+public abstract class Egg extends Animal implements TicksToBirth, DinopediaInteractable {
     private static final EntityDataAccessor<Integer> REMAINING_TICKS = SynchedEntityData.defineId(Egg.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> WARM = SynchedEntityData.defineId(Egg.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Optional<EntityReference<LivingEntity>>> OWNER = SynchedEntityData.defineId(Egg.class, EntityDataSerializers.OPTIONAL_LIVING_ENTITY_REFERENCE);
@@ -108,6 +109,16 @@ public abstract class Egg extends Mob implements TicksToBirth, DinopediaInteract
 
     public static AttributeSupplier eggAttributes() {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 1.0F).build();
+    }
+
+    @Override
+    public boolean isFood(ItemStack itemStack) {
+        return false;
+    }
+
+    @Override
+    public AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob) {
+        return null;
     }
 
     @Override
@@ -195,6 +206,14 @@ public abstract class Egg extends Mob implements TicksToBirth, DinopediaInteract
 
     public EntityReference<LivingEntity> getOwnerReference() {
         return this.getOwner().orElse(null);
+    }
+
+    @Override
+    public void onEntityTicksComplete(Mob parentMob, Mob offspringMob, ServerLevel serverLevel) {
+        if (parentMob.hasCustomName()) {
+            offspringMob.setCustomName(parentMob.getCustomName());
+        }
+        TicksToBirth.super.onEntityTicksComplete(parentMob, offspringMob, serverLevel);
     }
 
     @Override

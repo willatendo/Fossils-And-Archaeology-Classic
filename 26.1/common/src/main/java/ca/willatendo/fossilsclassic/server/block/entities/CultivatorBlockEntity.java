@@ -60,18 +60,13 @@ public class CultivatorBlockEntity extends BaseContainerBlockEntity implements W
     public final ContainerData containerData = new ContainerData() {
         @Override
         public int get(int slot) {
-            switch (slot) {
-                case 0:
-                    return CultivatorBlockEntity.this.onTimeRemaining;
-                case 1:
-                    return CultivatorBlockEntity.this.onTimeTotalTime;
-                case 2:
-                    return CultivatorBlockEntity.this.cultivationProgress;
-                case 3:
-                    return CultivatorBlockEntity.this.cultivationTotalTime;
-                default:
-                    return 0;
-            }
+            return switch (slot) {
+                case 0 -> CultivatorBlockEntity.this.onTimeRemaining;
+                case 1 -> CultivatorBlockEntity.this.onTimeTotalTime;
+                case 2 -> CultivatorBlockEntity.this.cultivationProgress;
+                case 3 -> CultivatorBlockEntity.this.cultivationTotalTime;
+                default -> 0;
+            };
         }
 
         @Override
