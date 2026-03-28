@@ -46,7 +46,7 @@ public class DinopediaItem extends Item {
 
         player.getCooldowns().addCooldown(itemStack, 10);
         for (Component component : components) {
-            player.displayClientMessage(component, false);
+            player.sendSystemMessage(component);
         }
         player.awardStat(Stats.ITEM_USED.get(this));
         return InteractionResult.SUCCESS;

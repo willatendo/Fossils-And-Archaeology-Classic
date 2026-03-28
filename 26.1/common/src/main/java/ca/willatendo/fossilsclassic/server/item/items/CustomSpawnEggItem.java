@@ -78,7 +78,7 @@ public class CustomSpawnEggItem extends Item {
                     placeBlockPos = blockPos.relative(direction);
                 }
 
-                useOnContext.getPlayer().displayClientMessage(Component.literal("IS: " + useOnContext.getItemInHand().get(FCDataComponents.CHROMOSOME.get())), false);
+                useOnContext.getPlayer().sendSystemMessage(Component.literal("IS: " + useOnContext.getItemInHand().get(FCDataComponents.CHROMOSOME.get())));
                 return this.spawnMob(useOnContext.getPlayer(), itemStack, level, placeBlockPos, true, !Objects.equals(blockPos, placeBlockPos) && direction == Direction.UP);
             }
         }
@@ -88,7 +88,7 @@ public class CustomSpawnEggItem extends Item {
         EntityType<?> entityType = this.getType(itemStack);
         if (entityType == null) {
             if (source instanceof Player player) {
-                player.displayClientMessage(FCCoreUtils.translation("item", "custom_spawn_egg.no_entity").copy().withStyle(ChatFormatting.RED), true);
+                player.sendOverlayMessage(FCCoreUtils.translation("item", "custom_spawn_egg.no_entity").copy().withStyle(ChatFormatting.RED));
             }
             return InteractionResult.FAIL;
         } else if (!entityType.isAllowedInPeaceful() && level.getDifficulty() == Difficulty.PEACEFUL) {
@@ -134,11 +134,6 @@ public class CustomSpawnEggItem extends Item {
     public @Nullable EntityType<?> getType(ItemStack stack) {
         TypedEntityData<EntityType<?>> typedentitydata = stack.get(DataComponents.ENTITY_DATA);
         return typedentitydata != null ? typedentitydata.type() : null;
-    }
-
-    @Override
-    public FeatureFlagSet requiredFeatures() {
-        return Optional.ofNullable(this.components().get(DataComponents.ENTITY_DATA)).map(TypedEntityData::type).map(EntityType::requiredFeatures).orElseGet(FeatureFlagSet::of);
     }
 
     public Optional<Mob> spawnOffspringFromSpawnEgg(Player player, Mob mob, EntityType<? extends Mob> entityType, ServerLevel serverLevel, Vec3 pos, ItemStack itemStack) {

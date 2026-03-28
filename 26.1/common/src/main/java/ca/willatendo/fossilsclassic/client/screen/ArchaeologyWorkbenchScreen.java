@@ -7,7 +7,7 @@ import ca.willatendo.fossilsclassic.server.item.FCItems;
 import ca.willatendo.fossilsclassic.server.menu.menus.ArchaeologyWorkbenchMenu;
 import ca.willatendo.fossilsclassic.server.recipe.FCRecipeBookCategories;
 import ca.willatendo.simplelibrary.client.utils.RecipeBookUtils;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.navigation.ScreenPosition;
 import net.minecraft.client.gui.screens.inventory.AbstractRecipeBookScreen;
 import net.minecraft.client.gui.screens.recipebook.RecipeBookComponent;
@@ -42,16 +42,16 @@ public class ArchaeologyWorkbenchScreen extends AbstractRecipeBookScreen<Archaeo
     }
 
     @Override
-    protected void renderBg(GuiGraphics guiGraphics, float partialTicks, int x, int y) {
+    public void extractBackground(GuiGraphicsExtractor guiGraphicsExtractor, int xMouse, int yMouse, float a) {
         int leftPos = this.leftPos;
         int topPos = this.topPos;
-        guiGraphics.blit(RenderPipelines.GUI_TEXTURED, TEXTURE, leftPos, topPos, 0.0F, 0.0F, this.imageWidth, this.imageHeight, 256, 256);
+        guiGraphicsExtractor.blit(RenderPipelines.GUI_TEXTURED, TEXTURE, leftPos, topPos, 0.0F, 0.0F, this.imageWidth, this.imageHeight, 256, 256);
         if (this.menu.isOn()) {
             int onProgess = Mth.ceil(this.menu.getOnProgress() * 13.0F) + 1;
-            guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, ARCHAEOLOGY_SPRITE, 14, 14, 0, 14 - onProgess, leftPos + 81, topPos + 36 + 14 - onProgess, 14, onProgess);
+            guiGraphicsExtractor.blitSprite(RenderPipelines.GUI_TEXTURED, ARCHAEOLOGY_SPRITE, 14, 14, 0, 14 - onProgess, leftPos + 81, topPos + 36 + 14 - onProgess, 14, onProgess);
         }
 
         int cultivationProgess = this.menu.getCultivationProgress();
-        guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, RESTORATION_PROGRESS_SPRITE, 24, 14, 0, 0, leftPos + 76, topPos + 21, cultivationProgess + 1, 14);
+        guiGraphicsExtractor.blitSprite(RenderPipelines.GUI_TEXTURED, RESTORATION_PROGRESS_SPRITE, 24, 14, 0, 0, leftPos + 76, topPos + 21, cultivationProgess + 1, 14);
     }
 }

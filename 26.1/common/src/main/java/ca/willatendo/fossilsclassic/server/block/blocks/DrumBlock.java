@@ -54,7 +54,7 @@ public class DrumBlock extends Block {
                         }
                     }
                 }
-                player.displayClientMessage(FCCoreUtils.translationWithArguments("block", "drum.send_command", itemStack.getHoverName(), currentCommandType.getName()), true);
+                player.sendOverlayMessage(FCCoreUtils.translationWithArguments("block", "drum.send_command", itemStack.getHoverName(), currentCommandType.getName()));
             }
         } else {
             if (level.isClientSide()) {
@@ -62,7 +62,7 @@ public class DrumBlock extends Block {
             } else {
                 CommandType nextCommandType = CommandTypeUtils.getNext(blockState.getValue(DrumBlock.COMMAND_TYPE_PROPERTY)).value();
                 level.setBlock(blockPos, blockState.setValue(DrumBlock.COMMAND_TYPE_PROPERTY, nextCommandType.name()), 10);
-                player.displayClientMessage(FCCoreUtils.translationWithArguments("block", "drum.choose_command", nextCommandType.getName()), true);
+                player.sendOverlayMessage(FCCoreUtils.translationWithArguments("block", "drum.choose_command", nextCommandType.getName()));
             }
         }
         return InteractionResult.SUCCESS;

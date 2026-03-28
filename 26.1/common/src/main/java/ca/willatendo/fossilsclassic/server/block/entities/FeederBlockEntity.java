@@ -87,7 +87,7 @@ public class FeederBlockEntity extends BaseContainerBlockEntity {
         ItemStack plantItemStack = feederBlockEntity.itemStacks.get(1);
 
         if (!meatItemStack.isEmpty()) {
-            int fillAmount = ValueMaps.getFeederFoodValue(meatItemStack.getItemHolder(), true);
+            int fillAmount = ValueMaps.getFeederFoodValue(meatItemStack.typeHolder(), true);
             if (fillAmount > 0) {
                 if (!(fillAmount + feederBlockEntity.meatLevel > 10000)) {
                     feederBlockEntity.meatLevel += fillAmount;
@@ -97,7 +97,7 @@ public class FeederBlockEntity extends BaseContainerBlockEntity {
             }
         }
         if (!plantItemStack.isEmpty()) {
-            int fillAmount = ValueMaps.getFeederFoodValue(plantItemStack.getItemHolder(), false);
+            int fillAmount = ValueMaps.getFeederFoodValue(plantItemStack.typeHolder(), false);
             if (fillAmount > 0) {
                 if (!(fillAmount + feederBlockEntity.plantsLevel > 10000)) {
                     feederBlockEntity.plantsLevel += fillAmount;

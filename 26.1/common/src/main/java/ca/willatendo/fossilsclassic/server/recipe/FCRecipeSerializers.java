@@ -12,7 +12,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 public final class FCRecipeSerializers {
     public static final SimpleRegistry<RecipeSerializer<?>> RECIPE_SERIALIZERS = new SimpleRegistry<>(Registries.RECIPE_SERIALIZER, FCCoreUtils.ID);
 
-    public static final SimpleHolder<RecipeSerializer<AnalyzationRecipe>> ANALYZATION_RECIPE = RECIPE_SERIALIZERS.register("analyzation_recipe", () -> AnalyzationRecipe.Serializer.INSTANCE);
-    public static final SimpleHolder<RecipeSerializer<CultivationRecipe>> CULTIVATION_RECIPE = RECIPE_SERIALIZERS.register("cultivation_recipe", () -> CultivationRecipe.Serializer.INSTANCE);
-    public static final SimpleHolder<RecipeSerializer<RestorationRecipe>> RESTORATION_RECIPE = RECIPE_SERIALIZERS.register("restoration_recipe", () -> RestorationRecipe.Serializer.INSTANCE);
+    public static final SimpleHolder<RecipeSerializer<AnalyzationRecipe>> ANALYZATION_RECIPE = RECIPE_SERIALIZERS.register("analyzation_recipe", () -> new RecipeSerializer<>(AnalyzationRecipe.CODEC, AnalyzationRecipe.STREAM_CODEC));
+    public static final SimpleHolder<RecipeSerializer<CultivationRecipe>> CULTIVATION_RECIPE = RECIPE_SERIALIZERS.register("cultivation_recipe", () -> new RecipeSerializer<>(CultivationRecipe.CODEC, CultivationRecipe.STREAM_CODEC));
+    public static final SimpleHolder<RecipeSerializer<RestorationRecipe>> RESTORATION_RECIPE = RECIPE_SERIALIZERS.register("restoration_recipe", () -> new RecipeSerializer<>(RestorationRecipe.CODEC, RestorationRecipe.STREAM_CODEC));
 }

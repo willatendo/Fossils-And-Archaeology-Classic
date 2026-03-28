@@ -22,7 +22,7 @@ public class IcedStoneBlock extends Block {
     public void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
         for (Direction direction : Direction.values()) {
             BlockPos relativeBlockPos = blockPos.relative(direction);
-            if (serverLevel.getBlockState(relativeBlockPos).is(Blocks.AIR) && serverLevel.getBrightness(LightLayer.BLOCK, relativeBlockPos) > 10 - blockState.getLightBlock()) {
+            if (serverLevel.getBlockState(relativeBlockPos).is(Blocks.AIR) && serverLevel.getBrightness(LightLayer.BLOCK, relativeBlockPos) > 10 - blockState.getLightDampening()) {
                 this.melt(serverLevel, blockPos);
             }
         }

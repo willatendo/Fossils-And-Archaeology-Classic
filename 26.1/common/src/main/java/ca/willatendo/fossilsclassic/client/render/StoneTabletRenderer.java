@@ -13,7 +13,7 @@ import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -79,7 +79,7 @@ public class StoneTabletRenderer extends EntityRenderer<StoneTablet, StoneTablet
                     case EAST -> z = Mth.floor(stoneTablet.getZ() + (double) xOffset);
                 }
 
-                stoneTabletRenderState.lightCoordsPerBlock[blockX + blockZ * width] = LevelRenderer.getLightColor(level, new BlockPos(x, y, z));
+                stoneTabletRenderState.lightCoordsPerBlock[blockX + blockZ * width] = LevelRenderer.getLightCoords(level, new BlockPos(x, y, z));
             }
         }
     }

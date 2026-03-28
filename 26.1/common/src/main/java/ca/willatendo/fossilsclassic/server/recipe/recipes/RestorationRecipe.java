@@ -9,11 +9,11 @@ import ca.willatendo.fossilsclassic.server.recipe.display.RestorationRecipeDispl
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.item.crafting.display.RecipeDisplay;
 import net.minecraft.world.item.crafting.display.SlotDisplay;
@@ -22,17 +22,19 @@ import net.minecraft.world.level.Level;
 import java.util.List;
 
 public class RestorationRecipe implements Recipe<SingleRecipeInput> {
-    private final String group;
-    private final RestorationBookCategory restorationBookCategory;
+    public static final MapCodec<RestorationRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Recipe.CommonInfo.MAP_CODEC.forGetter(restorationRecipe -> restorationRecipe.commonInfo), RestorationRecipe.RestorationBookInfo.MAP_CODEC.forGetter(restorationRecipe -> restorationRecipe.restorationBookInfo), Ingredient.CODEC.fieldOf("ingredient").forGetter(restorationRecipe -> restorationRecipe.ingredient), ItemStackTemplate.CODEC.fieldOf("result").forGetter(restorationRecipe -> restorationRecipe.result), Codec.INT.fieldOf("time").orElse(6000).forGetter(restorationRecipe -> restorationRecipe.time), Codec.FLOAT.fieldOf("experience").orElse(0.0F).forGetter(restorationRecipe -> restorationRecipe.experience)).apply(instance, RestorationRecipe::new));
+    public static final StreamCodec<RegistryFriendlyByteBuf, RestorationRecipe> STREAM_CODEC = StreamCodec.composite(Recipe.CommonInfo.STREAM_CODEC, restorationRecipe -> restorationRecipe.commonInfo, RestorationRecipe.RestorationBookInfo.STREAM_CODEC, restorationRecipe -> restorationRecipe.restorationBookInfo, Ingredient.CONTENTS_STREAM_CODEC, restorationRecipe -> restorationRecipe.ingredient, ItemStackTemplate.STREAM_CODEC, restorationRecipe -> restorationRecipe.result, ByteBufCodecs.INT, restorationRecipe -> restorationRecipe.time, ByteBufCodecs.FLOAT, restorationRecipe -> restorationRecipe.experience, RestorationRecipe::new);
+    private final Recipe.CommonInfo commonInfo;
+    private final RestorationRecipe.RestorationBookInfo restorationBookInfo;
     private final Ingredient ingredient;
-    private final ItemStack result;
+    private final ItemStackTemplate result;
     private final int time;
     private final float experience;
     private PlacementInfo placementInfo;
 
-    public RestorationRecipe(String group, RestorationBookCategory restorationBookCategory, Ingredient ingredient, ItemStack result, int time, float experience) {
-        this.group = group;
-        this.restorationBookCategory = restorationBookCategory;
+    public RestorationRecipe(Recipe.CommonInfo commonInfo, RestorationRecipe.RestorationBookInfo restorationBookInfo, Ingredient ingredient, ItemStackTemplate result, int time, float experience) {
+        this.commonInfo = commonInfo;
+        this.restorationBookInfo = restorationBookInfo;
         this.ingredient = ingredient;
         this.result = result;
         this.time = time;
@@ -41,7 +43,7 @@ public class RestorationRecipe implements Recipe<SingleRecipeInput> {
 
     @Override
     public String group() {
-        return this.group;
+        return this.restorationBookInfo.group();
     }
 
     public int getTime() {
@@ -58,8 +60,13 @@ public class RestorationRecipe implements Recipe<SingleRecipeInput> {
     }
 
     @Override
-    public ItemStack assemble(SingleRecipeInput analyzerRecipeInput, HolderLookup.Provider registries) {
-        return this.result.copy();
+    public ItemStack assemble(SingleRecipeInput singleRecipeInput) {
+        return this.result.create();
+    }
+
+    @Override
+    public boolean showNotification() {
+        return this.commonInfo.showNotification();
     }
 
     @Override
@@ -88,29 +95,15 @@ public class RestorationRecipe implements Recipe<SingleRecipeInput> {
 
     @Override
     public RecipeBookCategory recipeBookCategory() {
-        return switch (this.restorationBookCategory) {
+        return switch (this.restorationBookInfo.category()) {
             case RESTORE -> FCRecipeBookCategories.RESTORATION_RESTORE.get();
             case REPAIR -> FCRecipeBookCategories.RESTORATION_REPAIR.get();
             default -> FCRecipeBookCategories.RESTORATION_MISC.get();
         };
     }
 
-    public static final class Serializer implements RecipeSerializer<RestorationRecipe> {
-        public static final MapCodec<RestorationRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Codec.STRING.optionalFieldOf("group", "").forGetter(restorationRecipe -> restorationRecipe.group), RestorationBookCategory.CODEC.fieldOf("category").orElse(RestorationBookCategory.MISC).forGetter(restorationRecipe -> restorationRecipe.restorationBookCategory), Ingredient.CODEC.fieldOf("ingredient").forGetter(restorationRecipe -> restorationRecipe.ingredient), ItemStack.STRICT_SINGLE_ITEM_CODEC.fieldOf("result").forGetter(restorationRecipe -> restorationRecipe.result), Codec.INT.fieldOf("time").orElse(6000).forGetter(restorationRecipe -> restorationRecipe.time), Codec.FLOAT.fieldOf("experience").orElse(0.0F).forGetter(restorationRecipe -> restorationRecipe.experience)).apply(instance, RestorationRecipe::new));
-        public static final StreamCodec<RegistryFriendlyByteBuf, RestorationRecipe> STREAM_CODEC = StreamCodec.composite(ByteBufCodecs.STRING_UTF8, restorationRecipe -> restorationRecipe.group, RestorationBookCategory.STREAM_CODEC, restorationRecipe -> restorationRecipe.restorationBookCategory, Ingredient.CONTENTS_STREAM_CODEC, restorationRecipe -> restorationRecipe.ingredient, ItemStack.STREAM_CODEC, restorationRecipe -> restorationRecipe.result, ByteBufCodecs.INT, restorationRecipe -> restorationRecipe.time, ByteBufCodecs.FLOAT, restorationRecipe -> restorationRecipe.experience, RestorationRecipe::new);
-        public static final RestorationRecipe.Serializer INSTANCE = new RestorationRecipe.Serializer();
-
-        private Serializer() {
-        }
-
-        @Override
-        public MapCodec<RestorationRecipe> codec() {
-            return CODEC;
-        }
-
-        @Override
-        public StreamCodec<RegistryFriendlyByteBuf, RestorationRecipe> streamCodec() {
-            return STREAM_CODEC;
-        }
+    public record RestorationBookInfo(RestorationBookCategory category, String group) implements Recipe.BookInfo<RestorationBookCategory> {
+        public static final MapCodec<RestorationBookInfo> MAP_CODEC = BookInfo.mapCodec(RestorationBookCategory.CODEC, RestorationBookCategory.MISC, RestorationBookInfo::new);
+        public static final StreamCodec<RegistryFriendlyByteBuf, RestorationBookInfo> STREAM_CODEC = BookInfo.streamCodec(RestorationBookCategory.STREAM_CODEC, RestorationBookInfo::new);
     }
 }

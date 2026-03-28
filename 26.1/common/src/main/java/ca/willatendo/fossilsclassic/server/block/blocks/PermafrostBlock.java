@@ -48,7 +48,7 @@ public class PermafrostBlock extends Block {
         for (Direction direction : Direction.values()) {
             BlockPos relativeBlockPos = blockPos.relative(direction);
             BlockState relativeBlockState = serverLevel.getBlockState(relativeBlockPos);
-            if (relativeBlockState.isAir() && serverLevel.getBrightness(LightLayer.BLOCK, relativeBlockPos) > 10 - relativeBlockState.getLightBlock()) {
+            if (relativeBlockState.isAir() && serverLevel.getBrightness(LightLayer.BLOCK, relativeBlockPos) > 10 - relativeBlockState.getLightDampening()) {
                 this.melt(serverLevel, blockPos);
             }
         }

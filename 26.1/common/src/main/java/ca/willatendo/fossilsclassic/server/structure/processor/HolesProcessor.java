@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.util.valueproviders.IntProviders;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -21,7 +22,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class HolesProcessor extends StructureProcessor {
-    public static final MapCodec<HolesProcessor> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Codec.BOOL.fieldOf("replace_with_water_under_sea_level").forGetter(academyStructureProcessor -> academyStructureProcessor.replaceWithWaterUnderSeaLevel), IntProvider.codec(1, 99).fieldOf("hole_count").forGetter(holesProcessor -> holesProcessor.holeCount), IntProvider.codec(1, 99).fieldOf("hole_size").forGetter(holesProcessor -> holesProcessor.holeSize)).apply(instance, HolesProcessor::new));
+    public static final MapCodec<HolesProcessor> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Codec.BOOL.fieldOf("replace_with_water_under_sea_level").forGetter(academyStructureProcessor -> academyStructureProcessor.replaceWithWaterUnderSeaLevel), IntProviders.codec(1, 99).fieldOf("hole_count").forGetter(holesProcessor -> holesProcessor.holeCount), IntProviders.codec(1, 99).fieldOf("hole_size").forGetter(holesProcessor -> holesProcessor.holeSize)).apply(instance, HolesProcessor::new));
     private final boolean replaceWithWaterUnderSeaLevel;
     private final IntProvider holeCount;
     private final IntProvider holeSize;

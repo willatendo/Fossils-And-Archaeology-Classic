@@ -2,6 +2,7 @@ package ca.willatendo.fossilsclassic.server.menu.menus;
 
 import ca.willatendo.fossilsclassic.server.block.blocks.AnalyzerBlock;
 import ca.willatendo.fossilsclassic.server.block.entities.AnalyzerBlockEntity;
+import ca.willatendo.fossilsclassic.server.item.crafting.SingleRecipeInputWithRegistries;
 import ca.willatendo.fossilsclassic.server.menu.FCMenuTypes;
 import ca.willatendo.fossilsclassic.server.menu.slot.AnalyzerResultSlot;
 import ca.willatendo.fossilsclassic.server.recipe.FCRecipeBookTypes;
@@ -99,7 +100,7 @@ public class AnalyzerMenu extends RecipeBookMenu {
 
             @Override
             public boolean recipeMatches(RecipeHolder<AnalyzationRecipe> recipeHolder) {
-                return analyzationRecipeRecipeHolder.value().matches(new SingleRecipeInput(AnalyzerMenu.this.analyzerBlockEntity.getItem(0)), serverLevel);
+                return analyzationRecipeRecipeHolder.value().matches(new SingleRecipeInputWithRegistries(AnalyzerMenu.this.analyzerBlockEntity.getItem(0), serverLevel.registryAccess()), serverLevel);
             }
         }, 1, 1, List.of(this.getSlot(0)), list, inventory, analyzationRecipeRecipeHolder, useMaxItems, isCreative);
     }

@@ -176,7 +176,7 @@ public class Fossil extends Mob {
     }
 
     @Override
-    public InteractionResult interactAt(Player player, Vec3 vec3, InteractionHand interactionHand) {
+    public InteractionResult interact(Player player, InteractionHand hand, Vec3 location) {
         ItemStack itemStack = player.getMainHandItem();
         if (itemStack.is(Items.BONE)) {
             if (this.getSize() < this.getFossilVariant().value().maxGrowthStage()) {
@@ -186,10 +186,10 @@ public class Fossil extends Mob {
                     }
                     return InteractionResult.SUCCESS;
                 } else {
-                    player.displayClientMessage(FCCoreUtils.translation("entity", "fossil.no_space"), true);
+                    player.sendOverlayMessage(FCCoreUtils.translation("entity", "fossil.no_space"));
                 }
             } else {
-                player.displayClientMessage(FCCoreUtils.translation("entity", "fossil.full_size"), true);
+                player.sendOverlayMessage(FCCoreUtils.translation("entity", "fossil.full_size"));
             }
         } else if (itemStack.isEmpty()) {
             if (this.getSize() >= 1) {
@@ -199,7 +199,7 @@ public class Fossil extends Mob {
                 }
                 return InteractionResult.SUCCESS;
             } else {
-                player.displayClientMessage(FCCoreUtils.translation("entity", "fossil.minimum_size"), true);
+                player.sendOverlayMessage(FCCoreUtils.translation("entity", "fossil.minimum_size"));
             }
         }
         return InteractionResult.PASS;

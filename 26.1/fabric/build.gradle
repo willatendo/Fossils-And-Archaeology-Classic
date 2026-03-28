@@ -1,19 +1,15 @@
 plugins {
     id 'multiloader-loader'
-    id 'fabric-loom'
+    id 'net.fabricmc.fabric-loom'
 }
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
-    mappings loom.layered {
-        officialMojangMappings()
-        parchment("org.parchmentmc.data:parchment-${parchment_minecraft}:${parchment_version}@zip")
-    }
 
-    modApi include("simplelibrary:simplelibrary-fabric:${simplelibrary_version}")
-    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+    implementation include("simplelibrary:simplelibrary-fabric:${minecraft_version}-${simplelibrary_version}")
+    implementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
 
-    modImplementation include("com.github.Chocohead:Fabric-ASM:v${mm_version}") {
+    implementation include("com.github.Chocohead:Fabric-ASM:v${mm_version}") {
         exclude(group: "net.fabricmc.fabric-api")
     }
 }
@@ -48,6 +44,17 @@ loom {
             ideConfigGenerated(true)
             runDir('runs/server')
         }
+        data {
+            inherit client
+            setConfigName("Fabric Data")
+            ideConfigGenerated(true)
+            runDir("runs/datagen")
+
+            vmArg "-Dfabric-api.datagen"
+            vmArg "-Dfabric-api.datagen.input-dir=${project(":common").file("src/main/resources")}"
+            vmArg "-Dfabric-api.datagen.output-dir=${project(":common").file("src/generated/resources")}"
+            vmArg "-Dfabric-api.datagen.modid=${mod_id}"
+        }
     }
 }
 
@@ -65,13 +72,6 @@ sourceSets.configureEach {
             attributes {
                 attribute(loaderAttribute, 'fabric')
             }
-        }
-    }
-}
-loom.remapConfigurations.configureEach {
-    configurations.named(it.name) {
-        attributes {
-            attribute(loaderAttribute, 'fabric')
         }
     }
 }

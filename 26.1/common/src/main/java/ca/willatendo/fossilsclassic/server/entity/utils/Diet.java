@@ -24,7 +24,7 @@ public interface Diet {
 
             @Override
             public boolean isFood(ItemStack itemStack) {
-                return ValueMaps.isFeederFood(itemStack.getItemHolder(), false);
+                return ValueMaps.isFeederFood(itemStack.typeHolder(), false);
             }
 
             @Override

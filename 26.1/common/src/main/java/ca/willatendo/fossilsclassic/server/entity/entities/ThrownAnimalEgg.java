@@ -13,6 +13,7 @@ import net.minecraft.world.entity.animal.parrot.Parrot;
 import net.minecraft.world.entity.projectile.throwableitemprojectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
@@ -37,10 +38,15 @@ public abstract class ThrownAnimalEgg<T extends AgeableMob> extends ThrowableIte
     public abstract void onThrown(T ageableMob);
 
     @Override
-    public void handleEntityEvent(byte event) {
-        if (event == 3) {
-            for (int i = 0; i < 8; ++i) {
-                this.level().addParticle(new ItemParticleOption(ParticleTypes.ITEM, this.getItem()), this.getX(), this.getY(), this.getZ(), ((double) this.random.nextFloat() - 0.5D) * 0.08D, ((double) this.random.nextFloat() - 0.5D) * 0.08D, ((double) this.random.nextFloat() - 0.5D) * 0.08D);
+    public void handleEntityEvent(byte id) {
+        if (id == 3) {
+            ItemStack itemStack = this.getItem();
+            if (!itemStack.isEmpty()) {
+                ItemParticleOption breakParticle = new ItemParticleOption(ParticleTypes.ITEM, ItemStackTemplate.fromNonEmptyStack(itemStack));
+
+                for (int i = 0; i < 8; ++i) {
+                    this.level().addParticle(breakParticle, this.getX(), this.getY(), this.getZ(), ((double) this.random.nextFloat() - (double) 0.5F) * 0.08, ((double) this.random.nextFloat() - (double) 0.5F) * 0.08, ((double) this.random.nextFloat() - (double) 0.5F) * 0.08);
+                }
             }
         }
     }

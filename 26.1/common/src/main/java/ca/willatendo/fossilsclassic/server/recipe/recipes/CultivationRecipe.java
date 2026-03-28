@@ -9,11 +9,11 @@ import ca.willatendo.fossilsclassic.server.recipe.display.CultivationRecipeDispl
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.item.crafting.display.RecipeDisplay;
 import net.minecraft.world.item.crafting.display.SlotDisplay;
@@ -22,17 +22,19 @@ import net.minecraft.world.level.Level;
 import java.util.List;
 
 public class CultivationRecipe implements Recipe<SingleRecipeInput> {
-    private final String group;
-    private final CultivationBookCategory cultivationBookCategory;
+    public static final MapCodec<CultivationRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Recipe.CommonInfo.MAP_CODEC.forGetter(cultivationRecipe -> cultivationRecipe.commonInfo), CultivationRecipe.CultivationBookInfo.MAP_CODEC.forGetter(cultivationRecipe -> cultivationRecipe.cultivationBookInfo), Ingredient.CODEC.fieldOf("ingredient").forGetter(cultivationRecipe -> cultivationRecipe.ingredient), ItemStackTemplate.CODEC.fieldOf("result").forGetter(cultivationRecipe -> cultivationRecipe.result), Codec.INT.fieldOf("time").orElse(6000).forGetter(cultivationRecipe -> cultivationRecipe.time), Codec.FLOAT.fieldOf("experience").orElse(0.0F).forGetter(cultivationRecipe -> cultivationRecipe.experience)).apply(instance, CultivationRecipe::new));
+    public static final StreamCodec<RegistryFriendlyByteBuf, CultivationRecipe> STREAM_CODEC = StreamCodec.composite(Recipe.CommonInfo.STREAM_CODEC, cultivationRecipe -> cultivationRecipe.commonInfo, CultivationRecipe.CultivationBookInfo.STREAM_CODEC, cultivationRecipe -> cultivationRecipe.cultivationBookInfo, Ingredient.CONTENTS_STREAM_CODEC, cultivationRecipe -> cultivationRecipe.ingredient, ItemStackTemplate.STREAM_CODEC, cultivationRecipe -> cultivationRecipe.result, ByteBufCodecs.INT, cultivationRecipe -> cultivationRecipe.time, ByteBufCodecs.FLOAT, cultivationRecipe -> cultivationRecipe.experience, CultivationRecipe::new);
+    private final Recipe.CommonInfo commonInfo;
+    private final CultivationRecipe.CultivationBookInfo cultivationBookInfo;
     private final Ingredient ingredient;
-    private final ItemStack result;
+    private final ItemStackTemplate result;
     private final int time;
     private final float experience;
     private PlacementInfo placementInfo;
 
-    public CultivationRecipe(String group, CultivationBookCategory cultivationBookCategory, Ingredient ingredient, ItemStack result, int time, float experience) {
-        this.group = group;
-        this.cultivationBookCategory = cultivationBookCategory;
+    public CultivationRecipe(Recipe.CommonInfo commonInfo, CultivationRecipe.CultivationBookInfo CultivationBookInfo, Ingredient ingredient, ItemStackTemplate result, int time, float experience) {
+        this.commonInfo = commonInfo;
+        this.cultivationBookInfo = CultivationBookInfo;
         this.ingredient = ingredient;
         this.result = result;
         this.time = time;
@@ -41,7 +43,7 @@ public class CultivationRecipe implements Recipe<SingleRecipeInput> {
 
     @Override
     public String group() {
-        return this.group;
+        return this.cultivationBookInfo.group();
     }
 
     public int getTime() {
@@ -59,8 +61,13 @@ public class CultivationRecipe implements Recipe<SingleRecipeInput> {
     }
 
     @Override
-    public ItemStack assemble(SingleRecipeInput analyzerRecipeInput, HolderLookup.Provider registries) {
-        return this.result.copy();
+    public ItemStack assemble(SingleRecipeInput singleRecipeInput) {
+        return this.result.create();
+    }
+
+    @Override
+    public boolean showNotification() {
+        return this.commonInfo.showNotification();
     }
 
     @Override
@@ -89,7 +96,7 @@ public class CultivationRecipe implements Recipe<SingleRecipeInput> {
 
     @Override
     public RecipeBookCategory recipeBookCategory() {
-        return switch (this.cultivationBookCategory) {
+        return switch (this.cultivationBookInfo.category()) {
             case EGG -> FCRecipeBookCategories.CULTIVATION_EGGS.get();
             case EMBRYO -> FCRecipeBookCategories.CULTIVATION_EMBRYOS.get();
             case PLANT -> FCRecipeBookCategories.CULTIVATION_PLANTS.get();
@@ -97,22 +104,8 @@ public class CultivationRecipe implements Recipe<SingleRecipeInput> {
         };
     }
 
-    public static final class Serializer implements RecipeSerializer<CultivationRecipe> {
-        public static final MapCodec<CultivationRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Codec.STRING.optionalFieldOf("group", "").forGetter(cultivationRecipe -> cultivationRecipe.group), CultivationBookCategory.CODEC.fieldOf("category").orElse(CultivationBookCategory.MISC).forGetter(cultivationRecipe -> cultivationRecipe.cultivationBookCategory), Ingredient.CODEC.fieldOf("ingredient").forGetter(cultivationRecipe -> cultivationRecipe.ingredient), ItemStack.STRICT_SINGLE_ITEM_CODEC.fieldOf("result").forGetter(cultivationRecipe -> cultivationRecipe.result), Codec.INT.fieldOf("time").orElse(6000).forGetter(cultivationRecipe -> cultivationRecipe.time), Codec.FLOAT.fieldOf("experience").orElse(0.0F).forGetter(cultivationRecipe -> cultivationRecipe.experience)).apply(instance, CultivationRecipe::new));
-        public static final StreamCodec<RegistryFriendlyByteBuf, CultivationRecipe> STREAM_CODEC = StreamCodec.composite(ByteBufCodecs.STRING_UTF8, cultivationRecipe -> cultivationRecipe.group, CultivationBookCategory.STREAM_CODEC, cultivationRecipe -> cultivationRecipe.cultivationBookCategory, Ingredient.CONTENTS_STREAM_CODEC, cultivationRecipe -> cultivationRecipe.ingredient, ItemStack.STREAM_CODEC, cultivationRecipe -> cultivationRecipe.result, ByteBufCodecs.INT, cultivationRecipe -> cultivationRecipe.time, ByteBufCodecs.FLOAT, cultivationRecipe -> cultivationRecipe.experience, CultivationRecipe::new);
-        public static final CultivationRecipe.Serializer INSTANCE = new CultivationRecipe.Serializer();
-
-        private Serializer() {
-        }
-
-        @Override
-        public MapCodec<CultivationRecipe> codec() {
-            return CODEC;
-        }
-
-        @Override
-        public StreamCodec<RegistryFriendlyByteBuf, CultivationRecipe> streamCodec() {
-            return STREAM_CODEC;
-        }
+    public record CultivationBookInfo(CultivationBookCategory category, String group) implements Recipe.BookInfo<CultivationBookCategory> {
+        public static final MapCodec<CultivationRecipe.CultivationBookInfo> MAP_CODEC = BookInfo.mapCodec(CultivationBookCategory.CODEC, CultivationBookCategory.MISC, CultivationRecipe.CultivationBookInfo::new);
+        public static final StreamCodec<RegistryFriendlyByteBuf, CultivationRecipe.CultivationBookInfo> STREAM_CODEC = BookInfo.streamCodec(CultivationBookCategory.STREAM_CODEC, CultivationRecipe.CultivationBookInfo::new);
     }
 }

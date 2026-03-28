@@ -47,7 +47,7 @@ public class FossilItem extends Item {
             Level level = useOnContext.getLevel();
             Optional<List<Holder<FossilVariant>>> fossilVariants = Fossil.checkHasPlaceable(level, relativeBlockPos, itemStack);
             if (fossilVariants.isEmpty()) {
-                player.displayClientMessage(FCCoreUtils.translation("item", "fossil.no_space"), true);
+                player.sendOverlayMessage(FCCoreUtils.translation("item", "fossil.no_space"));
                 return InteractionResult.CONSUME;
             }
             if (level instanceof ServerLevel serverLevel) {

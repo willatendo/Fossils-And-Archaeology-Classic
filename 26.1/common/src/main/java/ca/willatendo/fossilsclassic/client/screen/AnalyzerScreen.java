@@ -7,7 +7,7 @@ import ca.willatendo.fossilsclassic.server.item.FCItems;
 import ca.willatendo.fossilsclassic.server.menu.menus.AnalyzerMenu;
 import ca.willatendo.fossilsclassic.server.recipe.FCRecipeBookCategories;
 import ca.willatendo.simplelibrary.client.utils.RecipeBookUtils;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.navigation.ScreenPosition;
 import net.minecraft.client.gui.screens.inventory.AbstractRecipeBookScreen;
 import net.minecraft.client.gui.screens.recipebook.RecipeBookComponent;
@@ -39,13 +39,14 @@ public class AnalyzerScreen extends AbstractRecipeBookScreen<AnalyzerMenu> {
         return new ScreenPosition(this.leftPos + 129, this.topPos + 22);
     }
 
+
     @Override
-    protected void renderBg(GuiGraphics guiGraphics, float partialTicks, int x, int y) {
+    public void extractBackground(GuiGraphicsExtractor guiGraphicsExtractor, int xMouse, int yMouse, float a) {
         int leftPos = this.leftPos;
         int topPos = this.topPos;
-        guiGraphics.blit(RenderPipelines.GUI_TEXTURED, TEXTURE, leftPos, topPos, 0.0F, 0.0F, this.imageWidth, this.imageHeight, 256, 256);
+        guiGraphicsExtractor.blit(RenderPipelines.GUI_TEXTURED, TEXTURE, leftPos, topPos, 0.0F, 0.0F, this.imageWidth, this.imageHeight, 256, 256);
 
         int analyzerProgess = this.menu.getAnalyzationProgress();
-        guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, ANALYZATION_PROGRESS_SPRITE, 21, 9, 0, 0, leftPos + 68, topPos + 39, analyzerProgess + 1, 9);
+        guiGraphicsExtractor.blitSprite(RenderPipelines.GUI_TEXTURED, ANALYZATION_PROGRESS_SPRITE, 21, 9, 0, 0, leftPos + 68, topPos + 39, analyzerProgess + 1, 9);
     }
 }

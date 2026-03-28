@@ -1,6 +1,5 @@
 package ca.willatendo.fossilsclassic.server.loot.entries;
 
-import ca.willatendo.fossilsclassic.server.loot.FCLootPoolEntries;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -12,7 +11,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.entries.LootPoolEntryType;
 import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
 import net.minecraft.world.level.storage.loot.functions.LootItemFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
@@ -21,7 +19,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 public class LootRandomItem extends LootPoolSingletonContainer {
-    public static final MapCodec<LootRandomItem> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Codec.INT.fieldOf("max_weight").orElse(100).forGetter(lootRandomItem -> lootRandomItem.randomRange), Codec.list(RandomItemEntry.CODEC).fieldOf("entries").forGetter(lootRandomItem -> lootRandomItem.randomItemEntries)).and(LootItem.singletonFields(instance)).apply(instance, LootRandomItem::new));
+    public static final MapCodec<LootRandomItem> MAP_CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Codec.INT.fieldOf("max_weight").orElse(100).forGetter(lootRandomItem -> lootRandomItem.randomRange), Codec.list(RandomItemEntry.CODEC).fieldOf("entries").forGetter(lootRandomItem -> lootRandomItem.randomItemEntries)).and(LootItem.singletonFields(instance)).apply(instance, LootRandomItem::new));
     private final List<RandomItemEntry> randomItemEntries;
     private final int randomRange;
 
@@ -36,6 +34,11 @@ public class LootRandomItem extends LootPoolSingletonContainer {
     }
 
     @Override
+    public MapCodec<? extends LootPoolSingletonContainer> codec() {
+        return MAP_CODEC;
+    }
+
+    @Override
     protected void createItemStack(Consumer<ItemStack> consumer, LootContext lootContext) {
         int hit = lootContext.getRandom().nextInt(this.randomRange);
         for (RandomItemEntry randomItemEntry : this.randomItemEntries) {
@@ -45,11 +48,6 @@ public class LootRandomItem extends LootPoolSingletonContainer {
                 break;
             }
         }
-    }
-
-    @Override
-    public LootPoolEntryType getType() {
-        return FCLootPoolEntries.LOOT_RANDOM_ITEM.get();
     }
 
     public record RandomItemEntry(Holder<Item> item, int hitFrom, int hitTo) {

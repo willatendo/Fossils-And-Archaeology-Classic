@@ -3,6 +3,7 @@ package ca.willatendo.fossilsclassic.server.block.entities;
 import ca.willatendo.fossilsclassic.core.utils.FCCoreUtils;
 import ca.willatendo.fossilsclassic.server.block.FCBlockEntityTypes;
 import ca.willatendo.fossilsclassic.server.block.blocks.AnalyzerBlock;
+import ca.willatendo.fossilsclassic.server.item.crafting.SingleRecipeInputWithRegistries;
 import ca.willatendo.fossilsclassic.server.menu.menus.AnalyzerMenu;
 import ca.willatendo.fossilsclassic.server.recipe.FCRecipeTypes;
 import ca.willatendo.fossilsclassic.server.recipe.recipes.AnalyzationRecipe;
@@ -32,7 +33,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
-import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -83,7 +83,7 @@ public class AnalyzerBlockEntity extends BaseContainerBlockEntity implements Wor
         }
     };
     private final Reference2IntOpenHashMap<ResourceKey<Recipe<?>>> recipesUsed = new Reference2IntOpenHashMap<>();
-    private final RecipeManager.CachedCheck<SingleRecipeInput, AnalyzationRecipe> recipeCheck = RecipeManager.createCheck(FCRecipeTypes.ANALYZATION.get());
+    private final RecipeManager.CachedCheck<SingleRecipeInputWithRegistries, AnalyzationRecipe> recipeCheck = RecipeManager.createCheck(FCRecipeTypes.ANALYZATION.get());
 
 
     public AnalyzerBlockEntity(BlockPos blockPos, BlockState blockState) {
@@ -127,7 +127,7 @@ public class AnalyzerBlockEntity extends BaseContainerBlockEntity implements Wor
             for (int inputSlot = 0; inputSlot < 9; inputSlot++) {
                 boolean hasInput = !analyzerBlockEntity.items.get(inputSlot).isEmpty();
                 if (analyzerBlockEntity.isOn() || hasInput) {
-                    SingleRecipeInput singleRecipeInput = new SingleRecipeInput(analyzerBlockEntity.items.get(inputSlot));
+                    SingleRecipeInputWithRegistries singleRecipeInput = new SingleRecipeInputWithRegistries(analyzerBlockEntity.items.get(inputSlot), serverLevel.registryAccess());
                     RecipeHolder<AnalyzationRecipe> recipe;
                     if (hasInput) {
                         recipe = analyzerBlockEntity.recipeCheck.getRecipeFor(singleRecipeInput, serverLevel).orElse(null);
@@ -137,7 +137,7 @@ public class AnalyzerBlockEntity extends BaseContainerBlockEntity implements Wor
 
                     if (recipe != null) {
                         int maxStackSize = analyzerBlockEntity.getMaxStackSize();
-                        ItemStack outputStack = recipe.value().assemble(singleRecipeInput, serverLevel.registryAccess());
+                        ItemStack outputStack = recipe.value().assemble(singleRecipeInput);
                         for (int outputSlot = 9; outputSlot < 13; outputSlot++) {
                             if (AnalyzerBlockEntity.canAnalyze(outputSlot, inputSlot, outputStack, analyzerBlockEntity.items, maxStackSize)) {
                                 if (!analyzerBlockEntity.isOn()) {
@@ -220,7 +220,7 @@ public class AnalyzerBlockEntity extends BaseContainerBlockEntity implements Wor
     }
 
     private static int getTotalAnalyzationTime(int inputSlot, ServerLevel serverLevel, AnalyzerBlockEntity analyzerBlockEntity) {
-        return analyzerBlockEntity.recipeCheck.getRecipeFor(new SingleRecipeInput(analyzerBlockEntity.items.get(inputSlot)), serverLevel).map(recipeHolder -> recipeHolder.value().getTime()).orElse(100);
+        return analyzerBlockEntity.recipeCheck.getRecipeFor(new SingleRecipeInputWithRegistries(analyzerBlockEntity.items.get(inputSlot), serverLevel.registryAccess()), serverLevel).map(recipeHolder -> recipeHolder.value().getTime()).orElse(100);
     }
 
     @Override
@@ -326,7 +326,7 @@ public class AnalyzerBlockEntity extends BaseContainerBlockEntity implements Wor
     private static void createExperience(ServerLevel serverLevel, Vec3 popVec, int recipeIndex, float experience) {
         int amount = Mth.floor((float) recipeIndex * experience);
         float f = Mth.frac((float) recipeIndex * experience);
-        if (f != 0.0F && serverLevel.random.nextFloat() < f) {
+        if (f != 0.0F && serverLevel.getRandom().nextFloat() < f) {
             ++amount;
         }
 

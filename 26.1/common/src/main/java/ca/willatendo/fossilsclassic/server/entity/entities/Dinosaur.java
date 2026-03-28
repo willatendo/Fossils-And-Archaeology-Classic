@@ -47,10 +47,8 @@ import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.pathfinder.WalkNodeEvaluator;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
-import java.util.List;
 import java.util.Optional;
 
 public abstract class Dinosaur extends Animal implements CommandableEntity, TameAccessor {
@@ -435,9 +433,9 @@ public abstract class Dinosaur extends Animal implements CommandableEntity, Tame
             return InteractionResult.SUCCESS;
         }
 
-        if (!isFood && interactionHand == InteractionHand.MAIN_HAND && this.commandingInformation().canCommandWithItem(itemStack) && this.isOwnedBy(player)) {
+        if (interactionHand == InteractionHand.MAIN_HAND && this.commandingInformation().canCommandWithItem(itemStack) && this.isOwnedBy(player)) {
             this.cycleCommand();
-            player.displayClientMessage(FCCoreUtils.translationWithArguments("entity", "dinosaur.set_command", this.getCommand().value().getName().copy().withStyle(ChatFormatting.BOLD, ChatFormatting.DARK_GRAY)).copy().withStyle(ChatFormatting.GRAY), true);
+            player.sendOverlayMessage(FCCoreUtils.translationWithArguments("entity", "dinosaur.set_command", this.getCommand().value().getName().copy().withStyle(ChatFormatting.BOLD, ChatFormatting.DARK_GRAY)).copy().withStyle(ChatFormatting.GRAY));
             return InteractionResult.SUCCESS_SERVER;
         }
         return super.mobInteract(player, interactionHand);
@@ -542,7 +540,7 @@ public abstract class Dinosaur extends Animal implements CommandableEntity, Tame
     }
 
     @Override
-    public InteractionResult interact(Player player, InteractionHand interactionHand) {
+    public InteractionResult interact(Player player, InteractionHand interactionHand, Vec3 location) {
         ItemStack itemStack = player.getItemInHand(interactionHand);
         if (itemStack.getItem() instanceof SpawnEggItem spawnEggItem) {
             if (this.level() instanceof ServerLevel serverLevel) {
@@ -555,7 +553,7 @@ public abstract class Dinosaur extends Animal implements CommandableEntity, Tame
 
             return InteractionResult.SUCCESS_SERVER;
         }
-        return super.interact(player, interactionHand);
+        return super.interact(player, interactionHand, location);
     }
 
     public Optional<Dinosaur> spawnOffspringFromSpawnEgg(SpawnEggItem spawnEggItem, Player player, Dinosaur parent, EntityType<?> entityType, ServerLevel serverLevel, Vec3 pos, ItemStack itemStack) {
@@ -576,18 +574,18 @@ public abstract class Dinosaur extends Animal implements CommandableEntity, Tame
     }
 
     @Override
-    protected void onOffspringSpawnedFromEgg(Player player, Mob child) {
-        if (child instanceof Dinosaur dinosaur) {
+    protected void onOffspringSpawnedFromEgg(Player spawner, Mob offspring) {
+        if (offspring instanceof Dinosaur dinosaur) {
             Chromosome chromosome = dinosaur.getChromosome().value();
             chromosome.getCosmeticChooser().getGene(chromosome.getCosmeticGenes(), dinosaur.getRandom(), dinosaur.level().getBiome(dinosaur.blockPosition())).ifPresent(dinosaur::setCosmeticGene);
 
             dinosaur.setHunger(dinosaur.getMaxHunger());
             dinosaur.setCommand(FCCommandTypes.FREE_MOVE);
-            if (player.isCrouching()) {
+            if (spawner.isCrouching()) {
                 dinosaur.setGrowthStage(0, true);
             }
         }
-        super.onOffspringSpawnedFromEgg(player, child);
+        super.onOffspringSpawnedFromEgg(spawner, offspring);
     }
 
     @Override

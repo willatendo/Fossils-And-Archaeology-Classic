@@ -30,7 +30,7 @@ public class SyringeItem extends Item {
 
     @Override
     public InteractionResult interactLivingEntity(ItemStack itemStack, Player player, LivingEntity livingEntity, InteractionHand interactionHand) {
-        if (livingEntity.getType().is(FCEntityTypeTags.MAMMALS)) {
+        if (livingEntity.getType().builtInRegistryHolder().is(FCEntityTypeTags.MAMMALS)) {
             if (livingEntity instanceof AgeableMob ageableMob) {
                 if (!ageableMob.isBaby()) {
                     return this.applyPregnancy(itemStack, player, livingEntity);

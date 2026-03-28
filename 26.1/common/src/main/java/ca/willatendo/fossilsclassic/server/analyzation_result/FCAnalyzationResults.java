@@ -6,6 +6,7 @@ import ca.willatendo.fossilsclassic.server.registry.FCRegistries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 
 public final class FCAnalyzationResults {
@@ -35,25 +36,25 @@ public final class FCAnalyzationResults {
     }
 
     public static void bootstrap(BootstrapContext<AnalyzationResult> bootstrapContext) {
-        bootstrapContext.register(BONE_MEAL, new AnalyzationResult(60, new ItemStack(Items.BONE_MEAL)));
-        bootstrapContext.register(JURASSIC_FERN_SPORES, new AnalyzationResult(20, new ItemStack(FCItems.JURASSIC_FERN_SPORES.get())));
-        bootstrapContext.register(TRICERATOPS_DNA, new AnalyzationResult(2, new ItemStack(FCItems.TRICERATOPS_DNA.get())));
-        bootstrapContext.register(VELOCIRAPTOR_DNA, new AnalyzationResult(2, new ItemStack(FCItems.VELOCIRAPTOR_DNA.get())));
-        bootstrapContext.register(TYRANNOSAURUS_DNA, new AnalyzationResult(2, new ItemStack(FCItems.TYRANNOSAURUS_DNA.get())));
-        bootstrapContext.register(PTERANODON_DNA, new AnalyzationResult(2, new ItemStack(FCItems.PTERANODON_DNA.get())));
-        bootstrapContext.register(NAUTILUS_DNA, new AnalyzationResult(2, new ItemStack(FCItems.NAUTILUS_DNA.get())));
-        bootstrapContext.register(FUTABASAURUS_DNA, new AnalyzationResult(2, new ItemStack(FCItems.FUTABASAURUS_DNA.get())));
-        bootstrapContext.register(MOSASAURUS_DNA, new AnalyzationResult(2, new ItemStack(FCItems.MOSASAURUS_DNA.get())));
-        bootstrapContext.register(STEGOSAURUS_DNA, new AnalyzationResult(2, new ItemStack(FCItems.STEGOSAURUS_DNA.get())));
-        bootstrapContext.register(DILOPHOSAURUS_DNA, new AnalyzationResult(2, new ItemStack(FCItems.DILOPHOSAURUS_DNA.get())));
-        bootstrapContext.register(BRACHIOSAURUS_DNA, new AnalyzationResult(2, new ItemStack(FCItems.BRACHIOSAURUS_DNA.get())));
-        bootstrapContext.register(BEEF, new AnalyzationResult(1, new ItemStack(Items.BEEF)));
-        bootstrapContext.register(SMILODON_DNA, new AnalyzationResult(1, new ItemStack(FCItems.SMILODON_DNA.get())));
-        bootstrapContext.register(MAMMOTH_DNA, new AnalyzationResult(1, new ItemStack(FCItems.MAMMOTH_DNA.get())));
-        bootstrapContext.register(GRAVEL, new AnalyzationResult(40, new ItemStack(Items.GRAVEL)));
-        bootstrapContext.register(STONE_TABLET, new AnalyzationResult(30, new ItemStack(FCItems.STONE_TABLET.get())));
-        bootstrapContext.register(FLINT, new AnalyzationResult(20, new ItemStack(Items.FLINT)));
-        bootstrapContext.register(BROKEN_ANCIENT_HELMET, new AnalyzationResult(5, new ItemStack(FCItems.BROKEN_ANCIENT_HELMET.get())));
-        bootstrapContext.register(BROKEN_ANCIENT_SWORD, new AnalyzationResult(5, new ItemStack(FCItems.BROKEN_ANCIENT_SWORD.get())));
+        bootstrapContext.register(BONE_MEAL, new AnalyzationResult(60, new ItemStackTemplate(Items.BONE_MEAL)));
+        bootstrapContext.register(JURASSIC_FERN_SPORES, new AnalyzationResult(20, new ItemStackTemplate(FCItems.JURASSIC_FERN_SPORES.get())));
+        bootstrapContext.register(TRICERATOPS_DNA, new AnalyzationResult(2, new ItemStackTemplate(FCItems.TRICERATOPS_DNA.get())));
+        bootstrapContext.register(VELOCIRAPTOR_DNA, new AnalyzationResult(2, new ItemStackTemplate(FCItems.VELOCIRAPTOR_DNA.get())));
+        bootstrapContext.register(TYRANNOSAURUS_DNA, new AnalyzationResult(2, new ItemStackTemplate(FCItems.TYRANNOSAURUS_DNA.get())));
+        bootstrapContext.register(PTERANODON_DNA, new AnalyzationResult(2, new ItemStackTemplate(FCItems.PTERANODON_DNA.get())));
+        bootstrapContext.register(NAUTILUS_DNA, new AnalyzationResult(2, new ItemStackTemplate(FCItems.NAUTILUS_DNA.get())));
+        bootstrapContext.register(FUTABASAURUS_DNA, new AnalyzationResult(2, new ItemStackTemplate(FCItems.FUTABASAURUS_DNA.get())));
+        bootstrapContext.register(MOSASAURUS_DNA, new AnalyzationResult(2, new ItemStackTemplate(FCItems.MOSASAURUS_DNA.get())));
+        bootstrapContext.register(STEGOSAURUS_DNA, new AnalyzationResult(2, new ItemStackTemplate(FCItems.STEGOSAURUS_DNA.get())));
+        bootstrapContext.register(DILOPHOSAURUS_DNA, new AnalyzationResult(2, new ItemStackTemplate(FCItems.DILOPHOSAURUS_DNA.get())));
+        bootstrapContext.register(BRACHIOSAURUS_DNA, new AnalyzationResult(2, new ItemStackTemplate(FCItems.BRACHIOSAURUS_DNA.get())));
+        bootstrapContext.register(BEEF, new AnalyzationResult(1, new ItemStackTemplate(Items.BEEF)));
+        bootstrapContext.register(SMILODON_DNA, new AnalyzationResult(1, new ItemStackTemplate(FCItems.SMILODON_DNA.get())));
+        bootstrapContext.register(MAMMOTH_DNA, new AnalyzationResult(1, new ItemStackTemplate(FCItems.MAMMOTH_DNA.get())));
+        bootstrapContext.register(GRAVEL, new AnalyzationResult(40, new ItemStackTemplate(Items.GRAVEL)));
+        bootstrapContext.register(STONE_TABLET, new AnalyzationResult(30, new ItemStackTemplate(FCItems.STONE_TABLET.get())));
+        bootstrapContext.register(FLINT, new AnalyzationResult(20, new ItemStackTemplate(Items.FLINT)));
+        bootstrapContext.register(BROKEN_ANCIENT_HELMET, new AnalyzationResult(5, new ItemStackTemplate(FCItems.BROKEN_ANCIENT_HELMET.get())));
+        bootstrapContext.register(BROKEN_ANCIENT_SWORD, new AnalyzationResult(5, new ItemStackTemplate(FCItems.BROKEN_ANCIENT_SWORD.get())));
     }
 }

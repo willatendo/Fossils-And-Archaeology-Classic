@@ -33,6 +33,7 @@ import net.minecraft.world.inventory.RecipeCraftingHolder;
 import net.minecraft.world.inventory.StackedContentsCompatible;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
@@ -151,15 +152,11 @@ public class CultivatorBlockEntity extends BaseContainerBlockEntity implements W
                 cultivatorBlockEntity.onTimeTotalTime = cultivatorBlockEntity.onTimeRemaining;
                 if (cultivatorBlockEntity.isOn()) {
                     dirty = true;
-                    ItemStack craftingRemainder = fuelItemStack.getItem().getCraftingRemainder();
-                    if (!craftingRemainder.isEmpty()) {
-                        cultivatorBlockEntity.items.set(1, craftingRemainder);
-                    } else if (hasFuel) {
-                        Item item = fuelItemStack.getItem();
-                        fuelItemStack.shrink(1);
-                        if (fuelItemStack.isEmpty()) {
-                            cultivatorBlockEntity.items.set(1, item.getCraftingRemainder());
-                        }
+                    Item item = fuelItemStack.getItem();
+                    fuelItemStack.shrink(1);
+                    if (fuelItemStack.isEmpty()) {
+                        ItemStackTemplate craftingRemainder = item.getCraftingRemainder();
+                        cultivatorBlockEntity.items.set(1, craftingRemainder != null ? craftingRemainder.create() : ItemStack.EMPTY);
                     }
                 }
             }
@@ -201,7 +198,7 @@ public class CultivatorBlockEntity extends BaseContainerBlockEntity implements W
     private static boolean canCultivate(RegistryAccess registryAccess, RecipeHolder<?> recipeHolder, NonNullList<ItemStack> items, int maxStackSize) {
         ItemStack inputItemStack = items.get(0);
         if (!inputItemStack.isEmpty() && recipeHolder != null) {
-            ItemStack output = ((CultivationRecipe) recipeHolder.value()).assemble(new SingleRecipeInput(inputItemStack), registryAccess);
+            ItemStack output = ((CultivationRecipe) recipeHolder.value()).assemble(new SingleRecipeInput(inputItemStack));
             if (output.isEmpty()) {
                 return false;
             } else {
@@ -224,7 +221,7 @@ public class CultivatorBlockEntity extends BaseContainerBlockEntity implements W
     private static boolean cultivate(RegistryAccess registryAccess, RecipeHolder<?> recipeHolder, NonNullList<ItemStack> items, int maxStackSize) {
         if (recipeHolder != null && CultivatorBlockEntity.canCultivate(registryAccess, recipeHolder, items, maxStackSize)) {
             ItemStack input = items.get(0);
-            ItemStack output = ((CultivationRecipe) recipeHolder.value()).assemble(new SingleRecipeInput(items.get(0)), registryAccess);
+            ItemStack output = ((CultivationRecipe) recipeHolder.value()).assemble(new SingleRecipeInput(items.get(0)));
             ItemStack outputSlot = items.get(2);
             if (outputSlot.isEmpty()) {
                 items.set(2, output.copy());
@@ -243,7 +240,7 @@ public class CultivatorBlockEntity extends BaseContainerBlockEntity implements W
         if (itemStack.isEmpty()) {
             return 0;
         }
-        return ValueMaps.getBiomassValue(itemStack.getItemHolder());
+        return ValueMaps.getBiomassValue(itemStack.typeHolder());
     }
 
     private static int getTotalCultivationTime(ServerLevel serverLevel, CultivatorBlockEntity cultivatorBlockEntity) {
@@ -352,7 +349,7 @@ public class CultivatorBlockEntity extends BaseContainerBlockEntity implements W
     private static void createExperience(ServerLevel serverLevel, Vec3 popVec, int recipeIndex, float experience) {
         int amount = Mth.floor((float) recipeIndex * experience);
         float f = Mth.frac((float) recipeIndex * experience);
-        if (f != 0.0F && serverLevel.random.nextFloat() < f) {
+        if (f != 0.0F && serverLevel.getRandom().nextFloat() < f) {
             ++amount;
         }
 
