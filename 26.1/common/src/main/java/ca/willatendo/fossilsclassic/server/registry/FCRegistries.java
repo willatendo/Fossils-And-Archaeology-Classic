@@ -12,6 +12,7 @@ import ca.willatendo.fossilsclassic.server.feeder_food.FeederFoodValue;
 import ca.willatendo.fossilsclassic.server.gene.genes.Gene;
 import ca.willatendo.fossilsclassic.server.gene.genes.behavior.type.JsonBehaviorType;
 import ca.willatendo.fossilsclassic.server.gene.type.GeneType;
+import ca.willatendo.fossilsclassic.server.mob_food.MobFoodValue;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 
@@ -27,6 +28,7 @@ public final class FCRegistries {
     public static final ResourceKey<Registry<Gene>> GENE = FCRegistries.create("gene");
     public static final ResourceKey<Registry<GeneType<?>>> GENE_TYPE = FCRegistries.create("gene_type");
     public static final ResourceKey<Registry<JsonBehaviorType<?>>> JSON_BEHAVIOR_TYPE = FCRegistries.create("json_behavior_type");
+    public static final ResourceKey<Registry<MobFoodValue>> MOB_FOOD_VALUE = FCRegistries.create("mob_food_value");
     public static final ResourceKey<Registry<StoneTabletVariant>> STONE_TABLET_VARIANT = FCRegistries.create("stone_tablet_variant");
 
     private static <T> ResourceKey<Registry<T>> create(String name) {

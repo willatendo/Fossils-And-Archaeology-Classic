@@ -190,8 +190,8 @@ public final class FCItems {
     public static final SimpleHolder<DinosaurSpawnEggItem> MOSASAURUS_SPAWN_EGG = ITEMS.registerItem("mosasaurus_spawn_egg", () -> new DinosaurSpawnEggItem(FossilsLegacyEntityTypes.MOSASAURUS.get(), 0x0d7346, 0xffe1a7, new Item.Properties()));
     public static final SimpleHolder<SpawnEggItem> NAUTILUS_SPAWN_EGG = ITEMS.registerItem("nautilus_spawn_egg", () -> new SpawnEggItem(FossilsLegacyEntityTypes.NAUTILUS.get(), 0xc1c1c1, 0xa95453, new Item.Properties()));
     public static final SimpleHolder<DinosaurSpawnEggItem> PTERANODON_SPAWN_EGG = ITEMS.registerItem("pteranodon_spawn_egg", () -> new DinosaurSpawnEggItem(FossilsLegacyEntityTypes.PTERANODON.get(), 0x7c5d89, 0x450e5b, new Item.Properties()));
-    public static final SimpleHolder<DinosaurSpawnEggItem> SMILODON_SPAWN_EGG = ITEMS.registerItem("smilodon_spawn_egg", () -> new DinosaurSpawnEggItem(FossilsLegacyEntityTypes.SMILODON.get(), 0xefa745, 0x9a6527, new Item.Properties()));
     */
+    public static final SimpleHolder<SpawnEggItem> SMILODON_SPAWN_EGG = ITEMS.registerSpawnEgg("smilodon_spawn_egg", FCEntityTypes.SMILODON);
     public static final SimpleHolder<SpawnEggItem> STEGOSAURUS_SPAWN_EGG = ITEMS.registerSpawnEgg("stegosaurus_spawn_egg", FCEntityTypes.STEGOSAURUS);
     public static final SimpleHolder<SpawnEggItem> TRICERATOPS_SPAWN_EGG = ITEMS.registerSpawnEgg("triceratops_spawn_egg", FCEntityTypes.TRICERATOPS);
     /*public static final SimpleHolder<DinosaurSpawnEggItem> TYRANNOSAURUS_SPAWN_EGG = ITEMS.registerItem("tyrannosaurus_spawn_egg", () -> new DinosaurSpawnEggItem(FossilsLegacyEntityTypes.TYRANNOSAURUS.get(), 0x918066, 0x4f473a, new Item.Properties()));

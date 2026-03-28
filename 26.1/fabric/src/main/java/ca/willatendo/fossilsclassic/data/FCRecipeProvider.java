@@ -11,12 +11,15 @@ import ca.willatendo.fossilsclassic.server.recipe.categories.AnalyzationBookCate
 import ca.willatendo.fossilsclassic.server.recipe.categories.CultivationBookCategory;
 import ca.willatendo.fossilsclassic.server.recipe.categories.RestorationBookCategory;
 import ca.willatendo.fossilsclassic.server.tags.FCAnalyzationResultTags;
+import ca.willatendo.simplelibrary.Tags;
 import ca.willatendo.simplelibrary.data.providers.SimpleRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -26,7 +29,6 @@ import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
-import net.neoforged.neoforge.common.Tags;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
@@ -162,7 +164,7 @@ public final class FCRecipeProvider extends SimpleRecipeProvider {
         Identifier defaultId = FCCoreUtils.resource(outputName + "_from_" + inputName);
         AnalyzationRecipeBuilder analyzationRecipeBuilder = AnalyzationRecipeBuilder.recipe(analyzationBookCategory, Ingredient.of(inputItemLike), new ItemStackTemplate(outputItemLike.asItem()), cookingTime, experience, defaultId).unlockedBy(RecipeProvider.getHasName(inputItemLike), this.has(inputItemLike));
         consumer.accept(analyzationRecipeBuilder);
-        analyzationRecipeBuilder.save(this.output, defaultId.toString());
+        this.checkSave(analyzationRecipeBuilder, defaultId);
     }
 
     private void cultivation(CultivationBookCategory cultivationBookCategory, ItemLike inputItemLike, ItemStackTemplate outputItemStack, int cookingTime, float experience) {
@@ -174,7 +176,7 @@ public final class FCRecipeProvider extends SimpleRecipeProvider {
         String outputName = BuiltInRegistries.ITEM.getKey(outputItemStack.item().value()).getPath();
         CultivationRecipeBuilder cultivationRecipeBuilder = CultivationRecipeBuilder.recipe(cultivationBookCategory, Ingredient.of(inputItemLike), outputItemStack, cookingTime, experience).unlockedBy(RecipeProvider.getHasName(inputItemLike), this.has(inputItemLike));
         consumer.accept(cultivationRecipeBuilder);
-        cultivationRecipeBuilder.save(this.output, FCCoreUtils.ID + ":" + outputName);
+        this.checkSave(cultivationRecipeBuilder, FCCoreUtils.resource(outputName));
     }
 
     private void restoration(RestorationBookCategory restorationBookCategory, ItemLike inputItemLike, ItemLike outputItemLike, int cookingTime, float experience) {
@@ -186,25 +188,29 @@ public final class FCRecipeProvider extends SimpleRecipeProvider {
         String outputName = BuiltInRegistries.ITEM.getKey(outputItemLike.asItem()).getPath();
         RestorationRecipeBuilder restorationRecipeBuilder = RestorationRecipeBuilder.recipe(restorationBookCategory, Ingredient.of(inputItemLike), new ItemStackTemplate(outputItemLike.asItem()), cookingTime, experience).unlockedBy(RecipeProvider.getHasName(inputItemLike), this.has(inputItemLike));
         consumer.accept(restorationRecipeBuilder);
-        restorationRecipeBuilder.save(this.output, FCCoreUtils.ID + ":" + outputName);
+        this.checkSave(restorationRecipeBuilder, FCCoreUtils.resource(outputName));
     }
 
     private void scarabGemUpgrade(ItemLike baseItemLike, ItemLike result) {
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(FCItems.SCARAB_GEM_UPGRADE_SMITHING_TEMPLATE.get()), Ingredient.of(baseItemLike), Ingredient.of(FCItems.SCARAB_GEM.get()), RecipeCategory.BUILDING_BLOCKS, result.asItem()).unlocks(RecipeProvider.getHasName(baseItemLike), this.has(baseItemLike)).save(this.output, RecipeProvider.getItemName(result) + "_smithing");
+    }
 
+    private void checkSave(RecipeBuilder recipeBuilder, Identifier defaultId) {
+        if (recipeBuilder.defaultId().equals(ResourceKey.create(Registries.RECIPE, defaultId))) {
+            recipeBuilder.save(this.output);
+        } else {
+            recipeBuilder.save(this.output, defaultId.toString());
+        }
     }
 
     public static final class Runner extends SimpleRecipeProvider.Runner {
-        private final String modId;
-
         public Runner(PackOutput packOutput, String modId, CompletableFuture<HolderLookup.Provider> registries) {
             super(packOutput, modId, registries);
-            this.modId = modId;
         }
 
         @Override
-        protected RecipeProvider createRecipeProvider(HolderLookup.Provider registries, RecipeOutput recipeOutput) {
-            return new FCRecipeProvider(registries, this.modId, recipeOutput);
+        protected RecipeProvider createRecipeProvider(HolderLookup.Provider registries, String modId, RecipeOutput recipeOutput) {
+            return new FCRecipeProvider(registries, modId, recipeOutput);
         }
 
         @Override

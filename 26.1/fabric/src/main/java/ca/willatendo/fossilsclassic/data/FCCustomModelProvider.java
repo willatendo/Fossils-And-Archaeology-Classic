@@ -17,6 +17,7 @@ public final class FCCustomModelProvider extends CustomModelProvider {
         this.add("brachiosaurus", BrachiosaurusModel.createBodyLayer(), "main");
         this.add("futabasaurus", FutabasaurusModel.createBodyLayer(), "main");
         this.add("pteranodon", PteranodonModel.createBodyLayer(), "main");
+        this.add("smilodon", SmilodonModel.createBodyLayer(), "main", List.of(FCCoreUtils.resource("smilodon/walk")));
         this.add("stegosaurus", StegosaurusModel.createBodyLayer(), "main", List.of(FCCoreUtils.resource("stegosaurus/walk")));
         this.add("triceratops", TriceratopsModel.createBodyLayer(), "main", List.of(FCCoreUtils.resource("triceratops/walk")));
 

@@ -3,22 +3,25 @@ package ca.willatendo.fossilsclassic.server;
 import ca.willatendo.fossilsclassic.server.archaeology_value.ArchaeologyValue;
 import ca.willatendo.fossilsclassic.server.biomass_value.BiomassValue;
 import ca.willatendo.fossilsclassic.server.feeder_food.FeederFoodValue;
+import ca.willatendo.fossilsclassic.server.mob_food.MobFoodValue;
 import ca.willatendo.fossilsclassic.server.registry.FCRegistries;
 import ca.willatendo.simplelibrary.core.utils.CoreUtils;
 import com.google.common.collect.Maps;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 
 import java.util.Map;
 import java.util.function.Function;
 
 public final class ValueMaps {
-    public static final Map<Holder<Item>, Integer> ARCHAEOLOGY_VALUES = Maps.newHashMap();
-    public static final Map<Holder<Item>, Integer> BIOMASS_VALUES = Maps.newHashMap();
-    public static final Map<Holder<Item>, Integer> PLANT_FEEDER_FOOD_VALUES = Maps.newHashMap();
-    public static final Map<Holder<Item>, Integer> MEAT_FEEDER_FOOD_VALUES = Maps.newHashMap();
+    private static final Map<Holder<Item>, Integer> ARCHAEOLOGY_VALUES = Maps.newHashMap();
+    private static final Map<Holder<Item>, Integer> BIOMASS_VALUES = Maps.newHashMap();
+    private static final Map<Holder<Item>, Integer> PLANT_FEEDER_FOOD_VALUES = Maps.newHashMap();
+    private static final Map<Holder<Item>, Integer> MEAT_FEEDER_FOOD_VALUES = Maps.newHashMap();
+    private static final Map<Holder<EntityType<?>>, Integer> MOB_FOOD_VALUES = Maps.newHashMap();
 
     private ValueMaps() {
     }
@@ -27,6 +30,7 @@ public final class ValueMaps {
         ValueMaps.fillMap(ARCHAEOLOGY_VALUES, registryAccess.lookupOrThrow(FCRegistries.ARCHAEOLOGY_VALUE), ArchaeologyValue::archaeology, ArchaeologyValue::value);
         ValueMaps.fillMap(BIOMASS_VALUES, registryAccess.lookupOrThrow(FCRegistries.BIOMASS_VALUE), BiomassValue::biomass, BiomassValue::value);
         ValueMaps.fillMaps(MEAT_FEEDER_FOOD_VALUES, PLANT_FEEDER_FOOD_VALUES, registryAccess.lookupOrThrow(FCRegistries.FEEDER_FOOD_VALUE), FeederFoodValue::meat, FeederFoodValue::feederFood, FeederFoodValue::value);
+        ValueMaps.fillMap(MOB_FOOD_VALUES, registryAccess.lookupOrThrow(FCRegistries.MOB_FOOD_VALUE), MobFoodValue::food, MobFoodValue::value);
     }
 
     private static <A, B, C> void fillMaps(Map<A, B> map1, Map<A, B> map2, Registry<C> registry, Function<C, Boolean> condition, Function<C, A> consumerA, Function<C, B> consumerB) {
@@ -69,5 +73,13 @@ public final class ValueMaps {
             return MEAT_FEEDER_FOOD_VALUES.getOrDefault(itemHolder, 0);
         }
         return PLANT_FEEDER_FOOD_VALUES.getOrDefault(itemHolder, 0);
+    }
+
+    public static boolean isMobFood(Holder<EntityType<?>> entityTypeHolder) {
+        return MOB_FOOD_VALUES.containsKey(entityTypeHolder);
+    }
+
+    public static int getMobFoodValue(Holder<EntityType<?>> entityTypeHolder) {
+        return MOB_FOOD_VALUES.getOrDefault(entityTypeHolder, 0);
     }
 }

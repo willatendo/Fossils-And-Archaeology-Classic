@@ -35,6 +35,7 @@ public final class FEntityLootSubProvider extends SimpleEntityLootSubProvider {
         this.add(FCEntityTypes.BONES.get(), LootTable.lootTable().withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 3.0F)).add(LootItem.lootTableItem(Items.BONE))).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(FCBlocks.SKULL_BLOCK.get()))));
         this.add(FCEntityTypes.FAILURESAURUS.get(), LootTable.lootTable().withPool(LootPool.lootPool().setRolls(UniformGenerator.between(0.0F, 2.0F)).add(LootItem.lootTableItem(FCItems.FOSSIL.get()))));
 
+        this.add(FCEntityTypes.SMILODON.get(), this.createDinosaurTable(2, 1.0F, 2.0F, FCItems.RAW_SMILODON.get()));
         this.add(FCEntityTypes.STEGOSAURUS.get(), this.createDinosaurTable(12, 1.0F, 3.0F, FCItems.RAW_STEGOSAURUS.get()));
         this.add(FCEntityTypes.TRICERATOPS.get(), this.createDinosaurTable(12, 1.0F, 3.0F, FCItems.RAW_TRICERATOPS.get()));
 

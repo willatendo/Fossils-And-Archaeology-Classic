@@ -18,6 +18,9 @@
     "client": [
       "ca.willatendo.fossilsclassic.client.FossilsClassicFabricClient"
     ],
+    "fabric-datagen": [
+      "ca.willatendo.fossilsclassic.data.FossilsClassicData"
+    ],
     "simplelibrary:enum_initializer": [
       "ca.willatendo.fossilsclassic.FossilsClassicEnumExtenders"
     ]

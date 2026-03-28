@@ -1,0 +1,7 @@
+{
+  "type": "built_in",
+  "cosmetic_chooser": {
+    "type": "single"
+  },
+  "cosmetic_genes": "fossilsclassic:cosmetics/smilodon"
+}

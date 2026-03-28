@@ -11,6 +11,26 @@
     ],
     "subtitle": "subtitles.block.drum.triple_hit"
   },
+  "entity.smilodon.ambient": {
+    "sounds": [
+      "fossilsclassic:smilodon/smilodon_ambient_1",
+      "fossilsclassic:smilodon/smilodon_ambient_2",
+      "fossilsclassic:smilodon/smilodon_ambient_3"
+    ],
+    "subtitle": "subtitles.entity.smilodon.ambientSound"
+  },
+  "entity.smilodon.death": {
+    "sounds": [
+      "fossilsclassic:smilodon/smilodon_death"
+    ],
+    "subtitle": "subtitles.entity.smilodon.deathSound"
+  },
+  "entity.smilodon.hurt": {
+    "sounds": [
+      "fossilsclassic:smilodon/smilodon_hurt"
+    ],
+    "subtitle": "subtitles.entity.smilodon.hurtSound"
+  },
   "entity.stegosaurus.ambient": {
     "sounds": [
       "fossilsclassic:stegosaurus/stegosaurus_ambient_1",

@@ -149,6 +149,7 @@ public final class FCItemModelGenerator extends SimpleItemModelGenerator {
         this.generatedItem(FCItems.BONES_SPAWN_EGG.get());
         this.generatedItem(FCItems.FAILURESAURUS_SPAWN_EGG.get());
 
+        this.generatedItem(FCItems.SMILODON_SPAWN_EGG.get());
         this.generatedItem(FCItems.STEGOSAURUS_SPAWN_EGG.get());
         this.generatedItem(FCItems.TRICERATOPS_SPAWN_EGG.get());
 

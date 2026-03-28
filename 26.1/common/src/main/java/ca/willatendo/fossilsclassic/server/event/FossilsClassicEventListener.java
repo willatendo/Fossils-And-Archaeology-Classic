@@ -1,7 +1,6 @@
 package ca.willatendo.fossilsclassic.server.event;
 
 import ca.willatendo.fossilsclassic.client.screen.recipe_book.FCSearchRecipeBookCategory;
-import ca.willatendo.fossilsclassic.core.utils.FCCoreUtils;
 import ca.willatendo.fossilsclassic.server.ValueMaps;
 import ca.willatendo.fossilsclassic.server.analyzation_result.AnalyzationResult;
 import ca.willatendo.fossilsclassic.server.archaeology_value.ArchaeologyValue;
@@ -16,6 +15,7 @@ import ca.willatendo.fossilsclassic.server.entity.stone_tablet_variant.StoneTabl
 import ca.willatendo.fossilsclassic.server.feeder_food.FeederFoodValue;
 import ca.willatendo.fossilsclassic.server.gene.genes.Gene;
 import ca.willatendo.fossilsclassic.server.item.FCItems;
+import ca.willatendo.fossilsclassic.server.mob_food.MobFoodValue;
 import ca.willatendo.fossilsclassic.server.registry.FCBuiltInRegistries;
 import ca.willatendo.fossilsclassic.server.registry.FCRegistries;
 import ca.willatendo.fossilsclassic.server.stats.FCStats;
@@ -25,7 +25,6 @@ import ca.willatendo.simplelibrary.server.EventListener;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -73,6 +72,7 @@ public final class FossilsClassicEventListener implements EventListener {
         dynamicRegistryRegister.apply(FCRegistries.FEEDER_FOOD_VALUE, FeederFoodValue.DIRECT_CODEC, FeederFoodValue.DIRECT_CODEC);
         dynamicRegistryRegister.apply(FCRegistries.FOSSIL_VARIANT, FossilVariant.DIRECT_CODEC, FossilVariant.DIRECT_CODEC);
         dynamicRegistryRegister.apply(FCRegistries.GENE, Gene.DIRECT_CODEC, Gene.DIRECT_CODEC);
+        dynamicRegistryRegister.apply(FCRegistries.MOB_FOOD_VALUE, MobFoodValue.DIRECT_CODEC, MobFoodValue.DIRECT_CODEC);
         dynamicRegistryRegister.apply(FCRegistries.STONE_TABLET_VARIANT, StoneTabletVariant.DIRECT_CODEC, StoneTabletVariant.DIRECT_CODEC);
     }
 
@@ -81,6 +81,7 @@ public final class FossilsClassicEventListener implements EventListener {
         attributeRegister.apply(FCEntityTypes.BONES.get(), Bones.createAttributes());
         attributeRegister.apply(FCEntityTypes.FAILURESAURUS.get(), Failuresaurs.createAttributes());
 
+        attributeRegister.apply(FCEntityTypes.SMILODON.get(), Smilodon.smilodonAttributes());
         attributeRegister.apply(FCEntityTypes.STEGOSAURUS.get(), Stegosaurus.stegosaurusAttributes());
         attributeRegister.apply(FCEntityTypes.TRICERATOPS.get(), Triceratops.triceratopsAttributes());
         // attributeRegister.apply(FCEntityTypes.CUSTOM.get(), Custom.baseAttributes());
@@ -96,11 +97,6 @@ public final class FossilsClassicEventListener implements EventListener {
         attributeRegister.apply(FCEntityTypes.STEGOSAURUS_EGG.get(), Egg.eggAttributes());
         attributeRegister.apply(FCEntityTypes.DILOPHOSAURUS_EGG.get(), Egg.eggAttributes());
         attributeRegister.apply(FCEntityTypes.BRACHIOSAURUS_EGG.get(), Egg.eggAttributes());
-    }
-
-    @Override
-    public void registerBuiltInResourcePacks(BuiltInResourcePackRegister builtInResourcePackRegister) {
-        builtInResourcePackRegister.featurePack(FCCoreUtils.ID, "palaeocraft_example", Pack.Position.TOP);
     }
 
     @Override

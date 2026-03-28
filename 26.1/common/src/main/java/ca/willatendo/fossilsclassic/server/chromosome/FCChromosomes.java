@@ -10,6 +10,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 
 public final class FCChromosomes {
+    public static final ResourceKey<Chromosome> SMILODON = FCChromosomes.create("smilodon");
     public static final ResourceKey<Chromosome> STEGOSAURUS = FCChromosomes.create("stegosaurus");
     public static final ResourceKey<Chromosome> TRICERATOPS = FCChromosomes.create("triceratops");
 
@@ -20,12 +21,8 @@ public final class FCChromosomes {
     public static void bootstrap(BootstrapContext<Chromosome> bootstrapContext) {
         HolderGetter<Gene> genes = bootstrapContext.lookup(FCRegistries.GENE);
 
-        bootstrapContext.register(STEGOSAURUS, new BuiltInChromosome(
-                genes.getOrThrow(FCGenes.COSMETICS_STEGOSAURUS)
-        ));
-        bootstrapContext.register(TRICERATOPS, new BuiltInChromosome(
-                CosmeticChooser.RANDOM,
-                genes.getOrThrow(FCGeneTags.TRICERATOPS)
-        ));
+        bootstrapContext.register(SMILODON, new BuiltInChromosome(genes.getOrThrow(FCGenes.COSMETICS_SMILODON)));
+        bootstrapContext.register(STEGOSAURUS, new BuiltInChromosome(genes.getOrThrow(FCGenes.COSMETICS_STEGOSAURUS)));
+        bootstrapContext.register(TRICERATOPS, new BuiltInChromosome(CosmeticChooser.RANDOM, genes.getOrThrow(FCGeneTags.TRICERATOPS)));
     }
 }

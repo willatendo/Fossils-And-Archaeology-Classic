@@ -1,0 +1,400 @@
+{
+  "animations": [
+    "fossilsclassic:smilodon/walk"
+  ],
+  "parts": [
+    {
+      "children": [
+        {
+          "cubes": [
+            {
+              "dimension_x": 1,
+              "dimension_y": 1,
+              "dimension_z": 2,
+              "origin_x": -2.5,
+              "origin_y": -2.5,
+              "origin_z": -3.0,
+              "texture_offset_u": 6,
+              "texture_offset_v": 8
+            }
+          ],
+          "name": "t_6__r",
+          "part_pose": {
+            "x": 0.0,
+            "y": 15.0,
+            "z": -3.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 1,
+              "dimension_y": 2,
+              "dimension_z": 1,
+              "origin_x": 0.5,
+              "origin_y": 2.0,
+              "origin_z": -6.0,
+              "texture_offset_u": 44,
+              "texture_offset_v": 14
+            }
+          ],
+          "name": "t_5__l_1",
+          "part_pose": {
+            "x": 0.0,
+            "y": 15.0,
+            "z": -3.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 1,
+              "dimension_y": 2,
+              "dimension_z": 1,
+              "origin_x": 0.5,
+              "origin_y": 4.0,
+              "origin_z": -6.0,
+              "texture_offset_u": 44,
+              "texture_offset_v": 17
+            }
+          ],
+          "name": "t_5__l_2",
+          "part_pose": {
+            "x": 0.0,
+            "y": 15.0,
+            "z": -3.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 2,
+              "dimension_y": 1,
+              "dimension_z": 3,
+              "origin_x": -1.0,
+              "origin_y": -1.0,
+              "origin_z": -7.0,
+              "texture_offset_u": 18,
+              "texture_offset_v": 0
+            }
+          ],
+          "name": "t_2",
+          "part_pose": {
+            "x": 0.0,
+            "y": 15.0,
+            "z": -3.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 5,
+              "dimension_y": 4,
+              "dimension_z": 4,
+              "origin_x": -2.5,
+              "origin_y": -1.5,
+              "origin_z": -4.0,
+              "texture_offset_u": 0,
+              "texture_offset_v": 0
+            }
+          ],
+          "name": "t_1",
+          "part_pose": {
+            "x": 0.0,
+            "y": 15.0,
+            "z": -3.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 1,
+              "dimension_y": 1,
+              "dimension_z": 2,
+              "origin_x": 1.5,
+              "origin_y": -2.5,
+              "origin_z": -3.0,
+              "texture_offset_u": 0,
+              "texture_offset_v": 8
+            }
+          ],
+          "name": "t_6__l",
+          "part_pose": {
+            "x": 0.0,
+            "y": 15.0,
+            "z": -3.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 2,
+              "dimension_y": 1,
+              "dimension_z": 3,
+              "origin_x": -1.0,
+              "origin_y": 0.0,
+              "origin_z": -3.5,
+              "texture_offset_u": 48,
+              "texture_offset_v": 7
+            }
+          ],
+          "name": "t_4",
+          "part_pose": {
+            "x": 0.0,
+            "y": 16.5,
+            "z": -6.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 4,
+              "dimension_y": 2,
+              "dimension_z": 3,
+              "origin_x": -2.0,
+              "origin_y": 0.0,
+              "origin_z": -7.0,
+              "texture_offset_u": 18,
+              "texture_offset_v": 5
+            }
+          ],
+          "name": "t_3",
+          "part_pose": {
+            "x": 0.0,
+            "y": 15.0,
+            "z": -3.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 1,
+              "dimension_y": 2,
+              "dimension_z": 1,
+              "origin_x": -1.5,
+              "origin_y": 2.0,
+              "origin_z": -6.0,
+              "texture_offset_u": 44,
+              "texture_offset_v": 14
+            }
+          ],
+          "name": "t_5__r_1",
+          "part_pose": {
+            "x": 0.0,
+            "y": 15.0,
+            "z": -3.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 1,
+              "dimension_y": 2,
+              "dimension_z": 1,
+              "origin_x": -1.5,
+              "origin_y": 4.0,
+              "origin_z": -6.0,
+              "texture_offset_u": 44,
+              "texture_offset_v": 17
+            }
+          ],
+          "name": "t_5__r_2",
+          "part_pose": {
+            "x": 0.0,
+            "y": 15.0,
+            "z": -3.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 2,
+              "dimension_y": 5,
+              "dimension_z": 2,
+              "origin_x": -1.0,
+              "origin_y": -0.5,
+              "origin_z": -1.0,
+              "texture_offset_u": 40,
+              "texture_offset_v": 0
+            }
+          ],
+          "name": "d__r_1",
+          "part_pose": {
+            "x": -1.5,
+            "y": 19.0,
+            "z": -2.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 2,
+              "dimension_y": 5,
+              "dimension_z": 2,
+              "origin_x": -1.0,
+              "origin_y": -0.5,
+              "origin_z": -1.0,
+              "texture_offset_u": 56,
+              "texture_offset_v": 0
+            }
+          ],
+          "name": "d__r_2",
+          "part_pose": {
+            "x": -1.5,
+            "y": 19.0,
+            "z": 6.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 8,
+              "dimension_y": 7,
+              "dimension_z": 5,
+              "origin_x": -4.0,
+              "origin_y": -3.0,
+              "origin_z": -3.5,
+              "texture_offset_u": 22,
+              "texture_offset_v": 20
+            }
+          ],
+          "name": "c_1",
+          "part_pose": {
+            "x": 0.0,
+            "y": 15.0,
+            "z": 0.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 2,
+              "dimension_y": 5,
+              "dimension_z": 2,
+              "origin_x": -1.0,
+              "origin_y": -0.5,
+              "origin_z": -1.0,
+              "texture_offset_u": 32,
+              "texture_offset_v": 0
+            }
+          ],
+          "name": "d__l_1",
+          "part_pose": {
+            "x": 1.5,
+            "y": 19.0,
+            "z": -2.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 2,
+              "dimension_y": 5,
+              "dimension_z": 2,
+              "origin_x": -1.0,
+              "origin_y": -0.5,
+              "origin_z": -1.0,
+              "texture_offset_u": 48,
+              "texture_offset_v": 0
+            }
+          ],
+          "name": "d__l_2",
+          "part_pose": {
+            "x": 1.5,
+            "y": 19.0,
+            "z": 6.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 6,
+              "dimension_y": 5,
+              "dimension_z": 5,
+              "origin_x": -3.0,
+              "origin_y": -2.0,
+              "origin_z": -4.5,
+              "texture_offset_u": 22,
+              "texture_offset_v": 10
+            }
+          ],
+          "name": "c_2",
+          "part_pose": {
+            "x": 0.0,
+            "y": 15.0,
+            "z": -3.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 5,
+              "dimension_y": 5,
+              "dimension_z": 6,
+              "origin_x": -2.5,
+              "origin_y": -2.5,
+              "origin_z": 0.0,
+              "texture_offset_u": 0,
+              "texture_offset_v": 21
+            }
+          ],
+          "name": "h_2",
+          "part_pose": {
+            "x": 0.0,
+            "y": 16.0,
+            "z": 1.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 7,
+              "dimension_y": 6,
+              "dimension_z": 4,
+              "origin_x": -3.5,
+              "origin_y": -2.5,
+              "origin_z": -3.0,
+              "texture_offset_u": 0,
+              "texture_offset_v": 11
+            }
+          ],
+          "name": "h_1",
+          "part_pose": {
+            "x": 0.0,
+            "y": 15.0,
+            "z": 0.0
+          }
+        },
+        {
+          "cubes": [
+            {
+              "dimension_x": 1,
+              "dimension_y": 6,
+              "dimension_z": 1,
+              "origin_x": -0.5,
+              "origin_y": 0.0,
+              "origin_z": -0.5,
+              "texture_offset_u": 44,
+              "texture_offset_v": 7
+            }
+          ],
+          "name": "h_3",
+          "part_pose": {
+            "x": 0.0,
+            "y": 14.0,
+            "z": 6.5
+          }
+        }
+      ],
+      "cubes": [],
+      "name": "root",
+      "part_pose": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    }
+  ],
+  "texture_height": 32,
+  "texture_width": 64
+}

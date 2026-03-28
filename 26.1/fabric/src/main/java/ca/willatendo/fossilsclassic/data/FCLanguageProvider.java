@@ -66,6 +66,7 @@ public final class FCLanguageProvider extends SimpleLanguageProvider {
         this.add(FCEntityTypes.BONES.get());
         this.add(FCEntityTypes.FAILURESAURUS.get());
 
+        this.add(FCEntityTypes.SMILODON.get());
         this.add(FCEntityTypes.STEGOSAURUS.get());
         this.add(FCEntityTypes.TRICERATOPS.get());
         this.add("entity.fossilsclassic.dinosaur.set_command", "Command: %s");
@@ -274,6 +275,7 @@ public final class FCLanguageProvider extends SimpleLanguageProvider {
         this.add(FCItems.BONES_SPAWN_EGG.get());
         this.add(FCItems.FAILURESAURUS_SPAWN_EGG.get());
 
+        this.add(FCItems.SMILODON_SPAWN_EGG.get());
         this.add(FCItems.STEGOSAURUS_SPAWN_EGG.get());
         this.add(FCItems.TRICERATOPS_SPAWN_EGG.get());
 

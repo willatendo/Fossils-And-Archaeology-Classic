@@ -81,6 +81,7 @@ public final class FossilsClassicClientEventListener implements ClientEventListe
 
         rendererRegister.apply(FCEntityTypes.ANCIENT_LIGHTNING_BOLT.get(), LightningBoltRenderer::new);
 
+        rendererRegister.apply(FCEntityTypes.SMILODON.get(), SmilodonRenderer::new);
         rendererRegister.apply(FCEntityTypes.STEGOSAURUS.get(), StegosaurusRenderer::new);
         rendererRegister.apply(FCEntityTypes.TRICERATOPS.get(), TriceratopsRenderer::new);
         //rendererRegister.apply(FCEntityTypes.CUSTOM.get(), CustomRenderer::new);

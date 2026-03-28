@@ -16,6 +16,18 @@ public final class FCGeneCosmeticProvider extends GeneCosmeticProvider {
     @Override
     protected void add(BiConsumer<Identifier, GeneCosmetic> biConsumer) {
         biConsumer.accept(
+                FCCoreUtils.resource("cosmetics/smilodon"),
+                new GeneCosmetic(
+                        FCCoreUtils.resource("smilodon"),
+                        FCCoreUtils.resource("textures/entity/smilodon/smilodon.png"),
+                        FCCoreUtils.resource("textures/entity/smilodon/baby_smilodon.png"),
+                        1.0F,
+                        1.0F,
+                        0.25F,
+                        0.25F
+                )
+        );
+        biConsumer.accept(
                 FCCoreUtils.resource("cosmetics/stegosaurus"),
                 new GeneCosmetic(
                         FCCoreUtils.resource("stegosaurus"),

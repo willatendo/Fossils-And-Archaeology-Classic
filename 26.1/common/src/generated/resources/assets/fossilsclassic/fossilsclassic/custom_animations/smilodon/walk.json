@@ -1,0 +1,40 @@
+{
+  "type": "classic",
+  "animation_events": [
+    {
+      "axis": "y_rotation",
+      "bones": [
+        "h_3"
+      ],
+      "value": {
+        "type": "parametered",
+        "operation": "multiply",
+        "parameter": "walk_position",
+        "value": {
+          "type": "cos",
+          "value": {
+            "type": "operated",
+            "operation": "multiply",
+            "value_1": {
+              "type": "parametered",
+              "operation": "multiply",
+              "parameter": "walk_speed",
+              "value": {
+                "type": "simple",
+                "value": 0.6662
+              }
+            },
+            "value_2": {
+              "type": "simple",
+              "value": 1.4
+            }
+          }
+        }
+      }
+    }
+  ],
+  "required_parameters": [
+    "walk_position",
+    "walk_speed"
+  ]
+}

@@ -22,6 +22,8 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
@@ -317,7 +319,7 @@ public abstract class Dinosaur extends Animal implements CommandableEntity, Tame
             if (this.internalClock == 24000) {
                 this.internalClock = 0;
                 this.daysAlive++;
-                if (this.getGrowthStage() < this.getMaxGrowthStage()) {
+                if (this.getGrowthStage() < this.getMaxGrowthStage() && !this.isAgeLocked()) {
                     if (this.hasSpace()) {
                         this.setGrowthStage(this.getGrowthStage() + 1, true);
                     } else {
@@ -390,6 +392,18 @@ public abstract class Dinosaur extends Animal implements CommandableEntity, Tame
     @Override
     public InteractionResult mobInteract(Player player, InteractionHand interactionHand) {
         ItemStack itemStack = player.getItemInHand(interactionHand);
+        if (AgeableMob.canUseGoldenDandelion(itemStack, this.getGrowthStage() != this.getMaxGrowthStage(), this.ageLockParticleTimer, this)) {
+            this.setAgeLocked(!this.isAgeLocked());
+            this.ageLockParticleTimer = 40;
+            itemStack.consume(1, player);
+            if (this.isAgeLocked()) {
+                this.setPersistenceRequired();
+            }
+
+            this.level().playSound(null, this.blockPosition(), this.isAgeLocked() ? SoundEvents.GOLDEN_DANDELION_USE : SoundEvents.GOLDEN_DANDELION_UNUSE, SoundSource.PLAYERS, 1.0F, 1.0F);
+
+            return InteractionResult.SUCCESS;
+        }
         int potentialFoodValue = this.getDiet().getFoodValue(itemStack);
         boolean isFood = potentialFoodValue > 0;
         if (isFood) {
@@ -528,7 +542,7 @@ public abstract class Dinosaur extends Animal implements CommandableEntity, Tame
 
     @Override
     public boolean killedEntity(ServerLevel serverLevel, LivingEntity livingEntity, DamageSource damageSource) {
-        if (this.getDiet().gainsFoodFromKill()) {
+        if (this.getDiet().foodFromKill(livingEntity.getType()) > 0) {
             this.increaseHunger(this.getDiet().foodFromKill(livingEntity.getType()));
         }
         return super.killedEntity(serverLevel, livingEntity, damageSource);
@@ -581,9 +595,7 @@ public abstract class Dinosaur extends Animal implements CommandableEntity, Tame
 
             dinosaur.setHunger(dinosaur.getMaxHunger());
             dinosaur.setCommand(FCCommandTypes.FREE_MOVE);
-            if (spawner.isCrouching()) {
-                dinosaur.setGrowthStage(0, true);
-            }
+            dinosaur.setGrowthStage(0, true);
         }
         super.onOffspringSpawnedFromEgg(spawner, offspring);
     }

@@ -4,7 +4,6 @@ import ca.willatendo.fossilsclassic.server.tags.FCBiomeTags;
 import ca.willatendo.simplelibrary.data.providers.tag.SimpleBiomeTagsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.BiomeTagsProvider;
 import net.minecraft.world.level.biome.Biomes;
 
 import java.util.concurrent.CompletableFuture;

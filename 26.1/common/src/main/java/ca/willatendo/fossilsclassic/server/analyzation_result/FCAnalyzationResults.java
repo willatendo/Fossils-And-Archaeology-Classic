@@ -5,7 +5,6 @@ import ca.willatendo.fossilsclassic.server.item.FCItems;
 import ca.willatendo.fossilsclassic.server.registry.FCRegistries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 

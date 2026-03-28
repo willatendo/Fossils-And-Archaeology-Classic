@@ -173,6 +173,7 @@ public final class FCCreativeModeTabs {
     public static final SimpleHolder<CreativeModeTab> FOSSILS_CLASSIC_SPAWN_EGGS = CREATIVE_MODE_TABS.register("fossils_classic_spawn_eggs", () -> new ItemStack(FCItems.TRICERATOPS_SPAWN_EGG.get()), (itemDisplayParameters, output) -> {
         output.accept(FCItems.BONES_SPAWN_EGG.get());
         output.accept(FCItems.FAILURESAURUS_SPAWN_EGG.get());
+        output.accept(FCItems.SMILODON_SPAWN_EGG.get());
         output.accept(FCItems.STEGOSAURUS_SPAWN_EGG.get());
         output.accept(FCItems.TRICERATOPS_SPAWN_EGG.get());
     });

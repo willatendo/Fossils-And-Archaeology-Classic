@@ -1,8 +1,0 @@
-// 1.21.11	2026-03-23T18:57:44.2730312	Tags for minecraft:block mod id fossilsclassic
-c7db5f46a1c89e09fdb415abeea3676d287f9948 data/fossilsclassic/tags/block/feeder.json
-69c396cb051bbe9a130e6979b67065e5041b179d data/fossilsclassic/tags/block/jurassic_fern_plantable_on.json
-c55d3e50473f26b702461fc809ab25615bd68a02 data/fossilsclassic/tags/block/permafrost_frostable.json
-a0151760ab6277608c84c8fe525763e9b983655a data/minecraft/tags/block/mineable/axe.json
-e408ee0c0158ffd0b71d311fde7cc36882730b49 data/minecraft/tags/block/mineable/pickaxe.json
-473f65e5bb6902c36041e1e9bc7c8a161193bf82 data/minecraft/tags/block/mineable/shovel.json
-6c7a031213e59b9df385ea022831c45bb677b61e data/minecraft/tags/block/needs_iron_tool.json

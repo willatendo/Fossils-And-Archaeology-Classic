@@ -2,7 +2,6 @@ package ca.willatendo.fossilsclassic.server.analyzation_result;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemStackTemplate;
 
 public record AnalyzationResult(int weight, ItemStackTemplate result) {

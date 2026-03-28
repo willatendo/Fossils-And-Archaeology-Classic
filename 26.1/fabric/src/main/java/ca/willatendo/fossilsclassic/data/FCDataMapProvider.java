@@ -6,9 +6,6 @@ import ca.willatendo.simplelibrary.server.data_maps.SimpleLibraryDataMaps;
 import ca.willatendo.simplelibrary.server.data_maps.buillt_in.VibrationFrequency;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.neoforged.neoforge.common.data.DataMapProvider;
-import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
-import net.neoforged.neoforge.registries.datamaps.builtin.VibrationFrequency;
 
 import java.util.concurrent.CompletableFuture;
 

@@ -5,6 +5,11 @@
         "texture": "fossilsclassic:ancient"
       }
     ],
+    "humanoid_baby": [
+      {
+        "texture": "fossilsclassic:ancient"
+      }
+    ],
     "humanoid_leggings": [
       {
         "texture": "fossilsclassic:ancient"

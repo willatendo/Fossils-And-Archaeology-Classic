@@ -13,6 +13,35 @@ public final class FCCustomAnimationProvider extends CustomAnimationProvider {
 
     @Override
     protected void addAll() {
+        this.add("smilodon/walk", new ClassicAnimationType(
+                List.of(
+                        ClassicAnimationType.Parameters.WALK_POSITION,
+                        ClassicAnimationType.Parameters.WALK_SPEED
+                ),
+                List.of(
+                        new ClassicAnimationType.AnimationEvent(
+                                "h_3",
+                                ClassicAnimationType.Axis.Y_ROTATION,
+                                new ClassicAnimationType.ParameteredFloatReturn(
+                                        ClassicAnimationType.Parameters.WALK_POSITION,
+                                        new ClassicAnimationType.CosFloatReturn(
+                                                new ClassicAnimationType.OperatedFloatReturn(
+                                                        new ClassicAnimationType.ParameteredFloatReturn(
+                                                                ClassicAnimationType.Parameters.WALK_SPEED,
+                                                                new ClassicAnimationType.SimpleFloatReturn(
+                                                                        0.6662F
+                                                                ),
+                                                                ClassicAnimationType.Operation.MULTIPLY
+                                                        ),
+                                                        new ClassicAnimationType.SimpleFloatReturn(1.4F),
+                                                        ClassicAnimationType.Operation.MULTIPLY
+                                                )
+                                        ),
+                                        ClassicAnimationType.Operation.MULTIPLY
+                                )
+                        )
+                )
+        ));
         this.add("stegosaurus/walk", new ClassicAnimationType(
                 List.of(
                         ClassicAnimationType.Parameters.WALK_POSITION,

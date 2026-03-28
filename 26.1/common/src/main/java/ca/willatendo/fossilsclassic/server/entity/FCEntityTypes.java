@@ -22,6 +22,7 @@ public final class FCEntityTypes {
 
     public static final SimpleHolder<EntityType<AncientLightningBolt>> ANCIENT_LIGHTNING_BOLT = ENTITY_TYPES.register("ancient_lightning_bolt", ServerUtils.simpleEntityType(AncientLightningBolt::new, MobCategory.MISC, 0.0F, 0.0F).noSave().noLootTable());
 
+    public static final SimpleHolder<EntityType<Smilodon>> SMILODON = ENTITY_TYPES.register("smilodon", ServerUtils.simpleEntityType(Smilodon::new, MobCategory.CREATURE, 0.75F, 0.75F));
     public static final SimpleHolder<EntityType<Stegosaurus>> STEGOSAURUS = ENTITY_TYPES.register("stegosaurus", ServerUtils.simpleEntityType(Stegosaurus::new, MobCategory.CREATURE, 1.2F, 1.2F).eyeHeight(0.3F));
     public static final SimpleHolder<EntityType<Triceratops>> TRICERATOPS = ENTITY_TYPES.register("triceratops", ServerUtils.simpleEntityType(Triceratops::new, MobCategory.CREATURE, 0.75F, 0.75F).eyeHeight(0.5F));
     //public static final SimpleHolder<EntityType<Custom>> CUSTOM = ENTITY_TYPES.register("custom", ServerUtils.simpleEntityType(Custom::new, MobCategory.CREATURE, 0.0F, 0.0F).requiredFeatures(FCFeatureFlags.CUSTOM_DINOSAURS).noLootTable());
